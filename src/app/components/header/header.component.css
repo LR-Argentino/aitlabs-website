@@ -1,0 +1,32 @@
+/* Header specific styles */
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+/* Dropdown animation */
+.dropdown-menu {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Mobile menu styles */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+  
+  /* Add mobile menu button if needed */
+  .mobile-menu-button {
+    display: block;
+  }
+}

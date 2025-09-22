@@ -1,0 +1,21 @@
+/* Projects section specific styles */
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Hover effects for project cards */
+.hover\:bg-gray-600:hover {
+  background-color: rgb(75 85 99);
+}
+
+.hover\:bg-gray-700\/50:hover {
+  background-color: rgb(55 65 81 / 0.5);
+}
+
+.hover\:bg-primary-green\/30:hover {
+  background-color: rgb(164 245 138 / 0.3);
+}
+
+.hover\:bg-primary-green\/80:hover {
+  background-color: rgb(164 245 138 / 0.8);
+}

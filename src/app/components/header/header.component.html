@@ -1,0 +1,115 @@
+<!-- Header Section -->
+<header class="px-6 md:px-25 py-6" (click)="closeAllDropdowns()">
+  <div class="flex items-center justify-between">
+    <!-- Logo -->
+    <div class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+      <h1 class="text-2xl font-bold text-primary-text tracking-tight">AIT LABS</h1>
+    </div>
+    
+    <!-- Navigation -->
+    <nav class="hidden md:flex items-center gap-2 border border-gray-200 rounded-full p-1 relative">
+      <!-- Services Dropdown -->
+      <div class="relative">
+        <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50" 
+             (click)="toggleServicesDropdown(); $event.stopPropagation()">
+          <span class="text-primary-text font-medium">Services</span>
+          <svg class="w-4 h-4 transition-transform" 
+               [class.rotate-180]="servicesDropdownOpen()" 
+               fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
+          </svg>
+        </div>
+        <!-- Services Dropdown Menu -->
+        <div *ngIf="servicesDropdownOpen()" 
+             class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">UI/UX Design</a>
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Web Development</a>
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Logo & Branding</a>
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">AI Automation</a>
+        </div>
+      </div>
+
+      <!-- Case Study Dropdown -->
+      <div class="relative">
+        <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50" 
+             (click)="toggleCaseStudyDropdown(); $event.stopPropagation()">
+          <span class="text-primary-text font-medium">Case Study</span>
+          <svg class="w-4 h-4 transition-transform" 
+               [class.rotate-180]="caseStudyDropdownOpen()" 
+               fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
+          </svg>
+        </div>
+        <!-- Case Study Dropdown Menu -->
+        <div *ngIf="caseStudyDropdownOpen()" 
+             class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Zestflow CRM</a>
+          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Furnishly App</a>
+          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">E-Commerce Platform</a>
+          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">All Case Studies</a>
+        </div>
+      </div>
+
+      <!-- Projects Dropdown -->
+      <div class="relative">
+        <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50" 
+             (click)="toggleProjectsDropdown(); $event.stopPropagation()">
+          <span class="text-primary-text font-medium">Projects</span>
+          <svg class="w-4 h-4 transition-transform" 
+               [class.rotate-180]="projectsDropdownOpen()" 
+               fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
+          </svg>
+        </div>
+        <!-- Projects Dropdown Menu -->
+        <div *ngIf="projectsDropdownOpen()" 
+             class="absolute top-full left-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Recent Projects</a>
+          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Web Applications</a>
+          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Mobile Apps</a>
+          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">All Projects</a>
+        </div>
+      </div>
+
+      <!-- Blog Link -->
+      <div class="px-4 py-2 rounded-full">
+        <a href="#blog" class="text-primary-text font-medium hover:text-primary-green">Blog</a>
+      </div>
+
+      <!-- About Us Link -->
+      <div class="px-4 py-2 rounded-full">
+        <a href="#about" class="text-primary-text font-medium hover:text-primary-green">About Us</a>
+      </div>
+    </nav>
+    
+    <!-- Contact Section -->
+    <div class="flex items-center gap-3">
+      <!-- Language Dropdown -->
+      <div class="hidden md:flex items-center gap-2 px-6 py-3 rounded-full relative">
+        <div class="flex items-center gap-2 cursor-pointer" 
+             (click)="toggleLanguageDropdown(); $event.stopPropagation()">
+          <span class="text-primary-text font-medium">ENG</span>
+          <svg class="w-4 h-4 transition-transform" 
+               [class.rotate-180]="languageDropdownOpen()" 
+               fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
+          </svg>
+        </div>
+        <!-- Language Dropdown Menu -->
+        <div *ngIf="languageDropdownOpen()" 
+             class="absolute top-full right-0 mt-2 w-32 bg-white border border-gray-200 rounded-lg shadow-lg z-50">
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">English</a>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Deutsch</a>
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">Español</a>
+        </div>
+      </div>
+
+      <!-- Contact Button -->
+      <button class="bg-primary-green text-primary-text font-medium px-6 py-3 rounded-full hover:bg-opacity-90 transition-colors"
+              (click)="onContactClick(); $event.stopPropagation()">
+        Contact Us
+      </button>
+    </div>
+  </div>
+</header>
