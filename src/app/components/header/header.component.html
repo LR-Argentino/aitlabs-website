@@ -7,6 +7,9 @@
       <h1 class="text-2xl font-bold text-primary-text tracking-tight">AIT LABS</h1>
     </div>
     
+    <!-- Placeholder for mobile menu button (moved to fixed position) -->
+    <div class="md:hidden w-10 h-10"></div>
+    
     <!-- Navigation -->
     <nav class="hidden md:flex items-center gap-2 border border-gray-200 rounded-full p-1 relative">
       <!-- Services Dropdown -->
@@ -112,4 +115,167 @@
       </button>
     </div>
   </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div *ngIf="mobileMenuOpen()" 
+       class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
+       (click)="toggleMobileMenu()">
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="mobileMenuOpen()" 
+       class="md:hidden fixed top-0 left-0 w-80 max-w-full h-full bg-white shadow-xl z-50 mobile-menu overflow-y-auto"
+       (click)="$event.stopPropagation()">
+    <div class="px-6 py-8">
+      <!-- Mobile Menu Header -->
+      <div class="flex items-center justify-between mb-8 pb-6 border-b border-gray-200">
+        <div class="flex items-center gap-2">
+          <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
+          <h2 class="text-xl font-bold text-primary-text">AIT LABS</h2>
+        </div>
+        <button class="p-2 hover:bg-gray-100 rounded-lg transition-colors"
+                (click)="toggleMobileMenu()">
+          <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile Navigation -->
+      <div class="space-y-2">
+        <!-- Home -->
+        <a href="#hero" 
+           class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+           (click)="navigateToSection('hero')">
+          Home
+        </a>
+
+        <!-- About Us -->
+        <a href="#about" 
+           class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+           (click)="navigateToSection('about')">
+          About Us
+        </a>
+
+        <!-- Services -->
+        <div class="relative">
+          <button class="w-full flex items-center justify-between px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+                  (click)="toggleMobileServicesDropdown()">
+            <span>Services</span>
+            <svg class="w-4 h-4 transition-transform text-gray-600" 
+                 [class.rotate-180]="mobileServicesDropdownOpen()" 
+                 fill="currentColor" viewBox="0 0 16 16">
+              <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
+            </svg>
+          </button>
+          <div *ngIf="mobileServicesDropdownOpen()" class="ml-4 mt-2 space-y-1 bg-gray-50 rounded-lg p-2">
+            <a href="#about" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('about')">UI/UX Design</a>
+            <a href="#about" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('about')">Web Development</a>
+            <a href="#about" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('about')">Logo & Branding</a>
+            <a href="#about" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('about')">AI Automation</a>
+          </div>
+        </div>
+
+        <!-- Projects -->
+        <a href="#projects" 
+           class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+           (click)="navigateToSection('projects')">
+          Projects
+        </a>
+
+        <!-- Case Studies -->
+        <div class="relative">
+          <button class="w-full flex items-center justify-between px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+                  (click)="toggleMobileCaseStudyDropdown()">
+            <span>Case Studies</span>
+            <svg class="w-4 h-4 transition-transform text-gray-600" 
+                 [class.rotate-180]="mobileCaseStudyDropdownOpen()" 
+                 fill="currentColor" viewBox="0 0 16 16">
+              <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
+            </svg>
+          </button>
+          <div *ngIf="mobileCaseStudyDropdownOpen()" class="ml-4 mt-2 space-y-1 bg-gray-50 rounded-lg p-2">
+            <a href="#case-studies" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('projects')">Zestflow CRM</a>
+            <a href="#case-studies" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('projects')">Furnishly App</a>
+            <a href="#case-studies" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('projects')">E-Commerce Platform</a>
+            <a href="#case-studies" 
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('projects')">All Case Studies</a>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <a href="#testimonials" 
+           class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+           (click)="navigateToSection('testimonials')">
+          Testimonials
+        </a>
+
+        <!-- FAQ -->
+        <a href="#faq" 
+           class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+           (click)="navigateToSection('faq')">
+          FAQ
+        </a>
+
+        <!-- Blog -->
+        <a href="#blog" 
+           class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+           (click)="navigateToSection('blog')">
+          Blog
+        </a>
+
+        <!-- Contact -->
+        <button class="w-full text-left px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+                (click)="onContactClick()">
+          Contact Us
+        </button>
+
+        <!-- Language Selector -->
+        <div class="relative border-t border-gray-300 pt-4 mt-4">
+          <button class="w-full flex items-center justify-between px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+                  (click)="toggleMobileLanguageDropdown()">
+            <span>Language: ENG</span>
+            <svg class="w-4 h-4 transition-transform text-gray-600" 
+                 [class.rotate-180]="mobileLanguageDropdownOpen()" 
+                 fill="currentColor" viewBox="0 0 16 16">
+              <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
+            </svg>
+          </button>
+          <div *ngIf="mobileLanguageDropdownOpen()" class="ml-4 mt-2 space-y-1 bg-gray-50 rounded-lg p-2">
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors">English</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors">Deutsch</a>
+            <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors">Español</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fixed Mobile Menu Button -->
+  <button class="md:hidden fixed bottom-6 left-6 z-50 flex items-center justify-center w-14 h-14 bg-primary-green rounded-full shadow-lg hover:bg-opacity-90 transition-all duration-200"
+          (click)="toggleMobileMenu(); $event.stopPropagation()"
+          [attr.aria-expanded]="mobileMenuOpen()"
+          aria-label="Toggle mobile menu">
+    <svg class="w-6 h-6 text-primary-text transition-transform duration-200"
+         [class.rotate-45]="mobileMenuOpen()"
+         fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path *ngIf="!mobileMenuOpen()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      <path *ngIf="mobileMenuOpen()" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+    </svg>
+  </button>
 </header>

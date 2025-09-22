@@ -1,6 +1,14 @@
 /* Header specific styles */
+header {
+  position: relative;
+}
+
 .rotate-180 {
   transform: rotate(180deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
 }
 
 /* Dropdown animation */
@@ -17,6 +25,39 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Mobile menu animation */
+.mobile-menu {
+  animation: slideInLeft 0.3s ease-in-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Fixed mobile button styles */
+.fixed {
+  position: fixed;
+}
+
+/* Ensure mobile menu is responsive */
+@media (max-width: 480px) {
+  .mobile-menu {
+    width: 100vw;
+  }
+}
+
+/* Prevent body scroll when mobile menu is open */
+.mobile-menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
 }
 
 /* Mobile menu styles */
