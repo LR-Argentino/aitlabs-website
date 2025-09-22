@@ -27,6 +27,61 @@ header {
   }
 }
 
+/* Smooth dropdown animation */
+.animate-dropdown {
+  animation: dropdownFadeIn 0.25s ease-out forwards;
+}
+
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Hover transition for dropdown triggers */
+.dropdown-trigger {
+  transition: all 0.2s ease-in-out;
+}
+
+.dropdown-trigger:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  transform: translateY(-1px);
+}
+
+/* Dropdown container styles */
+.dropdown-container {
+  position: relative;
+}
+
+/* Enhanced hover area for better UX */
+.dropdown-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Invisible bridge between trigger and dropdown */
+.dropdown-container::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  pointer-events: auto;
+  z-index: 40;
+}
+
 /* Mobile menu animation */
 .mobile-menu {
   animation: slideInLeft 0.3s ease-in-out;

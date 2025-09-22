@@ -20,6 +20,70 @@ export class HeaderComponent {
   protected readonly mobileCaseStudyDropdownOpen = signal(false);
   protected readonly mobileLanguageDropdownOpen = signal(false);
 
+  // Timeout reference for delayed closing
+  private closeTimeout: any = null;
+  private currentActiveDropdown: string | null = null;
+
+  // Simplified hover methods for desktop dropdowns
+  onDropdownEnter(dropdownType: string) {
+    // Clear any existing timeout
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
+      this.closeTimeout = null;
+    }
+    
+    // Set the active dropdown
+    this.currentActiveDropdown = dropdownType;
+    
+    // Close all dropdowns first
+    this.servicesDropdownOpen.set(false);
+    this.caseStudyDropdownOpen.set(false);
+    this.projectsDropdownOpen.set(false);
+    this.languageDropdownOpen.set(false);
+    
+    // Open the requested dropdown
+    switch (dropdownType) {
+      case 'services':
+        this.servicesDropdownOpen.set(true);
+        break;
+      case 'casestudy':
+        this.caseStudyDropdownOpen.set(true);
+        break;
+      case 'projects':
+        this.projectsDropdownOpen.set(true);
+        break;
+      case 'language':
+        this.languageDropdownOpen.set(true);
+        break;
+    }
+  }
+
+  // Delayed close method with longer timeout
+  onDropdownLeave() {
+    this.closeTimeout = setTimeout(() => {
+      this.closeAllDropdowns();
+      this.currentActiveDropdown = null;
+    }, 300); // Increased to 300ms for more stability
+  }
+
+  // Keep individual hover methods for backward compatibility
+  onServicesHover() {
+    this.onDropdownEnter('services');
+  }
+
+  onCaseStudyHover() {
+    this.onDropdownEnter('casestudy');
+  }
+
+  onProjectsHover() {
+    this.onDropdownEnter('projects');
+  }
+
+  onLanguageHover() {
+    this.onDropdownEnter('language');
+  }
+
+  // Keep toggle methods for mobile compatibility
   toggleServicesDropdown() {
     this.servicesDropdownOpen.set(!this.servicesDropdownOpen());
     this.caseStudyDropdownOpen.set(false);
@@ -49,10 +113,22 @@ export class HeaderComponent {
   }
 
   closeAllDropdowns() {
+    // Clear any pending timeout
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
+      this.closeTimeout = null;
+    }
+    
+    // Reset active dropdown
+    this.currentActiveDropdown = null;
+    
+    // Close all desktop dropdowns
     this.servicesDropdownOpen.set(false);
     this.caseStudyDropdownOpen.set(false);
     this.projectsDropdownOpen.set(false);
     this.languageDropdownOpen.set(false);
+    
+    // Close all mobile dropdowns
     this.mobileMenuOpen.set(false);
     this.mobileServicesDropdownOpen.set(false);
     this.mobileCaseStudyDropdownOpen.set(false);
