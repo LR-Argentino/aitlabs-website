@@ -19,19 +19,28 @@
     <!-- FAQ Items -->
     <div class="space-y-4">
       <div *ngFor="let faq of faqItems()" 
-           class="bg-white rounded-2xl border border-gray-200 overflow-hidden transition-all duration-300"
-           [class.shadow-lg]="faq.isOpen">
+           class="bg-white rounded-2xl border overflow-hidden transition-all duration-500 ease-in-out"
+           [class.border-primary-green]="faq.isOpen"
+           [class.border-gray-200]="!faq.isOpen"
+           [class.shadow-lg]="faq.isOpen"
+           [class.shadow-sm]="!faq.isOpen">
         
         <!-- Question -->
         <button 
-          class="w-full px-6 py-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+          class="w-full px-6 py-6 text-left flex items-center justify-between transition-all duration-300 ease-in-out"
+          [class.bg-secondary-green]="faq.isOpen"
+          [class.hover:bg-gray-50]="!faq.isOpen"
+          [class.hover:bg-secondary-green]="faq.isOpen"
           (click)="toggleFAQ(faq.id)">
-          <h3 class="text-lg font-medium text-primary-text pr-4">
+          <h3 class="text-lg font-medium pr-4 transition-colors duration-300 text-primary-text">
             {{ faq.question }}
           </h3>
           <svg 
-            class="w-6 h-6 text-gray-400 transition-transform duration-300 flex-shrink-0"
+            class="w-6 h-6 transition-all duration-500 ease-in-out flex-shrink-0"
             [class.rotate-180]="faq.isOpen"
+            [class.text-primary-green]="faq.isOpen"
+            [class.text-gray-400]="!faq.isOpen"
+            [class.scale-110]="faq.isOpen"
             fill="none" 
             stroke="currentColor" 
             viewBox="0 0 24 24">
@@ -41,15 +50,15 @@
 
         <!-- Answer -->
         <div 
-          class="overflow-hidden transition-all duration-300"
+          class="overflow-hidden transition-all duration-300 ease-out"
           [class.max-h-0]="!faq.isOpen"
-          [class.max-h-96]="faq.isOpen">
-          <div class="px-6 pb-6 pt-0">
-            <div class="border-t border-gray-100 pt-4">
-              <p class="text-secondary-text leading-relaxed">
-                {{ faq.answer }}
-              </p>
-            </div>
+          [class.max-h-96]="faq.isOpen"
+          [style.opacity]="faq.isOpen ? '1' : '0'">
+          <div class="px-6 pb-6 pt-4 transition-all duration-200 delay-75" 
+               [style.transform]="faq.isOpen ? 'translateY(0)' : 'translateY(-10px)'">
+            <p class="text-secondary-text leading-relaxed">
+              {{ faq.answer }}
+            </p>
           </div>
         </div>
       </div>
