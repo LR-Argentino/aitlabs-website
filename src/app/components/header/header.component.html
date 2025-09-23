@@ -6,86 +6,86 @@
       <div class="w-8 h-8 bg-gray-300 rounded-full"></div>
       <h1 class="text-2xl font-bold text-primary-text tracking-tight">AIT LABS</h1>
     </div>
-    
+
     <!-- Placeholder for mobile menu button (moved to fixed position) -->
     <div class="md:hidden w-10 h-10"></div>
-    
+
     <!-- Navigation -->
     <nav class="hidden md:flex items-center gap-2 border border-gray-200 rounded-full p-1 relative">
       <!-- Services Dropdown -->
-      <div class="relative dropdown-container" 
-           (mouseenter)="onServicesHover()" 
+      <div class="relative dropdown-container"
+           (mouseenter)="onServicesHover()"
            (mouseleave)="onDropdownLeave()">
         <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200">
           <span class="text-primary-text font-medium">Services</span>
-          <svg class="w-4 h-4 transition-transform duration-200" 
-               [class.rotate-180]="servicesDropdownOpen()" 
+          <svg class="w-4 h-4 transition-transform duration-200"
+               [class.rotate-180]="servicesDropdownOpen()"
                fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
           </svg>
         </div>
         <!-- Services Dropdown Menu -->
-        <div *ngIf="servicesDropdownOpen()" 
+        <div *ngIf="servicesDropdownOpen()"
              class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
-          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg" 
-             (click)="closeAllDropdowns()">UI/UX Design</a>
-          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150" 
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
+             (click)="closeAllDropdowns()">AI Voice Assistant</a>
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="closeAllDropdowns()">Web Development</a>
-          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150" 
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="closeAllDropdowns()">Logo & Branding</a>
-          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg" 
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
              (click)="closeAllDropdowns()">AI Automation</a>
         </div>
       </div>
 
       <!-- Case Study Dropdown -->
-      <div class="relative dropdown-container" 
-           (mouseenter)="onCaseStudyHover()" 
+      <div class="relative dropdown-container"
+           (mouseenter)="onCaseStudyHover()"
            (mouseleave)="onDropdownLeave()">
         <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200">
           <span class="text-primary-text font-medium">Case Study</span>
-          <svg class="w-4 h-4 transition-transform duration-200" 
-               [class.rotate-180]="caseStudyDropdownOpen()" 
+          <svg class="w-4 h-4 transition-transform duration-200"
+               [class.rotate-180]="caseStudyDropdownOpen()"
                fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
           </svg>
         </div>
         <!-- Case Study Dropdown Menu -->
-        <div *ngIf="caseStudyDropdownOpen()" 
+        <div *ngIf="caseStudyDropdownOpen()"
              class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
-          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg" 
+          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
              (click)="closeAllDropdowns()">Zestflow CRM</a>
-          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150" 
+          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="closeAllDropdowns()">Furnishly App</a>
-          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150" 
+          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="closeAllDropdowns()">E-Commerce Platform</a>
-          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg" 
+          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
              (click)="closeAllDropdowns()">All Case Studies</a>
         </div>
       </div>
 
       <!-- Projects Dropdown -->
-      <div class="relative dropdown-container" 
-           (mouseenter)="onProjectsHover()" 
+      <div class="relative dropdown-container"
+           (mouseenter)="onProjectsHover()"
            (mouseleave)="onDropdownLeave()">
         <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200">
           <span class="text-primary-text font-medium">Projects</span>
-          <svg class="w-4 h-4 transition-transform duration-200" 
-               [class.rotate-180]="projectsDropdownOpen()" 
+          <svg class="w-4 h-4 transition-transform duration-200"
+               [class.rotate-180]="projectsDropdownOpen()"
                fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
           </svg>
         </div>
         <!-- Projects Dropdown Menu -->
-        <div *ngIf="projectsDropdownOpen()" 
+        <div *ngIf="projectsDropdownOpen()"
              class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
-          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg" 
+          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
              (click)="closeAllDropdowns()">Recent Projects</a>
-          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150" 
+          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="closeAllDropdowns()">Web Applications</a>
-          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150" 
+          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="closeAllDropdowns()">Mobile Apps</a>
-          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg" 
+          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
              (click)="closeAllDropdowns()">All Projects</a>
         </div>
       </div>
@@ -100,29 +100,29 @@
         <a href="#about" class="text-primary-text font-medium hover:text-primary-green">About Us</a>
       </div>
     </nav>
-    
+
     <!-- Contact Section -->
     <div class="flex items-center gap-3">
       <!-- Language Dropdown -->
-      <div class="hidden md:flex items-center gap-2 px-6 py-3 rounded-full relative dropdown-container" 
-           (mouseenter)="onLanguageHover()" 
+      <div class="hidden md:flex items-center gap-2 px-6 py-3 rounded-full relative dropdown-container"
+           (mouseenter)="onLanguageHover()"
            (mouseleave)="onDropdownLeave()">
         <div class="flex items-center gap-2 cursor-pointer">
           <span class="text-primary-text font-medium">ENG</span>
-          <svg class="w-4 h-4 transition-transform duration-200" 
-               [class.rotate-180]="languageDropdownOpen()" 
+          <svg class="w-4 h-4 transition-transform duration-200"
+               [class.rotate-180]="languageDropdownOpen()"
                fill="currentColor" viewBox="0 0 16 16">
             <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
           </svg>
         </div>
         <!-- Language Dropdown Menu -->
-        <div *ngIf="languageDropdownOpen()" 
+        <div *ngIf="languageDropdownOpen()"
              class="absolute top-full right-0 mt-1 w-32 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg" 
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
              (click)="closeAllDropdowns()">English</a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150" 
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="closeAllDropdowns()">Deutsch</a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg" 
+          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
              (click)="closeAllDropdowns()">Español</a>
         </div>
       </div>
@@ -136,13 +136,13 @@
   </div>
 
   <!-- Mobile Menu Overlay -->
-  <div *ngIf="mobileMenuOpen()" 
+  <div *ngIf="mobileMenuOpen()"
        class="md:hidden fixed inset-0 bg-black bg-opacity-50 z-40"
        (click)="toggleMobileMenu()">
   </div>
 
   <!-- Mobile Menu -->
-  <div *ngIf="mobileMenuOpen()" 
+  <div *ngIf="mobileMenuOpen()"
        class="md:hidden fixed top-0 left-0 w-80 max-w-full h-full bg-white shadow-xl z-50 mobile-menu overflow-y-auto"
        (click)="$event.stopPropagation()">
     <div class="px-6 py-8">
@@ -163,14 +163,14 @@
       <!-- Mobile Navigation -->
       <div class="space-y-2">
         <!-- Home -->
-        <a href="#hero" 
+        <a href="#hero"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('hero')">
           Home
         </a>
 
         <!-- About Us -->
-        <a href="#about" 
+        <a href="#about"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('about')">
           About Us
@@ -181,30 +181,30 @@
           <button class="w-full flex items-center justify-between px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
                   (click)="toggleMobileServicesDropdown()">
             <span>Services</span>
-            <svg class="w-4 h-4 transition-transform text-gray-600" 
-                 [class.rotate-180]="mobileServicesDropdownOpen()" 
+            <svg class="w-4 h-4 transition-transform text-gray-600"
+                 [class.rotate-180]="mobileServicesDropdownOpen()"
                  fill="currentColor" viewBox="0 0 16 16">
               <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
             </svg>
           </button>
           <div *ngIf="mobileServicesDropdownOpen()" class="ml-4 mt-2 space-y-1 bg-gray-50 rounded-lg p-2">
-            <a href="#about" 
+            <a href="#about"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
-               (click)="navigateToSection('about')">UI/UX Design</a>
-            <a href="#about" 
+               (click)="navigateToSection('about')">AI Vice Assistant</a>
+            <a href="#about"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
                (click)="navigateToSection('about')">Web Development</a>
-            <a href="#about" 
+            <a href="#about"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
                (click)="navigateToSection('about')">Logo & Branding</a>
-            <a href="#about" 
+            <a href="#about"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
                (click)="navigateToSection('about')">AI Automation</a>
           </div>
         </div>
 
         <!-- Projects -->
-        <a href="#projects" 
+        <a href="#projects"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('projects')">
           Projects
@@ -215,44 +215,44 @@
           <button class="w-full flex items-center justify-between px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
                   (click)="toggleMobileCaseStudyDropdown()">
             <span>Case Studies</span>
-            <svg class="w-4 h-4 transition-transform text-gray-600" 
-                 [class.rotate-180]="mobileCaseStudyDropdownOpen()" 
+            <svg class="w-4 h-4 transition-transform text-gray-600"
+                 [class.rotate-180]="mobileCaseStudyDropdownOpen()"
                  fill="currentColor" viewBox="0 0 16 16">
               <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
             </svg>
           </button>
           <div *ngIf="mobileCaseStudyDropdownOpen()" class="ml-4 mt-2 space-y-1 bg-gray-50 rounded-lg p-2">
-            <a href="#case-studies" 
+            <a href="#case-studies"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
                (click)="navigateToSection('projects')">Zestflow CRM</a>
-            <a href="#case-studies" 
+            <a href="#case-studies"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
                (click)="navigateToSection('projects')">Furnishly App</a>
-            <a href="#case-studies" 
+            <a href="#case-studies"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
                (click)="navigateToSection('projects')">E-Commerce Platform</a>
-            <a href="#case-studies" 
+            <a href="#case-studies"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
                (click)="navigateToSection('projects')">All Case Studies</a>
           </div>
         </div>
 
         <!-- Testimonials -->
-        <a href="#testimonials" 
+        <a href="#testimonials"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('testimonials')">
           Testimonials
         </a>
 
         <!-- FAQ -->
-        <a href="#faq" 
+        <a href="#faq"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('faq')">
           FAQ
         </a>
 
         <!-- Blog -->
-        <a href="#blog" 
+        <a href="#blog"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('blog')">
           Blog
@@ -269,8 +269,8 @@
           <button class="w-full flex items-center justify-between px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
                   (click)="toggleMobileLanguageDropdown()">
             <span>Language: ENG</span>
-            <svg class="w-4 h-4 transition-transform text-gray-600" 
-                 [class.rotate-180]="mobileLanguageDropdownOpen()" 
+            <svg class="w-4 h-4 transition-transform text-gray-600"
+                 [class.rotate-180]="mobileLanguageDropdownOpen()"
                  fill="currentColor" viewBox="0 0 16 16">
               <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
             </svg>
