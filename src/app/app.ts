@@ -7,6 +7,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { FaqComponent } from './components/faq/faq.component';
+import { BookingComponent } from './components/booking/booking.component';
 import { CtaComponent } from './components/cta/cta.component';
 import { FooterComponent } from './components/footer/footer.component';
 
@@ -22,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ProjectsComponent,
     TestimonialsComponent,
     FaqComponent,
+    BookingComponent,
     CtaComponent,
     FooterComponent
   ],

@@ -1,0 +1,101 @@
+/* Booking Component Styles */
+.booking-container {
+  position: relative;
+}
+
+.cal-embed-container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  overflow: hidden;
+  min-height: 800px;
+  height: 800px;
+  position: relative;
+}
+
+/* Cal.com iframe styling */
+#cal-iframe {
+  border-radius: 12px;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Cal.com iframe styling overrides */
+.booking-container :deep(.cal-embed) {
+  border-radius: 12px !important;
+  background: transparent !important;
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cal-embed-container {
+    height: 700px;
+    min-height: 700px;
+  }
+  
+  .booking-container :deep(.cal-embed) {
+    height: 700px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .cal-embed-container {
+    height: 600px;
+    min-height: 600px;
+  }
+  
+  .booking-container :deep(.cal-embed) {
+    height: 600px !important;
+  }
+}
+
+/* Light theme adjustments for Cal.com */
+.booking-container :deep(.cal-embed) {
+  --cal-brand-color: #10B981 !important;
+  --cal-brand-text-color: #FFFFFF !important;
+  --cal-bg: #FFFFFF !important;
+  --cal-bg-emphasis: #F9FAFB !important;
+  --cal-text: #1F2937 !important;
+  --cal-text-emphasis: #111827 !important;
+  --cal-text-subtle: #6B7280 !important;
+  --cal-border: #E5E7EB !important;
+  --cal-border-emphasis: #D1D5DB !important;
+}
+
+/* Additional info section styling */
+.booking-container .grid > div {
+  transition: transform 0.2s ease-in-out;
+}
+
+.booking-container .grid > div:hover {
+  transform: translateY(-2px);
+}
+
+/* Custom scrollbar for the embed */
+.cal-embed-container::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cal-embed-container::-webkit-scrollbar-track {
+  background: rgba(55, 65, 81, 0.3);
+  border-radius: 3px;
+}
+
+.cal-embed-container::-webkit-scrollbar-thumb {
+  background: rgba(16, 185, 129, 0.5);
+  border-radius: 3px;
+}
+
+.cal-embed-container::-webkit-scrollbar-thumb:hover {
+  background: rgba(16, 185, 129, 0.7);
+}
