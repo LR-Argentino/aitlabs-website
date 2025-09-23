@@ -19,3 +19,43 @@
 .hover\:bg-primary-green\/80:hover {
   background-color: rgb(164 245 138 / 0.8);
 }
+
+/* In Progress Section Responsive Styles */
+.in-progress-section {
+  padding: 4rem 0;
+}
+
+/* Responsive animation sizing */
+@media (max-width: 768px) {
+  .in-progress-section app-in-progress {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  
+  .in-progress-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .in-progress-section p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .in-progress-section app-in-progress {
+    width: 120px !important;
+    height: 120px !important;
+  }
+  
+  .in-progress-section h3 {
+    font-size: 1.25rem;
+  }
+  
+  .in-progress-section .flex {
+    flex-direction: column;
+  }
+  
+  .in-progress-section button {
+    width: 100%;
+  }
+}

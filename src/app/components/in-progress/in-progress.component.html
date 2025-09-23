@@ -1,0 +1,17 @@
+<div class="in-progress-container">
+  <ng-lottie
+    [options]="options"
+    [width]="width"
+    [height]="height"
+    (animationCreated)="onAnimationCreated($event)"
+    (configReady)="onConfigReady()"
+    (dataReady)="onDataReady()"
+    (DOMLoaded)="onDOMLoaded()"
+    (destroy)="onDestroy()"
+    (loopComplete)="onLoopComplete()"
+    (complete)="onComplete()"
+    (segmentStart)="onSegmentStart()"
+    (enterFrame)="onEnterFrame()"
+    (error)="onError($event)"
+  ></ng-lottie>
+</div>
