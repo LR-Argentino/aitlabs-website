@@ -101,6 +101,11 @@ header {
   position: fixed;
 }
 
+/* Ensure mobile menu button is always visible */
+.mobile-menu-button {
+  z-index: 9999 !important;
+}
+
 /* Ensure mobile menu is responsive */
 @media (max-width: 480px) {
   .mobile-menu {
@@ -120,7 +125,7 @@ header {
   nav {
     display: none;
   }
-  
+
   /* Add mobile menu button if needed */
   .mobile-menu-button {
     display: block;
