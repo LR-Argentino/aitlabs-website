@@ -30,39 +30,39 @@
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
              (click)="navigateToSection('services'); $event.preventDefault()">AI Voice Assistant</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="navigateToSection('services'); $event.preventDefault()">Web Development</a>
+             (click)="navigateToSection('services'); $event.preventDefault()">Intelligence Document Processing</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="navigateToSection('services'); $event.preventDefault()">Logo & Branding</a>
-          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
              (click)="navigateToSection('services'); $event.preventDefault()">AI Automation</a>
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
+             (click)="navigateToSection('services'); $event.preventDefault()">AI Agents</a>
         </div>
       </div>
 
-      <!-- Case Study Dropdown -->
-      <div class="relative dropdown-container"
-           (mouseenter)="onCaseStudyHover()"
-           (mouseleave)="onDropdownLeave()">
-        <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-          <span class="text-primary-text font-medium">Case Study</span>
-          <svg class="w-4 h-4 transition-transform duration-200"
-               [class.rotate-180]="caseStudyDropdownOpen()"
-               fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
-          </svg>
-        </div>
-        <!-- Case Study Dropdown Menu -->
-        <div *ngIf="caseStudyDropdownOpen()"
-             class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
-          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
-             (click)="navigateToSection('case-studies'); $event.preventDefault()">Zestflow CRM</a>
-          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="navigateToSection('case-studies'); $event.preventDefault()">Furnishly App</a>
-          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="navigateToSection('case-studies'); $event.preventDefault()">E-Commerce Platform</a>
-          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
-             (click)="navigateToSection('case-studies'); $event.preventDefault()">All Case Studies</a>
-        </div>
-      </div>
+      <!-- Case Study Dropdown TODO: Case study-->
+<!--      <div class="relative dropdown-container"-->
+<!--           (mouseenter)="onCaseStudyHover()"-->
+<!--           (mouseleave)="onDropdownLeave()">-->
+<!--        <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200">-->
+<!--          <span class="text-primary-text font-medium">Case Study</span>-->
+<!--          <svg class="w-4 h-4 transition-transform duration-200"-->
+<!--               [class.rotate-180]="caseStudyDropdownOpen()"-->
+<!--               fill="currentColor" viewBox="0 0 16 16">-->
+<!--            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>-->
+<!--          </svg>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Case Study Dropdown Menu &ndash;&gt;-->
+<!--        <div *ngIf="caseStudyDropdownOpen()"-->
+<!--             class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">-->
+<!--          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"-->
+<!--             (click)="navigateToSection('case-studies'); $event.preventDefault()">Zestflow CRM</a>-->
+<!--          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"-->
+<!--             (click)="navigateToSection('case-studies'); $event.preventDefault()">Furnishly App</a>-->
+<!--          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"-->
+<!--             (click)="navigateToSection('case-studies'); $event.preventDefault()">E-Commerce Platform</a>-->
+<!--          <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"-->
+<!--             (click)="navigateToSection('case-studies'); $event.preventDefault()">All Case Studies</a>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!-- Projects Dropdown -->
       <div class="relative dropdown-container"
@@ -80,11 +80,11 @@
         <div *ngIf="projectsDropdownOpen()"
              class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
           <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
-             (click)="navigateToSection('projects'); $event.preventDefault()">Recent Projects</a>
+             (click)="navigateToSection('projects'); $event.preventDefault()">Voice Assistant</a>
           <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="navigateToSection('projects'); $event.preventDefault()">Web Applications</a>
+             (click)="navigateToSection('projects'); $event.preventDefault()">Intelligence Document Processing</a>
           <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="navigateToSection('projects'); $event.preventDefault()">Mobile Apps</a>
+             (click)="navigateToSection('projects'); $event.preventDefault()">AI Agents</a>
           <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
              (click)="navigateToSection('projects'); $event.preventDefault()">All Projects</a>
         </div>
@@ -93,7 +93,7 @@
       <!-- Blog Link -->
       <div class="px-4 py-2 rounded-full">
         <a href="#blog" class="text-primary-text font-medium hover:text-primary-green"
-           (click)="navigateToSection('blog'); $event.preventDefault()">Blog</a>
+           (click)="navigateToSection('booking'); $event.preventDefault()">Book a Meeting</a>
       </div>
 
       <!-- About Us Link -->
@@ -124,8 +124,6 @@
              (click)="closeAllDropdowns()">English</a>
           <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="closeAllDropdowns()">Deutsch</a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
-             (click)="closeAllDropdowns()">Español</a>
         </div>
       </div>
 

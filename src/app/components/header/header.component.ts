@@ -13,7 +13,7 @@ export class HeaderComponent {
   protected readonly caseStudyDropdownOpen = signal(false);
   protected readonly projectsDropdownOpen = signal(false);
   protected readonly languageDropdownOpen = signal(false);
-  
+
   // Mobile menu signals
   protected readonly mobileMenuOpen = signal(false);
   protected readonly mobileServicesDropdownOpen = signal(false);
@@ -31,16 +31,16 @@ export class HeaderComponent {
       clearTimeout(this.closeTimeout);
       this.closeTimeout = null;
     }
-    
+
     // Set the active dropdown
     this.currentActiveDropdown = dropdownType;
-    
+
     // Close all dropdowns first
     this.servicesDropdownOpen.set(false);
     this.caseStudyDropdownOpen.set(false);
     this.projectsDropdownOpen.set(false);
     this.languageDropdownOpen.set(false);
-    
+
     // Open the requested dropdown
     switch (dropdownType) {
       case 'services':
@@ -118,22 +118,22 @@ export class HeaderComponent {
       clearTimeout(this.closeTimeout);
       this.closeTimeout = null;
     }
-    
+
     // Reset active dropdown
     this.currentActiveDropdown = null;
-    
+
     // Close all desktop dropdowns
     this.servicesDropdownOpen.set(false);
     this.caseStudyDropdownOpen.set(false);
     this.projectsDropdownOpen.set(false);
     this.languageDropdownOpen.set(false);
-    
+
     // Close all mobile dropdowns
     this.mobileMenuOpen.set(false);
     this.mobileServicesDropdownOpen.set(false);
     this.mobileCaseStudyDropdownOpen.set(false);
     this.mobileLanguageDropdownOpen.set(false);
-    
+
     // Allow body scroll when closing mobile menu
     document.body.classList.remove('mobile-menu-open');
   }
@@ -141,7 +141,7 @@ export class HeaderComponent {
   // Mobile menu methods
   toggleMobileMenu() {
     this.mobileMenuOpen.set(!this.mobileMenuOpen());
-    
+
     // Control body scrolling
     if (this.mobileMenuOpen()) {
       // Close desktop dropdowns when mobile menu opens
@@ -149,7 +149,7 @@ export class HeaderComponent {
       this.caseStudyDropdownOpen.set(false);
       this.projectsDropdownOpen.set(false);
       this.languageDropdownOpen.set(false);
-      
+
       // Prevent body scroll
       document.body.classList.add('mobile-menu-open');
     } else {
@@ -179,10 +179,10 @@ export class HeaderComponent {
   navigateToSection(sectionId: string) {
     // Close all dropdowns first
     this.closeAllDropdowns();
-    
+
     // Navigate to section
     let targetElement: HTMLElement | null = null;
-    
+
     switch (sectionId) {
       case 'hero':
         // Scroll to top for hero section
@@ -208,9 +208,9 @@ export class HeaderComponent {
       case 'faq':
         targetElement = document.getElementById('faq');
         break;
-      case 'blog':
+      case 'booking':
         // If blog section exists, scroll to it, otherwise scroll to top
-        targetElement = document.getElementById('blog');
+        targetElement = document.getElementById('booking');
         if (!targetElement) {
           window.scrollTo({ top: 0, behavior: 'smooth' });
           return;
@@ -231,10 +231,10 @@ export class HeaderComponent {
     this.mobileServicesDropdownOpen.set(false);
     this.mobileCaseStudyDropdownOpen.set(false);
     this.mobileLanguageDropdownOpen.set(false);
-    
+
     // Allow body scroll when navigating to contact
     document.body.classList.remove('mobile-menu-open');
-    
+
     // Scroll to footer contact form
     const footerElement = document.getElementById('contact-form');
     if (footerElement) {
