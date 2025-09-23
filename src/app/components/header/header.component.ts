@@ -177,15 +177,9 @@ export class HeaderComponent {
   }
 
   navigateToSection(sectionId: string) {
-    // Close mobile menu first
-    this.mobileMenuOpen.set(false);
-    this.mobileServicesDropdownOpen.set(false);
-    this.mobileCaseStudyDropdownOpen.set(false);
-    this.mobileLanguageDropdownOpen.set(false);
+    // Close all dropdowns first
+    this.closeAllDropdowns();
     
-    // Allow body scroll when navigating
-    document.body.classList.remove('mobile-menu-open');
-
     // Navigate to section
     let targetElement: HTMLElement | null = null;
     
@@ -197,7 +191,15 @@ export class HeaderComponent {
       case 'about':
         targetElement = document.getElementById('about');
         break;
+      case 'services':
+        // Services navigation leads to about section where services are described
+        targetElement = document.getElementById('about');
+        break;
       case 'projects':
+        targetElement = document.getElementById('projects');
+        break;
+      case 'case-studies':
+        // Case studies navigation leads to projects section
         targetElement = document.getElementById('projects');
         break;
       case 'testimonials':

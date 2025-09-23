@@ -70,4 +70,49 @@ export class FooterComponent {
       message
     });
   }
+
+  navigateToSection(sectionId: string) {
+    let targetElement: HTMLElement | null = null;
+    
+    switch (sectionId) {
+      case 'hero':
+        // Scroll to top for hero section
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      case 'about':
+        targetElement = document.getElementById('about');
+        break;
+      case 'services':
+        // Services navigation leads to about section where services are described
+        targetElement = document.getElementById('about');
+        break;
+      case 'projects':
+        targetElement = document.getElementById('projects');
+        break;
+      case 'case-studies':
+        // Case studies navigation leads to projects section
+        targetElement = document.getElementById('projects');
+        break;
+      case 'testimonials':
+        targetElement = document.getElementById('testimonials');
+        break;
+      case 'faq':
+        targetElement = document.getElementById('faq');
+        break;
+      case 'blog':
+        // If blog section exists, scroll to it, otherwise scroll to top
+        targetElement = document.getElementById('blog');
+        if (!targetElement) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        break;
+      default:
+        targetElement = document.getElementById(sectionId);
+    }
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 }

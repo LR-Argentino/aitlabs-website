@@ -28,13 +28,13 @@
         <div *ngIf="servicesDropdownOpen()"
              class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
-             (click)="closeAllDropdowns()">AI Voice Assistant</a>
+             (click)="navigateToSection('services'); $event.preventDefault()">AI Voice Assistant</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="closeAllDropdowns()">Web Development</a>
+             (click)="navigateToSection('services'); $event.preventDefault()">Web Development</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="closeAllDropdowns()">Logo & Branding</a>
+             (click)="navigateToSection('services'); $event.preventDefault()">Logo & Branding</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
-             (click)="closeAllDropdowns()">AI Automation</a>
+             (click)="navigateToSection('services'); $event.preventDefault()">AI Automation</a>
         </div>
       </div>
 
@@ -54,13 +54,13 @@
         <div *ngIf="caseStudyDropdownOpen()"
              class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
           <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
-             (click)="closeAllDropdowns()">Zestflow CRM</a>
+             (click)="navigateToSection('case-studies'); $event.preventDefault()">Zestflow CRM</a>
           <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="closeAllDropdowns()">Furnishly App</a>
+             (click)="navigateToSection('case-studies'); $event.preventDefault()">Furnishly App</a>
           <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="closeAllDropdowns()">E-Commerce Platform</a>
+             (click)="navigateToSection('case-studies'); $event.preventDefault()">E-Commerce Platform</a>
           <a href="#case-studies" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
-             (click)="closeAllDropdowns()">All Case Studies</a>
+             (click)="navigateToSection('case-studies'); $event.preventDefault()">All Case Studies</a>
         </div>
       </div>
 
@@ -80,24 +80,26 @@
         <div *ngIf="projectsDropdownOpen()"
              class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
           <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
-             (click)="closeAllDropdowns()">Recent Projects</a>
+             (click)="navigateToSection('projects'); $event.preventDefault()">Recent Projects</a>
           <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="closeAllDropdowns()">Web Applications</a>
+             (click)="navigateToSection('projects'); $event.preventDefault()">Web Applications</a>
           <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             (click)="closeAllDropdowns()">Mobile Apps</a>
+             (click)="navigateToSection('projects'); $event.preventDefault()">Mobile Apps</a>
           <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 last:rounded-b-lg"
-             (click)="closeAllDropdowns()">All Projects</a>
+             (click)="navigateToSection('projects'); $event.preventDefault()">All Projects</a>
         </div>
       </div>
 
       <!-- Blog Link -->
       <div class="px-4 py-2 rounded-full">
-        <a href="#blog" class="text-primary-text font-medium hover:text-primary-green">Blog</a>
+        <a href="#blog" class="text-primary-text font-medium hover:text-primary-green"
+           (click)="navigateToSection('blog'); $event.preventDefault()">Blog</a>
       </div>
 
       <!-- About Us Link -->
       <div class="px-4 py-2 rounded-full">
-        <a href="#about" class="text-primary-text font-medium hover:text-primary-green">About Us</a>
+        <a href="#about" class="text-primary-text font-medium hover:text-primary-green"
+           (click)="navigateToSection('about'); $event.preventDefault()">About Us</a>
       </div>
     </nav>
 
