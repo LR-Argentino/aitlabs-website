@@ -1,6 +1,6 @@
 <!-- AI Voice Assistant Service Page -->
 <div class="ai-voice-assistant-page">
-  
+
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
@@ -9,23 +9,23 @@
         <div class="hero-tagline">
           AI Voice Assistant
         </div>
-        
+
         <!-- Main Title -->
         <h1 class="hero-title">
-          Ihr intelligenter 
-          <span style="color: var(--accent-primary);">Sprachassistent</span> 
+          Ihr intelligenter
+          <span style="color: var(--accent-primary);">Sprachassistent</span>
           für Business
         </h1>
-        
+
         <!-- Description -->
         <p class="hero-description">
-          Eine auf Geschäftsanwendungen spezialisierte Lösung, die nicht nur Befehle versteht, 
+          Eine auf Geschäftsanwendungen spezialisierte Lösung, die nicht nur Befehle versteht,
           sondern komplexe Abläufe steuert, Prozesse automatisiert und in bestehende IT-Systeme integriert.
         </p>
-        
+
         <!-- CTA Buttons -->
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button 
+          <button
             class="btn-primary"
             (click)="navigateToContact()">
             <span>Persönliche Demo buchen</span>
@@ -33,7 +33,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </button>
-          <button 
+          <button
             class="btn-secondary"
             (click)="scrollToSection('use-cases')">
             Anwendungsfälle ansehen
@@ -56,14 +56,14 @@
               Was ist ein AI Voice Assistant?
             </h2>
             <p class="section-description">
-              Ein AI Voice Assistant ist ein KI-gestützter, sprachbasierter Assistent, der in natürlicher Sprache 
+              Ein AI Voice Assistant ist ein KI-gestützter, sprachbasierter Assistent, der in natürlicher Sprache
               kommuniziert, versteht und handelt. Er kombiniert drei Kerntechnologien für echte, dialogfähige Interaktion.
             </p>
           </div>
-          
+
           <!-- Technical Features -->
           <div class="space-y-6">
-            <div *ngFor="let feature of technicalFeatures" 
+            <div *ngFor="let feature of technicalFeatures"
                  class="feature-card">
               <div class="flex items-start gap-4">
                 <div class="feature-icon">
@@ -100,13 +100,13 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let useCase of useCases; let i = index" 
+          <div *ngFor="let useCase of useCases; let i = index"
                class="feature-card group">
-            <div class="feature-icon mb-6">
-              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
-            </div>
+<!--            <div class="feature-icon mb-6">-->
+<!--              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">-->
+<!--                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>-->
+<!--              </svg>-->
+<!--            </div>-->
             <h3 class="feature-title">{{ useCase.title }}</h3>
             <p class="feature-description mb-4">{{ useCase.description }}</p>
             <p *ngIf="useCase.details" class="text-sm text-gray-400">{{ useCase.details }}</p>
@@ -116,29 +116,29 @@
     </div>
   </section>
 
-  <!-- Statistics Section -->
-  <section class="section">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="stats-section">
-        <div class="text-center mb-16">
-          <div class="section-tagline">
-            Zahlen & Business Value
-          </div>
-          <h2 class="section-title">
-            Messbare Ergebnisse
-          </h2>
-        </div>
+<!--  &lt;!&ndash; Statistics Section &ndash;&gt;-->
+<!--  <section class="section">-->
+<!--    <div class="max-w-7xl mx-auto px-6 md:px-12">-->
+<!--      <div class="stats-section">-->
+<!--        <div class="text-center mb-16">-->
+<!--          <div class="section-tagline">-->
+<!--            Zahlen & Business Value-->
+<!--          </div>-->
+<!--          <h2 class="section-title">-->
+<!--            Messbare Ergebnisse-->
+<!--          </h2>-->
+<!--        </div>-->
 
-        <div class="grid md:grid-cols-3 gap-8">
-          <div *ngFor="let stat of statistics" 
-               class="stat-card">
-            <div class="stat-number">{{ stat.value }}</div>
-            <p class="stat-label">{{ stat.description }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+<!--        <div class="grid md:grid-cols-3 gap-8">-->
+<!--          <div *ngFor="let stat of statistics"-->
+<!--               class="stat-card">-->
+<!--            <div class="stat-number">{{ stat.value }}</div>-->
+<!--            <p class="stat-label">{{ stat.description }}</p>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </section>-->
 
   <!-- Benefits Section -->
   <section class="section">
@@ -154,7 +154,7 @@
         </div>
 
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let benefit of benefits" 
+          <div *ngFor="let benefit of benefits"
                class="feature-card">
             <div class="feature-icon mb-4">
               <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -182,20 +182,20 @@
               Sicherheit & Compliance
             </h2>
             <p class="section-description mb-8 leading-relaxed">
-              Gerade im Unternehmensumfeld sind Sicherheit und Datenschutz zentrale Themen. 
+              Gerade im Unternehmensumfeld sind Sicherheit und Datenschutz zentrale Themen.
               Unser AI Voice Assistant erfüllt höchste Standards.
             </p>
           </div>
-          
+
           <div class="space-y-4">
-            <div *ngFor="let feature of securityFeatures" 
-                 class="flex items-start gap-3 p-4 bg-gray-800/30 border border-gray-700 rounded-xl">
-              <div class="w-6 h-6 bg-primary-green/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3 h-3 text-primary-green" fill="currentColor" viewBox="0 0 24 24">
+            <div *ngFor="let feature of securityFeatures"
+                 class="flex items-start gap-3 p-4 border border-gray-700 rounded-xl">
+              <div class="w-6 h-6 bg-primary-green/50 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
                 </svg>
               </div>
-              <p class="text-secondary-text text-sm">{{ feature }}</p>
+              <p class="text-black text-sm">{{ feature }}</p>
             </div>
           </div>
         </div>
@@ -206,57 +206,125 @@
   <!-- Case Study Section -->
   <section class="section">
     <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="section-card bg-gradient-to-r from-primary-green/10 to-secondary-green/10 border border-primary-green/20">
-        <div class="text-center mb-12">
-          <div class="section-tagline bg-primary-green/20 border-primary-green/30">
+      <div class="case-study-section">
+        <div class="text-center mb-16">
+          <div class="section-tagline">
             Praxisbeispiel
           </div>
-          <h2 class="section-title">
+          <h2 class="case-study-main-title">
             Erfolgsgeschichte aus der Praxis
           </h2>
+          <p class="case-study-subtitle">
+            Wie ein mittelständisches Beratungsunternehmen 60% Zeit spart
+          </p>
         </div>
 
-        <div class="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <h3 class="text-2xl font-semibold mb-6">Mittelständisches Beratungsunternehmen</h3>
-            <div class="space-y-4 mb-8">
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 bg-primary-green/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span class="text-primary-green text-xs font-bold">1</span>
+        <div class="case-study-container">
+          <!-- Company Info Card -->
+          <div class="case-study-company-card">
+            <div class="company-icon">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
+              </svg>
+            </div>
+            <h3 class="company-title">Mittelständisches Beratungsunternehmen</h3>
+            <p class="company-description">Spezialisiert auf Unternehmensberatung mit 50+ Mitarbeitern</p>
+          </div>
+
+          <!-- Process Steps -->
+          <div class="case-study-process">
+            <h4 class="process-title">Der Automatisierungsprozess</h4>
+            <div class="process-steps">
+              <div class="process-step-card">
+                <div class="step-number-modern">1</div>
+                <div class="step-content">
+                  <div class="step-icon">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
+                    </svg>
+                  </div>
+                  <h5 class="step-title">Kundenanruf</h5>
+                  <p class="step-description">Kunden rufen für Erstgespräche an</p>
                 </div>
-                <p class="text-secondary-text">Kunden rufen für Erstgespräche an</p>
               </div>
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 bg-primary-green/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span class="text-primary-green text-xs font-bold">2</span>
+
+              <div class="process-step-card">
+                <div class="step-number-modern">2</div>
+                <div class="step-content">
+                  <div class="step-icon">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <h5 class="step-title">AI-Gespräch</h5>
+                  <p class="step-description">Der Assistent führt ein kurzes Gespräch, erfasst Anliegen und schlägt freie Termine vor</p>
                 </div>
-                <p class="text-secondary-text">Der Assistent führt ein kurzes Gespräch, erfasst Anliegen, schlägt freie Termine vor</p>
               </div>
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 bg-primary-green/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span class="text-primary-green text-xs font-bold">3</span>
+
+              <div class="process-step-card">
+                <div class="step-number-modern">3</div>
+                <div class="step-content">
+                  <div class="step-icon">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
+                    </svg>
+                  </div>
+                  <h5 class="step-title">Automatische Terminbuchung</h5>
+                  <p class="step-description">Automatisch wird eine Kalendereinladung mit Videolink verschickt</p>
                 </div>
-                <p class="text-secondary-text">Automatisch wird eine Kalendereinladung mit Videolink verschickt</p>
               </div>
-              <div class="flex items-start gap-3">
-                <div class="w-6 h-6 bg-primary-green/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <span class="text-primary-green text-xs font-bold">4</span>
+
+              <div class="process-step-card">
+                <div class="step-number-modern">4</div>
+                <div class="step-content">
+                  <div class="step-icon">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                  </div>
+                  <h5 class="step-title">Follow-up</h5>
+                  <p class="step-description">Nach dem Termin erstellt der Assistent eine Follow-up-Mail mit Links zu relevanten Dokumenten</p>
                 </div>
-                <p class="text-secondary-text">Nach dem Termin erstellt der Assistent eine Follow-up-Mail mit Links zu relevanten Dokumenten</p>
               </div>
             </div>
           </div>
-          
-          <div class="bg-gray-800/30 border border-gray-700 rounded-2xl p-8">
-            <h4 class="text-xl font-semibold mb-6 text-primary-green">Ergebnis:</h4>
-            <div class="space-y-4">
-              <div class="flex items-center gap-3">
-                <div class="text-3xl font-bold text-primary-green">60%</div>
-                <p class="text-secondary-text">weniger manuelle Koordination</p>
+
+          <!-- Results Card -->
+          <div class="case-study-results">
+            <div class="results-header">
+              <div class="results-icon">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                </svg>
               </div>
-              <div class="border-t border-gray-700 pt-4">
-                <p class="text-secondary-text italic">Kundenfeedback: "sehr professionell"</p>
+              <h4 class="results-title">Messbare Ergebnisse</h4>
+            </div>
+
+            <div class="results-stats">
+              <div class="result-stat-card">
+                <div class="stat-value">60%</div>
+                <div class="stat-label">weniger manuelle Koordination</div>
               </div>
+              <div class="result-stat-card">
+                <div class="stat-value">24/7</div>
+                <div class="stat-label">verfügbare Terminbuchung</div>
+              </div>
+              <div class="result-stat-card">
+                <div class="stat-value">100%</div>
+                <div class="stat-label">automatisierte Follow-ups</div>
+              </div>
+            </div>
+
+            <div class="customer-feedback">
+              <div class="feedback-icon">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+              </div>
+              <blockquote class="feedback-text">
+                "Der AI Voice Assistant hat unsere Kundenbetreuung revolutioniert. Sehr professionell und effizient!"
+              </blockquote>
+              <cite class="feedback-author">— Geschäftsführer, Beratungsunternehmen</cite>
             </div>
           </div>
         </div>
@@ -277,7 +345,7 @@
         <p class="section-description mb-12 text-lg">
           Machen Sie den nächsten Schritt in Richtung effizientere Kommunikation.
         </p>
-        
+
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button class="btn-primary">
             <span>Persönliche Demo buchen</span>

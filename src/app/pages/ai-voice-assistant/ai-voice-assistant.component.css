@@ -265,78 +265,265 @@
   line-height: 1.5;
 }
 
-/* Case Study */
-.case-study-card {
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, #0a0a0a 100%);
+/* Case Study Section - Enhanced Design */
+.case-study-section {
+  background: linear-gradient(135deg, var(--bg-primary) 0%, #0a0a0a 100%);
   border-radius: var(--border-radius-xl);
-  padding: 40px;
+  padding: 60px 40px;
   border: 1px solid rgba(55, 65, 81, 0.3);
+  position: relative;
+  overflow: hidden;
 }
 
-.case-study-title {
+.case-study-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+  opacity: 0.5;
+}
+
+.case-study-main-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+}
+
+.case-study-subtitle {
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.case-study-container {
+  display: grid;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+/* Company Info Card */
+.case-study-company-card {
+  background: rgba(26, 26, 26, 0.8);
+  border: 1px solid rgba(55, 65, 81, 0.3);
+  border-radius: var(--border-radius-lg);
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.company-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: var(--bg-primary);
+}
+
+.company-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.company-description {
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Process Section */
+.case-study-process {
+  background: rgba(17, 17, 17, 0.8);
+  border: 1px solid rgba(55, 65, 81, 0.3);
+  border-radius: var(--border-radius-lg);
+  padding: 32px;
+  backdrop-filter: blur(10px);
+}
+
+.process-title {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 24px;
+  text-align: center;
 }
 
-.process-step {
+.process-steps {
+  display: grid;
+  gap: 20px;
+}
+
+.process-step-card {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  margin-bottom: 20px;
+  gap: 20px;
+  padding: 24px;
+  background: rgba(26, 26, 26, 0.5);
+  border: 1px solid rgba(55, 65, 81, 0.2);
+  border-radius: var(--border-radius-md);
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.step-number {
-  width: 32px;
-  height: 32px;
-  background: var(--accent-primary);
+.process-step-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+  box-shadow: 0 10px 30px rgba(0, 212, 170, 0.1);
+}
+
+.step-number-modern {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
   color: var(--bg-primary);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-weight: 600;
-  font-size: 14px;
+  font-weight: 700;
+  font-size: 18px;
   flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 212, 170, 0.3);
 }
 
-.step-text {
-  color: var(--text-secondary);
-  line-height: 1.5;
-  padding-top: 4px;
+.step-content {
+  flex: 1;
 }
 
-.result-highlight {
+.step-icon {
+  width: 40px;
+  height: 40px;
   background: rgba(0, 212, 170, 0.1);
   border: 1px solid rgba(0, 212, 170, 0.2);
-  border-radius: var(--border-radius-md);
-  padding: 24px;
-  margin-top: 24px;
-}
-
-.result-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 16px;
-}
-
-.result-stat {
+  border-radius: var(--border-radius-sm);
   display: flex;
   align-items: center;
-  gap: 12px;
+  justify-content: center;
   margin-bottom: 12px;
-}
-
-.result-number {
-  font-size: 1.5rem;
-  font-weight: 700;
   color: var(--accent-primary);
 }
 
-.result-text {
+.step-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.step-description {
   color: var(--text-secondary);
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+/* Results Section */
+.case-study-results {
+  background: linear-gradient(135deg, rgba(0, 212, 170, 0.1) 0%, rgba(0, 184, 148, 0.05) 100%);
+  border: 1px solid rgba(0, 212, 170, 0.2);
+  border-radius: var(--border-radius-lg);
+  padding: 32px;
+  position: relative;
+  backdrop-filter: blur(10px);
+}
+
+.results-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.results-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: var(--border-radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-primary);
+}
+
+.results-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.results-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 32px;
+}
+
+.result-stat-card {
+  background: rgba(26, 26, 26, 0.6);
+  border: 1px solid rgba(55, 65, 81, 0.3);
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.result-stat-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-primary);
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-primary);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.stat-label {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Customer Feedback */
+.customer-feedback {
+  background: rgba(26, 26, 26, 0.4);
+  border: 1px solid rgba(55, 65, 81, 0.2);
+  border-radius: var(--border-radius-md);
+  padding: 24px;
+  position: relative;
+}
+
+.feedback-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent-primary);
+  margin-bottom: 16px;
+}
+
+.feedback-text {
+  font-size: 1.125rem;
+  color: var(--text-primary);
+  line-height: 1.6;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.feedback-author {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  font-weight: 500;
 }
 
 /* CTA Section */
@@ -430,10 +617,6 @@ button:hover {
     padding: 40px 24px;
   }
 
-  .case-study-card {
-    padding: 24px;
-  }
-
   .cta-section {
     padding: 60px 24px;
   }
@@ -448,5 +631,83 @@ button:hover {
 
   .text-7xl {
     font-size: 3.75rem;
+  }
+
+  /* Case Study Responsive */
+  .case-study-section {
+    padding: 40px 24px;
+  }
+
+  .case-study-main-title {
+    font-size: 2rem;
+  }
+
+  .case-study-subtitle {
+    font-size: 1rem;
+  }
+
+  .case-study-container {
+    gap: 24px;
+  }
+
+  .case-study-company-card,
+  .case-study-process,
+  .case-study-results {
+    padding: 24px;
+  }
+
+  .process-step-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 16px;
+  }
+
+  .step-content {
+    text-align: left;
+  }
+
+  .results-stats {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .result-stat-card {
+    padding: 20px;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .company-icon,
+  .results-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .step-number-modern {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .case-study-main-title {
+    font-size: 1.75rem;
+  }
+
+  .process-step-card {
+    padding: 20px;
+  }
+
+  .results-header {
+    flex-direction: column;
+    text-align: center;
+    gap: 12px;
+  }
+
+  .feedback-text {
+    font-size: 1rem;
   }
 }
