@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
 export class HeroComponent {
   onScheduleCall() {
     // Scroll to contact form
-    const contactForm = document.getElementById('contact-form');
+    const contactForm = document.getElementById('booking');
     if (contactForm) {
       contactForm.scrollIntoView({ behavior: 'smooth' });
     }
