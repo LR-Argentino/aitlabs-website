@@ -69,31 +69,31 @@
 <!--        </div>-->
 <!--      </div>-->
 
-      <!-- Projects Dropdown -->
-      <div class="relative dropdown-container"
-           (mouseenter)="onProjectsHover()"
-           (mouseleave)="onDropdownLeave()">
-        <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-          <span class="text-primary-text font-medium">Projects</span>
-          <svg class="w-4 h-4 transition-transform duration-200"
-               [class.rotate-180]="projectsDropdownOpen()"
-               fill="currentColor" viewBox="0 0 16 16">
-            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
-          </svg>
-        </div>
-        <!-- Projects Dropdown Menu -->
-        <div *ngIf="projectsDropdownOpen()"
-             class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
-          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 first:rounded-t-lg"
-             (click)="navigateToSection('projects'); $event.preventDefault()">Voice Assistant</a>
-          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"
-             (click)="navigateToSection('projects'); $event.preventDefault()">Intelligence Document Processing</a>
-          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"
-             (click)="navigateToSection('projects'); $event.preventDefault()">AI Agents</a>
-          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 last:rounded-b-lg"
-             (click)="navigateToSection('projects'); $event.preventDefault()">All Projects</a>
-        </div>
-      </div>
+      <!-- Projects Dropdown TODO: Uncomment when projects exists -->
+<!--      <div class="relative dropdown-container"-->
+<!--           (mouseenter)="onProjectsHover()"-->
+<!--           (mouseleave)="onDropdownLeave()">-->
+<!--        <div class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200">-->
+<!--          <span class="text-primary-text font-medium">Projects</span>-->
+<!--          <svg class="w-4 h-4 transition-transform duration-200"-->
+<!--               [class.rotate-180]="projectsDropdownOpen()"-->
+<!--               fill="currentColor" viewBox="0 0 16 16">-->
+<!--            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>-->
+<!--          </svg>-->
+<!--        </div>-->
+<!--        &lt;!&ndash; Projects Dropdown Menu &ndash;&gt;-->
+<!--        <div *ngIf="projectsDropdownOpen()"-->
+<!--             class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">-->
+<!--          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 first:rounded-t-lg"-->
+<!--             (click)="navigateToSection('projects'); $event.preventDefault()">Voice Assistant</a>-->
+<!--          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"-->
+<!--             (click)="navigateToSection('projects'); $event.preventDefault()">Intelligence Document Processing</a>-->
+<!--          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"-->
+<!--             (click)="navigateToSection('projects'); $event.preventDefault()">AI Agents</a>-->
+<!--          <a href="#projects" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 last:rounded-b-lg"-->
+<!--             (click)="navigateToSection('projects'); $event.preventDefault()">All Projects</a>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!-- Blog Link -->
       <div class="px-4 py-2 rounded-full">
