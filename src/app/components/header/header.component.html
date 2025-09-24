@@ -27,8 +27,8 @@
         <!-- Services Dropdown Menu -->
         <div *ngIf="servicesDropdownOpen()"
              class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown">
-          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
-             (click)="navigateToSection('services'); $event.preventDefault()">AI Voice Assistant</a>
+          <a href="/ai-voice-assistant" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
+             (click)="navigateToAiVoiceAssistant(); $event.preventDefault()">AI Voice Assistant</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
              (click)="navigateToSection('services'); $event.preventDefault()">Intelligence Document Processing</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
@@ -187,18 +187,18 @@
             </svg>
           </button>
           <div *ngIf="mobileServicesDropdownOpen()" class="ml-4 mt-2 space-y-1 bg-gray-50 rounded-lg p-2">
+            <a routerLink="/ai-voice-assistant"
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="closeMobileMenu()">AI Voice Assistant</a>
             <a href="#about"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
-               (click)="navigateToSection('about')">AI Vice Assistant</a>
-            <a href="#about"
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
-               (click)="navigateToSection('about')">Web Development</a>
-            <a href="#about"
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
-               (click)="navigateToSection('about')">Logo & Branding</a>
+               (click)="navigateToSection('about')">Intelligence Document Processing</a>
             <a href="#about"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
                (click)="navigateToSection('about')">AI Automation</a>
+            <a href="#about"
+               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               (click)="navigateToSection('about')">AI Agents</a>
           </div>
         </div>
 

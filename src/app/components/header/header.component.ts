@@ -1,5 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -23,6 +24,8 @@ export class HeaderComponent {
   // Timeout reference for delayed closing
   private closeTimeout: any = null;
   private currentActiveDropdown: string | null = null;
+
+  constructor(private router: Router) {}
 
   // Simplified hover methods for desktop dropdowns
   onDropdownEnter(dropdownType: string) {
@@ -180,6 +183,19 @@ export class HeaderComponent {
     // Close all dropdowns first
     this.closeAllDropdowns();
 
+    // Check if we're on the home page
+    if (this.router.url !== '/') {
+      // Navigate to home page first, then scroll to section
+      this.router.navigate(['/']).then(() => {
+        setTimeout(() => this.scrollToSection(sectionId), 100);
+      });
+      return;
+    }
+
+    this.scrollToSection(sectionId);
+  }
+
+  private scrollToSection(sectionId: string) {
     // Navigate to section
     let targetElement: HTMLElement | null = null;
 
@@ -223,6 +239,19 @@ export class HeaderComponent {
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  navigateToAiVoiceAssistant() {
+    this.closeAllDropdowns();
+    this.router.navigate(['/ai-voice-assistant']);
+  }
+
+  closeMobileMenu() {
+    this.mobileMenuOpen.set(false);
+    this.mobileServicesDropdownOpen.set(false);
+    this.mobileCaseStudyDropdownOpen.set(false);
+    this.mobileLanguageDropdownOpen.set(false);
+    document.body.classList.remove('mobile-menu-open');
   }
 
   onContactClick() {
