@@ -35,14 +35,13 @@
       <div>
         <h4 class="text-lg font-semibold mb-4">Services</h4>
         <ul class="space-y-2">
+          <li><a href="/ai-voice-assistant" class="text-gray-300 hover:text-primary-green transition-colors">AI Voice Assistant</a></li>
           <li><a href="#services" class="text-gray-300 hover:text-primary-green transition-colors"
-                 (click)="navigateToSection('services'); $event.preventDefault()">UI/UX Design</a></li>
+                 (click)="navigateToSection('services'); $event.preventDefault()">AI Automations</a></li>
           <li><a href="#services" class="text-gray-300 hover:text-primary-green transition-colors"
-                 (click)="navigateToSection('services'); $event.preventDefault()">Web Development</a></li>
+                 (click)="navigateToSection('services'); $event.preventDefault()">AI Agents</a></li>
           <li><a href="#services" class="text-gray-300 hover:text-primary-green transition-colors"
-                 (click)="navigateToSection('services'); $event.preventDefault()">Logo & Branding</a></li>
-          <li><a href="#services" class="text-gray-300 hover:text-primary-green transition-colors"
-                 (click)="navigateToSection('services'); $event.preventDefault()">AI Automation</a></li>
+                 (click)="navigateToSection('services'); $event.preventDefault()">Intelligence Document Processing & RAG</a></li>
         </ul>
       </div>
 
@@ -67,8 +66,8 @@
         <form (ngSubmit)="onSubmit()" class="space-y-4">
           <div>
             <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email Address</label>
-            <input 
-              type="email" 
+            <input
+              type="email"
               id="email"
               [value]="contactForm().email"
               (input)="updateEmail($any($event.target).value)"
@@ -76,10 +75,10 @@
               class="w-full px-4 py-2 bg-gray-800 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-primary-green focus:ring-1 focus:ring-primary-green"
               required>
           </div>
-          
+
           <div>
             <label for="message" class="block text-sm font-medium text-gray-300 mb-1">Message</label>
-            <textarea 
+            <textarea
               id="message"
               [value]="contactForm().message"
               (input)="updateMessage($any($event.target).value)"
@@ -89,7 +88,7 @@
               required></textarea>
           </div>
 
-          <button 
+          <button
             type="submit"
             [disabled]="isSubmitting()"
             class="w-full bg-primary-green text-primary-text font-medium py-2 px-4 rounded-lg hover:bg-opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
@@ -104,7 +103,7 @@
           </button>
 
           <!-- Success/Error Message -->
-          <div *ngIf="submitMessage()" 
+          <div *ngIf="submitMessage()"
                class="text-sm p-3 rounded-lg"
                [class.bg-green-800]="submitMessage().includes('Thank you')"
                [class.text-green-200]="submitMessage().includes('Thank you')"
