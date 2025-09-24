@@ -214,10 +214,11 @@
 
 /* Stats Section */
 .stats-section {
-  background: linear-gradient(135deg, var(--bg-secondary) 0%, #0f0f0f 100%);
+  background: #ffffff;
   border-radius: var(--border-radius-xl);
   padding: 60px 40px;
   margin: 40px 0;
+  border: 1px solid rgba(55, 65, 81, 0.3);
 }
 
 .stat-card {
@@ -234,7 +235,7 @@
 }
 
 .stat-label {
-  color: var(--text-secondary);
+  color: #6b7280;
   font-size: 1rem;
   font-weight: 500;
 }
@@ -245,7 +246,7 @@
   align-items: flex-start;
   gap: 16px;
   padding: 20px;
-  background-color: var(--bg-secondary);
+  background-color: #ffffff;
   border-radius: var(--border-radius-md);
   margin-bottom: 16px;
   border: 1px solid rgba(55, 65, 81, 0.2);
@@ -260,7 +261,7 @@
 }
 
 .security-text {
-  color: var(--text-secondary);
+  color: #6b7280;
   line-height: 1.5;
 }
 
