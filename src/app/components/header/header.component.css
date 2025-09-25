@@ -3,6 +3,25 @@ header {
   position: relative;
 }
 
+/* Sticky header styles for desktop */
+@media (min-width: 768px) {
+  header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 50 !important;
+    background-color: rgb(249 249 249);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); /* Start with no shadow */
+  }
+
+  /* Shadow appears when scrolled */
+  header.header-scrolled {
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  }
+}
+
 .rotate-180 {
   transform: rotate(180deg);
 }

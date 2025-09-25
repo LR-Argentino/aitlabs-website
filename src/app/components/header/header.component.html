@@ -1,5 +1,7 @@
 <!-- Header Section -->
-<header class="py-6" (click)="closeAllDropdowns()">
+<header class="py-6 md:sticky md:top-0 md:z-50 transition-shadow duration-300"
+        [class.header-scrolled]="isScrolled()"
+        (click)="closeAllDropdowns()">
   <div class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between">
     <!-- Logo -->
     <div class="flex items-center gap-2">
@@ -35,11 +37,11 @@
           <a href="/ai-voice-assistant" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 first:rounded-t-lg"
              (click)="navigateToAiVoiceAssistant(); $event.preventDefault()">AI Voice Assistant</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"
-             (click)="navigateToSection('services'); $event.preventDefault()">Intelligence Document Processing</a>
-          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"
              (click)="navigateToSection('services'); $event.preventDefault()">AI Automation</a>
           <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 last:rounded-b-lg"
              (click)="navigateToSection('services'); $event.preventDefault()">AI Agents</a>
+          <a href="#services" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"
+             (click)="navigateToSection('services'); $event.preventDefault()">Intelligence Document Processing</a>
         </div>
       </div>
 

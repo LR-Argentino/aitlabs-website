@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit, OnDestroy, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit, OnDestroy {
   protected readonly servicesDropdownOpen = signal(false);
   protected readonly caseStudyDropdownOpen = signal(false);
   protected readonly projectsDropdownOpen = signal(false);
@@ -21,11 +21,33 @@ export class HeaderComponent {
   protected readonly mobileCaseStudyDropdownOpen = signal(false);
   protected readonly mobileLanguageDropdownOpen = signal(false);
 
+  // Scroll state signal
+  protected readonly isScrolled = signal(false);
+
   // Timeout reference for delayed closing
   private closeTimeout: any = null;
   private currentActiveDropdown: string | null = null;
 
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    // Initial scroll check
+    this.checkScrollPosition();
+  }
+
+  ngOnDestroy() {
+    // Cleanup if needed
+  }
+
+  @HostListener('window:scroll')
+  onWindowScroll() {
+    this.checkScrollPosition();
+  }
+
+  private checkScrollPosition() {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    this.isScrolled.set(scrollTop > 10);
+  }
 
   // Simplified hover methods for desktop dropdowns
   onDropdownEnter(dropdownType: string) {
