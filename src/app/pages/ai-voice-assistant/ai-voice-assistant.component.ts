@@ -10,36 +10,36 @@ import { RouterModule } from '@angular/router';
   styleUrl: './ai-voice-assistant.component.css'
 })
 export class AiVoiceAssistantComponent {
-  
+
   // Use cases data
   useCases = [
     {
-      title: 'Terminplanung & Kalenderintegration',
-      description: 'Kunden vereinbaren telefonisch Termine, ohne dass ein Mitarbeiter eingreifen muss.',
-      details: 'Der Assistent prüft Kalender, schlägt freie Slots vor und sendet Bestätigungen per E-Mail.',
+      title: 'Scheduling & Calendar Integration',
+      description: 'Customers book appointments over the phone without human intervention.',
+      details: 'The assistant checks availability, proposes free slots, and sends confirmations.',
       icon: 'calendar'
     },
     {
-      title: 'Automatisierte Kommunikation',
-      description: 'Erstellung und Versand von E-Mails, Erinnerungen oder Meeting-Links.',
-      details: 'Follow-ups nach Gesprächen erfolgen automatisch – keine verpassten Nachfassaktionen mehr.',
+      title: 'Automated Communication',
+      description: 'Generates and sends emails, reminders, or meeting links.',
+      details: 'Ensures follow-ups happen automatically – no more missed outreach.',
       icon: 'mail'
     },
     {
-      title: 'Kundenservice & Hotline',
-      description: 'Der Assistent beantwortet FAQs rund um Produkte, Rechnungen oder Lieferstatus.',
-      details: 'Komplexere Fälle werden erkannt und gezielt an einen Mitarbeiter weitergeleitet.',
+      title: 'Customer Support & Hotlines',
+      description: 'Handles FAQs on invoices, delivery status, or product info.',
+      details: 'Escalates complex cases directly to human staff.',
       icon: 'support'
     },
     {
-      title: 'Interne Assistenz',
-      description: 'Mitarbeiter starten Meetings, fragen Projektdaten ab oder setzen Erinnerungen – alles per Sprache.',
+      title: 'Internal Assistance',
+      description: 'Employees launch meetings, query project data, or set reminders – all by voice.',
       details: '',
       icon: 'team'
     },
     {
-      title: 'Multilinguale Unterstützung',
-      description: 'Der Assistent spricht mehrere Sprachen und Dialekte, ideal für international tätige Unternehmen.',
+      title: 'Multilingual Support',
+      description: 'Speaks multiple languages and accents, ideal for international businesses.',
       details: '',
       icon: 'globe'
     }
@@ -48,33 +48,33 @@ export class AiVoiceAssistantComponent {
   // Benefits data
   benefits = [
     {
-      title: '24/7 Erreichbarkeit',
-      description: 'Kunden erhalten jederzeit Antworten, ohne Wartezeiten.',
+      title: '24/7 Availability',
+      description: 'Customers get answers anytime, without waiting.',
       icon: 'clock'
     },
     {
-      title: 'Effizienzsteigerung',
-      description: 'Routineaufgaben entfallen, Mitarbeiter können sich auf wertschöpfende Tätigkeiten konzentrieren.',
+      title: 'Efficiency Gains',
+      description: 'Routine tasks are automated, freeing employees for higher-value work.',
       icon: 'efficiency'
     },
     {
-      title: 'Kostensenkung',
-      description: 'Weniger manuelle Arbeit im Backoffice und Kundenservice.',
+      title: 'Cost Reduction',
+      description: 'Lower back-office and support expenses.',
       icon: 'cost'
     },
     {
-      title: 'Konsistente Qualität',
-      description: 'Gleichbleibend hohe Servicequalität, unabhängig von Uhrzeit oder Mitarbeiter.',
+      title: 'Consistent Quality',
+      description: 'Reliable service regardless of time or workload.',
       icon: 'quality'
     },
     {
-      title: 'Skalierbarkeit',
-      description: 'Egal ob 100 oder 10.000 Anfragen pro Woche – der Assistent wächst mit.',
+      title: 'Scalability',
+      description: 'Handles 100 or 10,000 interactions per week seamlessly.',
       icon: 'scale'
     },
     {
-      title: 'Wettbewerbsvorteil',
-      description: 'Frühzeitiger Einsatz von KI-Technologien stärkt Ihre Innovationskraft.',
+      title: 'Competitive Edge',
+      description: 'Early adoption of AI builds your innovation profile.',
       icon: 'advantage'
     }
   ];
@@ -83,15 +83,15 @@ export class AiVoiceAssistantComponent {
   statistics = [
     {
       value: '40%',
-      description: 'Zeitersparnis bei Terminorganisation'
+      description: 'time savings on scheduling tasks'
     },
     {
       value: '25-30%',
-      description: 'Kostensenkung im Kundenservice'
+      description: 'cost reduction in customer service'
     },
     {
       value: '60%',
-      description: 'weniger manuelle Koordination'
+      description: 'less manual coordination'
     }
   ];
 
@@ -99,28 +99,28 @@ export class AiVoiceAssistantComponent {
   technicalFeatures = [
     {
       title: 'Speech-to-Text (ASR)',
-      description: 'Sprache wird zuverlässig in Text umgewandelt.',
+      description: 'Converts spoken words into text.',
       icon: 'microphone'
     },
     {
       title: 'Natural Language Understanding (NLU)',
-      description: 'Die KI versteht, welche Absicht (Intent) und welche Informationen (Entities) im Satz enthalten sind.',
+      description: 'Detects intent and extracts key information.',
       icon: 'brain'
     },
     {
-      title: 'Task-Orchestration',
-      description: 'Der Assistent setzt die Anfrage in konkrete Aktionen um, z. B. Terminbuchungen, E-Mail-Versand oder CRM-Einträge.',
+      title: 'Task Orchestration',
+      description: 'Translates requests into actions such as booking meetings, sending emails, or updating a CRM.',
       icon: 'workflow'
     }
   ];
 
   // Security features
   securityFeatures = [
-    'End-to-End-Verschlüsselung bei Sprach- und Datenübertragung',
-    'DSGVO-Konformität: Speicherung nur auf europäischen Servern oder On-Premises möglich',
-    'Rollen- und Rechteverwaltung: Zugriff nur für autorisierte Nutzer',
-    'Audit-Logs & Monitoring: Nachvollziehbarkeit aller Aktionen',
-    'Fehler- und Fallback-Handling: Bei Unsicherheiten wird nachgefragt oder an einen Menschen eskaliert'
+    'End-to-end encryption for all voice and data transmissions',
+    'GDPR compliance: storage on European servers or on-premises',
+    'Role-based access control to protect sensitive information',
+    'Audit logs & monitoring for full transparency',
+    'Error handling & fallbacks: if uncertain, the assistant asks clarifying questions or escalates to a human agent'
   ];
 
   scrollToSection(sectionId: string) {
