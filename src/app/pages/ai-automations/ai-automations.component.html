@@ -1,0 +1,324 @@
+<!-- AI Automations Service Page -->
+<div class="ai-automations-page">
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="text-center max-w-4xl mx-auto">
+        <!-- Tagline -->
+        <div class="hero-tagline">
+          AI Automations
+        </div>
+
+        <!-- Main Title -->
+        <h1 class="hero-title">
+          <span style="color: var(--accent-primary);">AI Automations</span>
+          – Redefining Efficiency
+        </h1>
+
+        <!-- Description -->
+        <p class="hero-description">
+          Free your business from repetitive routines with intelligent AI Automations that handle tasks automatically, 
+          reduce errors by up to 90%, and let your employees focus on what really matters: growth and innovation.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <button
+            class="btn-primary"
+            (click)="navigateToContact()">
+            <span>Start Your Demo Today</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+          <button
+            class="btn-secondary"
+            (click)="scrollToSection('use-cases')">
+            View Use Cases
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What are AI Automations Section -->
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="section-card">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="text-center lg:text-left">
+            <div class="section-tagline">
+              What are they?
+            </div>
+            <h2 class="section-title">
+              What are AI Automations?
+            </h2>
+            <p class="section-description">
+              AI Automations combine <strong>artificial intelligence</strong> with <strong>process automation</strong>. 
+              While traditional automations only follow rigid rules, AI Automations can understand data, make decisions, 
+              consider context, and learn & improve through training and feedback.
+            </p>
+            <p class="section-description">
+              The result: Processes run not only automatically but also <strong>intelligently and flexibly</strong>.
+            </p>
+          </div>
+
+          <!-- How It Works Steps -->
+          <div class="space-y-6">
+            <div *ngFor="let step of howItWorksSteps"
+                 class="feature-card">
+              <div class="flex items-start gap-4">
+                <div class="feature-icon">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="feature-title">{{ step.title }}</h3>
+                  <p class="feature-description">{{ step.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section id="use-cases" class="section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="section-card">
+        <div class="text-center mb-16">
+          <div class="section-tagline">
+            Use Cases
+          </div>
+          <h2 class="section-title">
+            Typical Use Cases
+          </h2>
+          <p class="section-description max-w-2xl mx-auto">
+            Discover how AI Automations can revolutionize your business processes across different departments
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div *ngFor="let useCase of useCases; let i = index"
+               class="feature-card group">
+            <h3 class="feature-title">{{ useCase.title }}</h3>
+            <p class="feature-description mb-4">{{ useCase.description }}</p>
+            <p *ngIf="useCase.details" class="text-sm text-gray-400">{{ useCase.details }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Statistics Section -->
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="stats-section">
+        <div class="text-center mb-16">
+          <div class="section-tagline">
+            Numbers & Business Value
+          </div>
+          <h2 class="section-title">
+            Measurable Results
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <div *ngFor="let stat of statistics"
+               class="stat-card">
+            <div class="stat-number">{{ stat.value }}</div>
+            <p class="stat-label">{{ stat.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="section-card">
+        <div class="text-center mb-16">
+          <div class="section-tagline">
+            Benefits
+          </div>
+          <h2 class="section-title">
+            Benefits for Your Business
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div *ngFor="let benefit of benefits"
+               class="feature-card">
+            <div class="feature-icon mb-4">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+              </svg>
+            </div>
+            <h3 class="feature-title">{{ benefit.title }}</h3>
+            <p class="feature-description">{{ benefit.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Real-World Example Section -->
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="case-study-section">
+        <div class="text-center mb-16">
+          <div class="section-tagline">
+            Real-World Example
+          </div>
+          <h2 class="case-study-main-title">
+            Success Story from Practice
+          </h2>
+          <p class="case-study-subtitle">
+            How an e-commerce company transformed their operations
+          </p>
+        </div>
+
+        <div class="case-study-container">
+          <!-- Company Info Card -->
+          <div class="case-study-company-card">
+            <div class="company-icon">
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M7 18c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12L8.1 13h7.45c.75 0 1.41-.41 1.75-1.03L21.7 4H5.21l-.94-2H1zm16 16c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/>
+              </svg>
+            </div>
+            <h3 class="company-title">{{ realWorldExample.company }}</h3>
+            <p class="company-description">{{ realWorldExample.description }}</p>
+          </div>
+
+          <!-- Process Steps -->
+          <div class="case-study-process">
+            <h4 class="process-title">Automated Processes</h4>
+            <div class="process-steps">
+              <div *ngFor="let process of realWorldExample.processes; let i = index"
+                   class="process-step-card">
+                <div class="step-number-modern">{{ i + 1 }}</div>
+                <div class="step-content">
+                  <div class="step-icon">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                  </div>
+                  <h5 class="step-title">{{ process.title }}</h5>
+                  <p class="step-description">{{ process.description }}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Card -->
+          <div class="case-study-results">
+            <div class="results-header">
+              <div class="results-icon">
+                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
+                </svg>
+              </div>
+              <h4 class="results-title">Measurable Results</h4>
+            </div>
+
+            <div class="results-stats">
+              <div *ngFor="let result of realWorldExample.results"
+                   class="result-stat-card">
+                <div class="stat-value">{{ result.value }}</div>
+                <div class="stat-label">{{ result.description }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Security & Trust Section -->
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="section-card">
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+          <div class="text-center lg:text-left">
+            <div class="section-tagline">
+              Security
+            </div>
+            <h2 class="section-title">
+              Security & Trust
+            </h2>
+            <p class="section-description mb-8 leading-relaxed">
+              When it comes to automation, trust is essential. That's why our AI Automations are 
+              <strong>secure, transparent, and controllable</strong>. You stay in full control at all times.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <div *ngFor="let feature of securityFeatures"
+                 class="flex items-start gap-3 p-4 border border-gray-700 rounded-xl">
+              <div class="w-6 h-6 bg-primary-green/50 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                </svg>
+              </div>
+              <p class="text-black text-sm">{{ feature }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="section-card">
+        <div class="text-center mb-16">
+          <div class="section-tagline">
+            Challenges & Solutions
+          </div>
+          <h2 class="section-title">
+            Frequently Asked Questions
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div *ngFor="let faq of faqs"
+               class="faq-card">
+            <h3 class="faq-question">{{ faq.question }}</h3>
+            <p class="faq-answer">{{ faq.answer }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section id="contact" class="section">
+    <div class="max-w-7xl mx-auto px-6 md:px-12">
+      <div class="cta-section">
+        <div class="text-center">
+          <h2 class="cta-title">
+            Ready to Free Your Business from Repetitive Routines?
+          </h2>
+          <p class="cta-description">
+            Start your demo of our AI Automations today and experience how much time, money, and energy you can save.
+          </p>
+          <button
+            class="btn-primary"
+            (click)="navigateToContact()">
+            <span>Book Your Demo Now</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>

@@ -10,6 +10,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/ai-voice-assistant/ai-voice-assistant.component').then(m => m.AiVoiceAssistantComponent)
   },
   {
+    path: 'ai-automations',
+    loadComponent: () => import('./pages/ai-automations/ai-automations.component').then(m => m.AiAutomationsComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }
