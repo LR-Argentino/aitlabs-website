@@ -140,7 +140,7 @@ header {
 }
 
 /* Mobile menu styles */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   nav {
     display: none;
   }
@@ -148,5 +148,16 @@ header {
   /* Add mobile menu button if needed */
   .mobile-menu-button {
     display: block;
+  }
+}
+
+/* Ensure desktop nav shows at 768px and above */
+@media (min-width: 768px) {
+  nav {
+    display: flex !important;
+  }
+  
+  .mobile-menu-button {
+    display: none;
   }
 }
