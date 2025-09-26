@@ -2,6 +2,7 @@ import { Component, signal, OnInit, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { InfoBannerComponent } from './components/info-banner/info-banner.component';
 import { LanguageService } from './core/services/language.service';
 
 @Component({
@@ -10,7 +11,8 @@ import { LanguageService } from './core/services/language.service';
   imports: [
     RouterOutlet,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    InfoBannerComponent
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'

@@ -495,6 +495,16 @@ export class TranslationService {
     'common.message': {
       en: 'Message',
       de: 'Nachricht'
+    },
+
+    // Info Banner
+    'info.banner.title': {
+      en: 'Website Under Construction',
+      de: 'Webseite in Bearbeitung'
+    },
+    'info.banner.message': {
+      en: 'This website is currently under development. Some features may not be fully functional yet as we continue to build and improve the platform.',
+      de: 'Diese Webseite befindet sich derzeit in der Entwicklung. Einige Funktionen sind möglicherweise noch nicht vollständig funktionsfähig, da wir die Plattform weiterhin aufbauen und verbessern.'
     }
   };
 

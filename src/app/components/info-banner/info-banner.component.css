@@ -1,0 +1,57 @@
+/* Info Banner Styles */
+.info-banner {
+  animation: slideDown 0.4s ease-out;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: rgba(254, 243, 199, 0.95); /* Light yellow background with transparency */
+}
+
+.info-banner:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Icon animation */
+.info-banner lucide-icon {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .info-banner {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    padding: 1rem;
+    max-width: calc(100% - 2rem);
+  }
+  
+  .info-banner h3 {
+    font-size: 0.875rem;
+  }
+  
+  .info-banner p {
+    font-size: 0.8125rem;
+  }
+}
