@@ -1,364 +1,277 @@
-<!-- AI Voice Assistant Service Page -->
-<div class="ai-voice-assistant-page">
-
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="text-center max-w-4xl mx-auto">
-        <!-- Tagline -->
-        <div class="hero-tagline">
-          AI Voice Assistant
-        </div>
-
-        <!-- Main Title -->
-        <h1 class="hero-title">
-          Your intelligent
-          <span style="color: var(--accent-primary);">Voice Assistant</span>
-          for Business
-        </h1>
-
-        <!-- Description -->
-        <p class="hero-description">
-          A solution specialized for business applications that not only understands commands,
-          but also handles complex workflows, automates processes, and integrates seamlessly into your IT systems.
-        </p>
-
-        <!-- CTA Buttons -->
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button
-            class="btn-primary"
-            (click)="navigateToContact()">
-            <span>Book Personal Demo</span>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </button>
-          <button
-            class="btn-secondary"
-            (click)="scrollToSection('use-cases')">
-            View Use Cases
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- What is AI Voice Assistant Section -->
-  <section class="section">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="section-card">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-          <div class="text-center lg:text-left">
-            <div class="section-tagline">
-              What is it?
-            </div>
-            <h2 class="section-title">
-              What is an AI Voice Assistant?
-            </h2>
-            <p class="section-description">
-              An AI Voice Assistant is an AI-powered system that communicates in natural language,
-              understands user requests, and executes tasks. It combines three core technologies for genuine, dialog-based interaction.
-            </p>
+<!-- Shell -->
+<div class="min-h-screen flex flex-col">
+  <!-- Main -->
+  <main class="flex-1">
+    <!-- Hero -->
+    <section class="relative">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-6">
+        <div class="flex flex-col items-center text-center">
+          <!-- Tag -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border bg-white shadow-sm" style="border-color: #ffffff14; background-color: var(--brand-weak);">
+            <span class="inline-block size-2 rounded-full" style="background-color:#012013;"></span>
+            <span class="text-xs font-medium text-neutral-900">AI Voice Assistant</span>
           </div>
 
-          <!-- Technical Features -->
-          <div class="space-y-6">
-            <div *ngFor="let feature of technicalFeatures"
-                 class="feature-card">
-              <div class="flex items-start gap-4">
-                <div class="feature-icon">
-                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                  </svg>
-                </div>
-                <div>
-                  <h3 class="feature-title">{{ feature.title }}</h3>
-                  <p class="feature-description">{{ feature.description }}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+          <!-- Title -->
+          <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-neutral-900 max-w-3xl">
+            Get hours back every week with a Voice Assistant that actually works
+          </h1>
 
-  <!-- Use Cases Section -->
-  <section id="use-cases" class="section">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="section-card">
-        <div class="text-center mb-16">
-          <div class="section-tagline">
-            Use Cases
-          </div>
-          <h2 class="section-title">
-            Typical Use Cases
-          </h2>
-          <p class="section-description max-w-2xl mx-auto">
-            Discover how an AI Voice Assistant can revolutionize your business processes
+          <p class="mt-5 text-base sm:text-lg text-neutral-600 max-w-2xl">
+            Speak naturally. Your assistant understands, acts, books meetings, and sends invitations automatically—securely and privately.
           </p>
-        </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let useCase of useCases; let i = index"
-               class="feature-card group">
-<!--            <div class="feature-icon mb-6">-->
-<!--              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">-->
-<!--                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>-->
-<!--              </svg>-->
-<!--            </div>-->
-            <h3 class="feature-title">{{ useCase.title }}</h3>
-            <p class="feature-description mb-4">{{ useCase.description }}</p>
-            <p *ngIf="useCase.details" class="text-sm text-gray-400">{{ useCase.details }}</p>
+          <!-- CTAs -->
+          <div class="mt-8 flex flex-col sm:flex-row items-center gap-3">
+            <a (click)="scrollToDemo()" class="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-900 ring-1 ring-black/5 cursor-pointer">
+              Schedule call
+              <lucide-angular [img]="ArrowUpRightIcon" class="size-5"></lucide-angular>
+            </a>
+            <a (click)="scrollToSection('case')" class="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 hover:bg-neutral-50 cursor-pointer">
+              View case study
+            </a>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-<!--  &lt;!&ndash; Statistics Section &ndash;&gt;-->
-<!--  <section class="section">-->
-<!--    <div class="max-w-7xl mx-auto px-6 md:px-12">-->
-<!--      <div class="stats-section">-->
-<!--        <div class="text-center mb-16">-->
-<!--          <div class="section-tagline">-->
-<!--            Zahlen & Business Value-->
-<!--          </div>-->
-<!--          <h2 class="section-title">-->
-<!--            Messbare Ergebnisse-->
-<!--          </h2>-->
-<!--        </div>-->
-
-<!--        <div class="grid md:grid-cols-3 gap-8">-->
-<!--          <div *ngFor="let stat of statistics"-->
-<!--               class="stat-card">-->
-<!--            <div class="stat-number">{{ stat.value }}</div>-->
-<!--            <p class="stat-label">{{ stat.description }}</p>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </section>-->
-
-  <!-- Benefits Section -->
-  <section class="section">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="section-card">
-        <div class="text-center mb-16">
-          <div class="section-tagline">
-            Benefits
-          </div>
-          <h2 class="section-title">
-            Benefits for Your Business
-          </h2>
-        </div>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div *ngFor="let benefit of benefits"
-               class="feature-card">
-            <div class="feature-icon mb-4">
-              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-              </svg>
+          <!-- Compliance -->
+          <div class="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-neutral-600">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200 bg-white">
+              <lucide-angular [img]="ShieldCheckIcon" class="size-4 text-neutral-700"></lucide-angular>
+              <span>GDPR Switzerland &amp; EU compliant</span>
             </div>
-            <h3 class="feature-title">{{ benefit.title }}</h3>
-            <p class="feature-description">{{ benefit.description }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Security & Compliance Section -->
-  <section class="section">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="section-card">
-        <div class="grid lg:grid-cols-2 gap-16 items-center">
-          <div class="text-center lg:text-left">
-            <div class="section-tagline">
-              Security
-            </div>
-            <h2 class="section-title">
-              Security & Compliance
-            </h2>
-            <p class="section-description mb-8 leading-relaxed">
-              In business environments, data protection is critical.
-              Our AI Voice Assistant meets the highest standards.
-            </p>
-          </div>
-
-          <div class="space-y-4">
-            <div *ngFor="let feature of securityFeatures"
-                 class="flex items-start gap-3 p-4 border border-gray-700 rounded-xl">
-              <div class="w-6 h-6 bg-primary-green/50 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
-                <svg class="w-3 h-3 text-green-500" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
-                </svg>
-              </div>
-              <p class="text-black text-sm">{{ feature }}</p>
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200 bg-white">
+              <lucide-angular [img]="LockIcon" class="size-4 text-neutral-700"></lucide-angular>
+              <span>Data residency &amp; DPA available</span>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- Case Study Section -->
-  <section class="section">
-    <div class="max-w-7xl mx-auto px-6 md:px-12">
-      <div class="case-study-section">
-        <div class="text-center mb-16">
-          <div class="section-tagline">
-            Real-World Example
-          </div>
-          <h2 class="case-study-main-title">
-            Success Story from Practice
-          </h2>
-          <p class="case-study-subtitle">
-            How a mid-sized consulting firm saves 60% time
-          </p>
-        </div>
-
-        <div class="case-study-container">
-          <!-- Company Info Card -->
-          <div class="case-study-company-card">
-            <div class="company-icon">
-              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/>
-              </svg>
-            </div>
-            <h3 class="company-title">Mid-sized Consulting Firm</h3>
-            <p class="company-description">Specialized in business consulting with 50+ employees</p>
-          </div>
-
-          <!-- Process Steps -->
-          <div class="case-study-process">
-            <h4 class="process-title">The Automation Process</h4>
-            <div class="process-steps">
-              <div class="process-step-card">
-                <div class="step-number-modern">1</div>
-                <div class="step-content">
-                  <div class="step-icon">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                    </svg>
-                  </div>
-                  <h5 class="step-title">Customer Call</h5>
-                  <p class="step-description">Prospects call to request an initial consultation</p>
+        <!-- Hero Grid: Text + 3D Voice Animation -->
+        <div class="mt-12 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <!-- Feature Highlights -->
+          <div class="order-2 lg:order-1">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card">
+                <div class="flex items-center gap-2 text-neutral-900 mb-1">
+                  <lucide-angular [img]="BrainIcon" class="size-5"></lucide-angular>
+                  <h3 class="text-base font-semibold tracking-tight">Natural Language</h3>
                 </div>
+                <p class="text-sm text-neutral-600">Understands multi‑turn conversations, domains, and context.</p>
               </div>
-
-              <div class="process-step-card">
-                <div class="step-number-modern">2</div>
-                <div class="step-content">
-                  <div class="step-icon">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                  </div>
-                  <h5 class="step-title">AI Conversation</h5>
-                  <p class="step-description">The assistant engages in a short conversation, captures the request, and proposes available slots</p>
+              <div class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card">
+                <div class="flex items-center gap-2 text-neutral-900 mb-1">
+                  <lucide-angular [img]="AudioWaveformIcon" class="size-5"></lucide-angular>
+                  <h3 class="text-base font-semibold tracking-tight">Real‑time Speech</h3>
                 </div>
+                <p class="text-sm text-neutral-600">Low‑latency speech‑to‑text and natural TTS responses.</p>
               </div>
-
-              <div class="process-step-card">
-                <div class="step-number-modern">3</div>
-                <div class="step-content">
-                  <div class="step-icon">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/>
-                    </svg>
-                  </div>
-                  <h5 class="step-title">Automatic Appointment Booking</h5>
-                  <p class="step-description">Automatically sends a calendar invite with a video meeting link</p>
+              <div class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card">
+                <div class="flex items-center gap-2 text-neutral-900 mb-1">
+                  <lucide-angular [img]="BotIcon" class="size-5"></lucide-angular>
+                  <h3 class="text-base font-semibold tracking-tight">LLM Orchestration</h3>
                 </div>
+                <p class="text-sm text-neutral-600">Tool use, retrieval, and guardrails with deterministic actions.</p>
               </div>
-
-              <div class="process-step-card">
-                <div class="step-number-modern">4</div>
-                <div class="step-content">
-                  <div class="step-icon">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
-                  </div>
-                  <h5 class="step-title">Follow-up</h5>
-                  <p class="step-description">After the meeting, the assistant generates a follow-up email with relevant documents</p>
+              <div class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card">
+                <div class="flex items-center gap-2 text-neutral-900 mb-1">
+                  <lucide-angular [img]="CalendarClockIcon" class="size-5"></lucide-angular>
+                  <h3 class="text-base font-semibold tracking-tight">Booking &amp; Invites</h3>
                 </div>
+                <p class="text-sm text-neutral-600">Auto‑books meetings, sends invitations, reminders, and follow‑ups.</p>
+              </div>
+            </div>
+
+            <!-- Integrations -->
+            <div class="mt-6 p-5 rounded-2xl border bg-white">
+              <div class="flex items-center gap-2 text-neutral-900 mb-2">
+                <lucide-angular [img]="PlugIcon" class="size-5"></lucide-angular>
+                <h3 class="text-base font-semibold tracking-tight">Integrates with your stack</h3>
+              </div>
+              <div class="flex flex-wrap items-center gap-2 text-sm text-neutral-600">
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Google Calendar</span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Outlook</span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Zoom</span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Teams</span>
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Email (SMTP/API)</span>
               </div>
             </div>
           </div>
 
-          <!-- Results Card -->
-          <div class="case-study-results">
-            <div class="results-header">
-              <div class="results-icon">
-                <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
-                </svg>
-              </div>
-              <h4 class="results-title">Measurable Results</h4>
-            </div>
+          <!-- 3D Voice Animation Card -->
+          <div class="order-1 lg:order-2">
+            <div class="relative rounded-3xl border bg-white p-6 sm:p-8 overflow-hidden">
+              <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(1200px 400px at 90% -10%, rgba(164,245,138,0.18), transparent 50%), radial-gradient(600px 200px at 0% 110%, rgba(164,245,138,0.14), transparent 60%);"></div>
 
-            <div class="results-stats">
-              <div class="result-stat-card">
-                <div class="stat-value">60%</div>
-                <div class="stat-label">less manual coordination</div>
-              </div>
-              <div class="result-stat-card">
-                <div class="stat-value">24/7</div>
-                <div class="stat-label">available appointment booking</div>
-              </div>
-              <div class="result-stat-card">
-                <div class="stat-value">100%</div>
-                <div class="stat-label">automated follow-ups</div>
-              </div>
-            </div>
+              <div class="grid sm:grid-cols-2 gap-8 items-center">
+                <!-- Orb -->
+                <div class="relative aspect-square">
+                  <div class="absolute inset-0 flex items-center justify-center" style="perspective: 900px; transform-style: preserve-3d;">
+                    <!-- Outer spinning ring -->
+                    <div class="absolute h-56 w-56 sm:h-72 sm:w-72 rounded-full border spin-outer" style="border-color: rgba(164,245,138,0.7); transform: rotateX(62deg); filter: drop-shadow(0 8px 24px rgba(0,0,0,0.10));"></div>
+                    <!-- Middle dashed ring -->
+                    <div class="absolute h-48 w-48 sm:h-64 sm:w-64 rounded-full border-2 border-dashed spin-inner" style="border-color: rgba(164,245,138,0.55); transform: rotateX(62deg) rotateZ(25deg);"></div>
+                    <!-- Inner glow ring -->
+                    <div class="absolute h-36 w-36 sm:h-48 sm:w-48 rounded-full" style="box-shadow: 0 0 0 2px rgba(164,245,138,0.5) inset, 0 0 60px 10px rgba(164,245,138,0.2); transform: rotateX(62deg);"></div>
 
-            <div class="customer-feedback">
-              <div class="feedback-icon">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
-                </svg>
+                    <!-- Equalizer bars (center) -->
+                    <div class="absolute flex items-end gap-1.5" style="transform: translateZ(20px);">
+                      <div class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-1" style="height: 10px;"></div>
+                      <div class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-2" style="height: 16px;"></div>
+                      <div class="w-1.5 bg-neutral-900 rounded-full animate-bounce equalizer-bar-3" style="height: 28px;"></div>
+                      <div class="w-1.5 equalizer-bar-center" style="height: 36px; background: linear-gradient(to top, rgba(164,245,138,0.9), rgba(164,245,138,0.3)); border-radius: 9999px;"></div>
+                      <div class="w-1.5 bg-neutral-900 rounded-full animate-bounce equalizer-bar-3" style="height: 28px;"></div>
+                      <div class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-2" style="height: 16px;"></div>
+                      <div class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-1" style="height: 10px;"></div>
+                    </div>
+
+                    <!-- Mic core -->
+                    <div class="absolute size-16 sm:size-20 rounded-2xl bg-white border border-neutral-200 flex items-center justify-center shadow-sm" style="transform: translateZ(35px);">
+                      <lucide-angular [img]="MicIcon" class="size-7 text-neutral-900"></lucide-angular>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Audio panel (replaces "Talk to your assistant") -->
+                <div id="demo" class="relative">
+                  <div class="rounded-2xl border bg-white p-5">
+                    <div class="flex items-center justify-between">
+                      <h3 class="text-lg font-semibold tracking-tight">Audio</h3>
+                      <div class="inline-flex items-center gap-2 text-xs text-neutral-600">
+                        <lucide-angular [img]="Volume2Icon" class="size-4"></lucide-angular>
+                        <span class="hidden sm:inline">Playback</span>
+                      </div>
+                    </div>
+
+                    <div class="mt-4 rounded-xl border bg-neutral-50/70 p-3">
+                      <audio id="uploadedAudio" class="w-full" controls controlslist="nodownload noplaybackrate">
+                        <source src="your-audio-file.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                      </audio>
+                    </div>
+                  </div>
+                </div>
+                <!-- /Audio panel -->
               </div>
-              <blockquote class="feedback-text">
-                "The AI Voice Assistant has revolutionized our customer service. Very professional and efficient!"
-              </blockquote>
-              <cite class="feedback-author">— CEO, Consulting Firm</cite>
             </div>
           </div>
         </div>
+
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Section -->
-  <section id="contact" class="section">
-    <div class="max-w-4xl mx-auto px-6 md:px-12 text-center">
-      <div class="section-card">
-        <div class="section-tagline">
-          Call to Action
+    <!-- How it works -->
+    <section class="border-t border-neutral-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div class="flex items-center gap-2 mb-4">
+          <span class="inline-block size-2 rounded-full" style="background-color:#012013;"></span>
+          <span class="text-xs font-medium px-2.5 py-1 rounded-full" style="background-color: var(--brand-weak);">Workflow</span>
         </div>
-        <h2 class="section-title">
-          Take the Next Step
-        </h2>
-        <p class="section-description mb-12 text-lg">
-          Take the next step toward smarter communication.
-        </p>
-
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <button class="btn-primary">
-            <span>Book Personal Demo</span>
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-            </svg>
-          </button>
-          <a routerLink="/" class="btn-secondary">
-            Back to Homepage
-          </a>
+        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight">From voice to calendar in seconds</h2>
+        <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div class="rounded-2xl border bg-white p-5">
+            <div class="flex items-center gap-2 text-neutral-900">
+              <lucide-angular [img]="MicIcon" class="size-5"></lucide-angular>
+              <h3 class="text-base font-semibold tracking-tight">1. Capture</h3>
+            </div>
+            <p class="mt-1 text-sm text-neutral-600">Stream speech; diarization and intent detection run on device or cloud.</p>
+          </div>
+          <div class="rounded-2xl border bg-white p-5">
+            <div class="flex items-center gap-2 text-neutral-900">
+              <lucide-angular [img]="BotIcon" class="size-5"></lucide-angular>
+              <h3 class="text-base font-semibold tracking-tight">2. Decide</h3>
+            </div>
+            <p class="mt-1 text-sm text-neutral-600">LLM + tools determine actions with guardrails and confirmations.</p>
+          </div>
+          <div class="rounded-2xl border bg-white p-5">
+            <div class="flex items-center gap-2 text-neutral-900">
+              <lucide-angular [img]="CalendarPlusIcon" class="size-5"></lucide-angular>
+              <h3 class="text-base font-semibold tracking-tight">3. Act</h3>
+            </div>
+            <p class="mt-1 text-sm text-neutral-600">Book meetings, generate Zoom links, and send calendar invitations.</p>
+          </div>
+          <div class="rounded-2xl border bg-white p-5">
+            <div class="flex items-center gap-2 text-neutral-900">
+              <lucide-angular [img]="MailCheckIcon" class="size-5"></lucide-angular>
+              <h3 class="text-base font-semibold tracking-tight">4. Follow‑up</h3>
+            </div>
+            <p class="mt-1 text-sm text-neutral-600">Automatic reminders, notes, and summaries to keep everyone aligned.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
+    <!-- Trust & Compliance -->
+    <section class="border-t border-neutral-200">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="rounded-3xl border bg-white p-6">
+            <div class="flex items-center gap-2">
+              <lucide-angular [img]="ShieldCheckIcon" class="size-6 text-neutral-900"></lucide-angular>
+              <h3 class="text-xl font-semibold tracking-tight text-neutral-900">GDPR Switzerland &amp; EU</h3>
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-neutral-700">
+              <li class="flex items-start gap-2">
+                <lucide-angular [img]="CheckIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                DSG (Switzerland) and GDPR (EU) compliant processing
+              </li>
+              <li class="flex items-start gap-2">
+                <lucide-angular [img]="CheckIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                Data Processing Agreement (DPA) and SCCs available
+              </li>
+              <li class="flex items-start gap-2">
+                <lucide-angular [img]="CheckIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                EU/CH data residency options and retention controls
+              </li>
+              <li class="flex items-start gap-2">
+                <lucide-angular [img]="CheckIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                Role‑based access, audit logs, and encryption in transit/at rest
+              </li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border bg-white p-6">
+            <div class="flex items-center gap-2">
+              <lucide-angular [img]="Settings2" class="size-6 text-neutral-900"></lucide-angular>
+              <h3 class="text-xl font-semibold tracking-tight text-neutral-900">Technology</h3>
+            </div>
+            <ul class="mt-4 space-y-2 text-sm text-neutral-700">
+              <li class="flex items-start gap-2">
+                <lucide-angular [img]="CpuIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                Streaming ASR, NLU, and end‑to‑end TTS for real‑time responses
+              </li>
+              <li class="flex items-start gap-2">
+                <lucide-angular [img]="LayersIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                Toolformer‑style orchestration for calendars, email, and conferencing
+              </li>
+              <li class="flex items-start gap-2">
+                <lucide-angular [img]="ShieldIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                PII redaction and policy constraints with human‑in‑the‑loop approvals
+              </li>
+              <li class="flex items-start gap-2">
+                <lucide-angular [img]="GitBranchIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                Observability, tracing, and fallback strategies for reliability
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div id="contact" class="mt-10 rounded-3xl border bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div>
+            <h3 class="text-xl font-semibold tracking-tight">Ready to add a voice layer to your business?</h3>
+            <p class="text-sm text-neutral-600 mt-1">We'll help you integrate booking, invitations, and summaries in days, not months.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <a href="#" class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-neutral-900 border border-neutral-300 bg-white hover:bg-neutral-50">
+              <lucide-angular [img]="FileTextIcon" class="size-4"></lucide-angular>
+              Request DPA
+            </a>
+            <a href="#" class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white ring-1 ring-black/5 hover:shadow" style="background-color: var(--brand); color: var(--ink);">
+              <lucide-angular [img]="CalendarIcon" class="size-4"></lucide-angular>
+              Book a demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
