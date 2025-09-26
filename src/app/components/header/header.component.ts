@@ -208,9 +208,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   toggleMobileLanguageDropdown() {
-    this.mobileLanguageDropdownOpen.set(!this.mobileLanguageDropdownOpen());
+    const isCurrentlyOpen = this.mobileLanguageDropdownOpen();
+    
+    // Close all mobile dropdowns first
     this.mobileServicesDropdownOpen.set(false);
     this.mobileCaseStudyDropdownOpen.set(false);
+    this.mobileLanguageDropdownOpen.set(false);
+    
+    // Toggle the language dropdown
+    this.mobileLanguageDropdownOpen.set(!isCurrentlyOpen);
   }
 
   navigateToSection(sectionId: string) {
@@ -323,6 +329,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     console.log('Current language before switch:', this.languageService.currentLanguage());
     this.languageService.setLanguage(languageCode);
     console.log('Current language after switch:', this.languageService.currentLanguage());
+    
+    // Close all dropdowns after language switch
     this.closeAllDropdowns();
   }
 
