@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { LanguageService } from '../../core/services/language.service';
 import { TranslationService } from '../../core/services/translation.service';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
+import { LucideAngularModule, ChevronDown, Menu, Calendar } from 'lucide-angular';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, TranslatePipe],
+  imports: [CommonModule, TranslatePipe, LucideAngularModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -26,6 +27,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   // Scroll state signal
   protected readonly isScrolled = signal(false);
+
+  protected readonly ChevronDownIcon = ChevronDown;
+  protected readonly MenuIcon = Menu;
+  protected readonly CalendarIcon = Calendar;
 
   // Timeout reference for delayed closing
   private closeTimeout: any = null;
