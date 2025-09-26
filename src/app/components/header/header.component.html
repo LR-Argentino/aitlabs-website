@@ -67,50 +67,57 @@
         <a href="" class="text-primary-text font-medium hover:text-green-500"
            (click)="navigateToSection('hero'); $event.preventDefault()">Home</a>
       </div>
-      <!-- Services Dropdown -->
-      <div class="relative dropdown-container"
-           (mouseenter)="onServicesHover()"
-           (mouseleave)="onDropdownLeave()">
-        <button class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200 bg-transparent border-none"
-                type="button"
-                aria-label="Services menu"
-                [attr.aria-expanded]="servicesDropdownOpen()"
-                aria-haspopup="true">
-          <span class="text-primary-text font-medium">Services</span>
-          <svg class="w-4 h-4 transition-transform duration-200"
-               [class.rotate-180]="servicesDropdownOpen()"
-               fill="currentColor" viewBox="0 0 16 16"
-               aria-hidden="true">
-            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>
-          </svg>
-        </button>
-        <!-- Services Dropdown Menu -->
-        <div *ngIf="servicesDropdownOpen()"
-             class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown"
-             role="menu"
-             aria-label="Services submenu">
-          <a href="/ai-voice-assistant"
-             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 first:rounded-t-lg"
-             role="menuitem"
-             aria-label="Navigate to AI Voice Assistant page"
-             (click)="navigateToAiVoiceAssistant(); $event.preventDefault()">AI Voice Assistant</a>
-          <a href="#services"
-             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"
-             role="menuitem"
-             aria-label="Navigate to AI Automation services"
-             (click)="navigateToSection('services'); $event.preventDefault()">AI Automation</a>
-          <a href="#services"
-             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"
-             role="menuitem"
-             aria-label="Navigate to AI Agents services"
-             (click)="navigateToSection('services'); $event.preventDefault()">AI Agents</a>
-          <a href="#services"
-             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 last:rounded-b-lg"
-             role="menuitem"
-             aria-label="Navigate to Intelligence Document Processing services"
-             (click)="navigateToSection('services'); $event.preventDefault()">Intelligence Document Processing</a>
-        </div>
+
+      <div class="px-4 py-2 rounded-full">
+        <a href="" class="text-primary-text font-medium hover:text-green-500"
+           (click)="navigateToSection('our-services'); $event.preventDefault()">Service</a>
       </div>
+
+
+      <!-- Services Dropdown TODO: uncomment if all pages are finished-->
+<!--      <div class="relative dropdown-container"-->
+<!--           (mouseenter)="onServicesHover()"-->
+<!--           (mouseleave)="onDropdownLeave()">-->
+<!--        <button class="flex items-center gap-2 px-4 py-2 rounded-full cursor-pointer hover:bg-gray-50 transition-colors duration-200 bg-transparent border-none"-->
+<!--                type="button"-->
+<!--                aria-label="Services menu"-->
+<!--                [attr.aria-expanded]="servicesDropdownOpen()"-->
+<!--                aria-haspopup="true">-->
+<!--          <span class="text-primary-text font-medium">Services</span>-->
+<!--          <svg class="w-4 h-4 transition-transform duration-200"-->
+<!--               [class.rotate-180]="servicesDropdownOpen()"-->
+<!--               fill="currentColor" viewBox="0 0 16 16"-->
+<!--               aria-hidden="true">-->
+<!--            <path d="M13.354 6.354L8.354 11.354a.5.5 0 01-.708 0L2.646 6.354a.5.5 0 11.708-.708L8 10.293l4.646-4.647a.5.5 0 01.708.708z"/>-->
+<!--          </svg>-->
+<!--        </button>-->
+<!--        &lt;!&ndash; Services Dropdown Menu &ndash;&gt;-->
+<!--        <div *ngIf="servicesDropdownOpen()"-->
+<!--             class="absolute top-full left-0 mt-1 w-48 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown"-->
+<!--             role="menu"-->
+<!--             aria-label="Services submenu">-->
+<!--          <a href="/ai-voice-assistant"-->
+<!--             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 first:rounded-t-lg"-->
+<!--             role="menuitem"-->
+<!--             aria-label="Navigate to AI Voice Assistant page"-->
+<!--             (click)="navigateToAiVoiceAssistant(); $event.preventDefault()">AI Voice Assistant</a>-->
+<!--          <a href="#services"-->
+<!--             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"-->
+<!--             role="menuitem"-->
+<!--             aria-label="Navigate to AI Automation services"-->
+<!--             (click)="navigateToSection('services'); $event.preventDefault()">AI Automation</a>-->
+<!--          <a href="#services"-->
+<!--             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150"-->
+<!--             role="menuitem"-->
+<!--             aria-label="Navigate to AI Agents services"-->
+<!--             (click)="navigateToSection('services'); $event.preventDefault()">AI Agents</a>-->
+<!--          <a href="#services"-->
+<!--             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray hover:text-green-500 transition-colors duration-150 last:rounded-b-lg"-->
+<!--             role="menuitem"-->
+<!--             aria-label="Navigate to Intelligence Document Processing services"-->
+<!--             (click)="navigateToSection('services'); $event.preventDefault()">Intelligence Document Processing</a>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <!-- Case Study Dropdown TODO: Case study-->
 <!--      <div class="relative dropdown-container"-->
@@ -412,13 +419,6 @@
            (click)="navigateToSection('faq')">
           FAQ
         </a>
-
-        <!-- Blog -->
-<!--        <a href="#blog"-->
-<!--           class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"-->
-<!--           (click)="navigateToSection('blog')">-->
-<!--          Blog-->
-<!--        </a>-->
 
         <!-- Contact -->
         <button class="w-full text-left px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
