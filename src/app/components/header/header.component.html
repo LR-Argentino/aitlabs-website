@@ -59,24 +59,67 @@
 
       <!-- Nav -->
       <nav class="hidden md:flex items-center gap-2 px-1 py-1 rounded-full border border-neutral-200">
-        <button class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors flex items-center gap-1"
-                (mouseenter)="onServicesHover()"
-                (mouseleave)="onDropdownLeave()">
-          {{ 'nav.service' | translate }}
-          <lucide-icon [img]="ChevronDownIcon" class="size-4"></lucide-icon>
-        </button>
-        <button class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors flex items-center gap-1"
-                (mouseenter)="onCaseStudyHover()"
-                (mouseleave)="onDropdownLeave()">
-          Case Study
-          <lucide-icon [img]="ChevronDownIcon" class="size-4"></lucide-icon>
-        </button>
-        <button class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors flex items-center gap-1"
-                (mouseenter)="onProjectsHover()"
-                (mouseleave)="onDropdownLeave()">
-          {{ 'nav.projects' | translate }}
-          <lucide-icon [img]="ChevronDownIcon" class="size-4"></lucide-icon>
-        </button>
+        <!-- Services Dropdown -->
+        <div class="relative dropdown-container">
+          <button class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors flex items-center gap-1"
+                  (mouseenter)="onServicesHover()"
+                  (mouseleave)="onDropdownLeave()">
+            {{ 'nav.service' | translate }}
+            <lucide-icon [img]="ChevronDownIcon" class="size-4"></lucide-icon>
+          </button>
+          <!-- Services Dropdown Menu -->
+          <div *ngIf="servicesDropdownOpen()"
+               class="absolute top-full left-0 mt-1 w-64 bg-white border border-neutral-200 rounded-lg shadow-lg z-50 animate-dropdown"
+               (mouseenter)="onServicesHover()"
+               (mouseleave)="onDropdownLeave()">
+            <div class="p-2">
+              <a href="/ai-voice-assistant" class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
+                <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                  <span class="text-green-600 text-lg">🎤</span>
+                </div>
+                <div>
+                  <div class="font-medium">AI Voice Assistant</div>
+                  <div class="text-xs text-gray-500">Intelligent voice interactions</div>
+                </div>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                 (click)="navigateToSection('about'); $event.preventDefault()">
+                <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                  <span class="text-blue-600 text-lg">⚡</span>
+                </div>
+                <div>
+                  <div class="font-medium">AI Automations</div>
+                  <div class="text-xs text-gray-500">Smart workflow automation</div>
+                </div>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                 (click)="navigateToSection('about'); $event.preventDefault()">
+                <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                  <span class="text-purple-600 text-lg">🧠</span>
+                </div>
+                <div>
+                  <div class="font-medium">AI Applications</div>
+                  <div class="text-xs text-gray-500">Custom AI-powered apps</div>
+                </div>
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                 (click)="navigateToSection('about'); $event.preventDefault()">
+                <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
+                  <span class="text-orange-600 text-lg">📄</span>
+                </div>
+                <div>
+                  <div class="font-medium">Intelligence Document Processing</div>
+                  <div class="text-xs text-gray-500">AI-powered document analysis</div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#" class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
+           (click)="navigateToSection('projects'); $event.preventDefault()">{{ 'nav.projects' | translate }}</a>
+
+
         <a href="#" class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
            (click)="navigateToSection('faq'); $event.preventDefault()">{{ 'nav.faq' | translate }}</a>
         <a href="#" class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
@@ -110,7 +153,7 @@
           </div>
         </div>
         <a href="mailto:office@ait-labs.com"
-           class="inline-flex items-center justify-center rounded-full text-sm font-medium px-5 py-2.5 shadow-sm border border-transparent hover:shadow transition-all bg-primary-green text-white"
+           class="inline-flex items-center justify-center rounded-full text-sm font-medium px-5 py-2.5 shadow-sm border border-transparent hover:shadow-md hover:bg-emerald-700 transition-all bg-primary-green-dark text-white"
            aria-label="Contact us via email at office@ait-labs.com">
           {{ 'nav.contact' | translate }}
         </a>
@@ -165,7 +208,7 @@
             </div>
           </div>
           <a href="mailto:office@ait-labs.com"
-             class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white ring-1 ring-black/5 hover:shadow bg-primary-green"
+             class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white ring-1 ring-black/5 hover:shadow-md hover:bg-emerald-700 bg-primary-green-dark transition-all"
              aria-label="Contact us via email">
             <lucide-icon [img]="CalendarIcon" class="size-4"></lucide-icon>
             {{ 'nav.contact' | translate }}
