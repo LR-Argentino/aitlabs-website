@@ -56,6 +56,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.checkScrollPosition();
   }
 
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: Event) {
+    // Only close mobile menu if it's open
+    if (!this.mobileMenuOpen()) {
+      return;
+    }
+
+    // Check if the click was outside the header
+    const target = event.target as HTMLElement;
+    const headerElement = target.closest('header');
+    
+    // If click was outside the header, close the mobile menu
+    if (!headerElement) {
+      this.closeMobileMenu();
+    }
+  }
+
   private checkScrollPosition() {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     this.isScrolled.set(scrollTop > 10);

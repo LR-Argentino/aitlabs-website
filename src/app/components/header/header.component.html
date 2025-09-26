@@ -175,20 +175,21 @@
          [class.overflow-hidden]="!mobileMenuOpen()"
          [class.h-auto]="mobileMenuOpen()"
          [class.opacity-100]="mobileMenuOpen()"
-         [class.overflow-visible]="mobileMenuOpen()">
+         [class.overflow-visible]="mobileMenuOpen()"
+         (click)="$event.stopPropagation()">
       <div class="mt-3 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm" 
            [class.overflow-visible]="mobileLanguageDropdownOpen()">
         <div class="grid grid-cols-1">
           <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('our-services'); $event.preventDefault()">{{ 'nav.service' | translate }}</a>
+             (click)="navigateToSection('our-services'); $event.preventDefault(); $event.stopPropagation()">{{ 'nav.service' | translate }}</a>
           <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('case-studies'); $event.preventDefault()">Case Study</a>
+             (click)="navigateToSection('case-studies'); $event.preventDefault(); $event.stopPropagation()">Case Study</a>
           <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('projects'); $event.preventDefault()">{{ 'nav.projects' | translate }}</a>
+             (click)="navigateToSection('projects'); $event.preventDefault(); $event.stopPropagation()">{{ 'nav.projects' | translate }}</a>
           <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('faq'); $event.preventDefault()">{{ 'nav.faq' | translate }}</a>
+             (click)="navigateToSection('faq'); $event.preventDefault(); $event.stopPropagation()">{{ 'nav.faq' | translate }}</a>
           <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('about'); $event.preventDefault()">{{ 'nav.about' | translate }}</a>
+             (click)="navigateToSection('about'); $event.preventDefault(); $event.stopPropagation()">{{ 'nav.about' | translate }}</a>
         </div>
         <div class="mt-2 border-t border-neutral-200 pt-2 flex items-center justify-between">
           <div class="relative">
@@ -221,7 +222,8 @@
           </div>
           <a href="mailto:office@ait-labs.com"
              class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white ring-1 ring-black/5 hover:shadow-md hover:bg-emerald-700 bg-primary-green-dark transition-all"
-             aria-label="Contact us via email">
+             aria-label="Contact us via email"
+             (click)="$event.stopPropagation()">
             <lucide-icon [img]="CalendarIcon" class="size-4"></lucide-icon>
             {{ 'nav.contact' | translate }}
           </a>
