@@ -21,14 +21,14 @@
         </div>
 
         <!-- Cal.com Booking Widget -->
-        <div class="booking-container pb-10">
+        <div class="booking-container pb-10 ">
           <div class="max-w-6xl mx-auto">
             <div class="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
               <!-- Cal.com iframe container -->
               <div class="cal-embed-container">
 
                 <!-- Loading state -->
-                <div *ngIf="!showIframe && !showFallback" class="flex items-center justify-center h-full">
+                <div *ngIf="!showIframe && !showFallback" class="flex items-center justify-center h-full min-h-[400px]">
                   <div class="text-center">
                     <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-primary-green mx-auto mb-6"></div>
                     <p class="text-white text-lg font-medium">Loading calendar...</p>
@@ -36,22 +36,21 @@
                   </div>
                 </div>
 
-                <!-- Cal.com embed container -->
-                <div *ngIf="showIframe" id="cal-iframe-container" class="w-full h-full">
-                  <!-- This div will be populated by the component code -->
-                  <div id="my-cal-inline" style="width:100%;height:100%"></div>
+                <!-- Cal.com embed container - Always present -->
+                <div id="cal-iframe-container" class="w-full h-full min-h-[600px]" [class.hidden]="!showIframe">
+
                 </div>
 
                 <!-- Fallback message -->
-                <div *ngIf="showFallback" class="flex items-center justify-center h-full">
+                <div *ngIf="showFallback" class="flex items-center justify-center h-full min-h-[400px]">
                   <div class="text-center p-8">
                     <div class="text-red-400 mb-4">
                       <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
                       </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-black mb-2">Calendar temporarily unavailable</h3>
-                    <p class="text-gray-600 mb-4">Please use one of the options below to schedule your consultation.</p>
+                    <h3 class="text-lg font-semibold text-white mb-2">Calendar temporarily unavailable</h3>
+                    <p class="text-gray-300 mb-4">Please use one of the options below to schedule your consultation.</p>
                     <div class="flex flex-col sm:flex-row gap-3 justify-center">
                       <button
                         (click)="openCalInNewTab()"
