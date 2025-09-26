@@ -65,12 +65,12 @@
       <!-- About Us Link -->
       <div class="px-4 py-2 rounded-full">
         <a href="" class="text-primary-text font-medium hover:text-green-500"
-           (click)="navigateToSection('hero'); $event.preventDefault()">Home</a>
+           (click)="navigateToSection('hero'); $event.preventDefault()">{{ 'nav.home' | translate }}</a>
       </div>
 
       <div class="px-4 py-2 rounded-full">
         <a href="" class="text-primary-text font-medium hover:text-green-500"
-           (click)="navigateToSection('our-services'); $event.preventDefault()">Service</a>
+           (click)="navigateToSection('our-services'); $event.preventDefault()">{{ 'nav.service' | translate }}</a>
       </div>
 
 
@@ -172,23 +172,23 @@
 <!--      </div>-->
       <div class="px-4 py-2 rounded-full">
         <a href="" class="text-primary-text font-medium hover:text-green-500"
-           (click)="navigateToSection('projects'); $event.preventDefault()">Our Projects</a>
+           (click)="navigateToSection('projects'); $event.preventDefault()">{{ 'nav.projects' | translate }}</a>
       </div>
       <!-- Booking a Meeting -->
       <div class="px-4 py-2 rounded-full">
         <a href="#blog" class="text-primary-text font-medium hover:text-green-500"
-           (click)="navigateToSection('booking'); $event.preventDefault()">Book a Meeting</a>
+           (click)="navigateToSection('booking'); $event.preventDefault()">{{ 'nav.booking' | translate }}</a>
       </div>
 
       <div class="px-4 py-2 rounded-full">
         <a href="#blog" class="text-primary-text font-medium hover:text-green-500"
-           (click)="navigateToSection('faq'); $event.preventDefault()">FAQ</a>
+           (click)="navigateToSection('faq'); $event.preventDefault()">{{ 'nav.faq' | translate }}</a>
       </div>
 
       <!-- About Us Link -->
       <div class="px-4 py-2 rounded-full">
         <a href="#about" class="text-primary-text font-medium hover:text-green-500"
-           (click)="navigateToSection('about'); $event.preventDefault()">About Us</a>
+           (click)="navigateToSection('about'); $event.preventDefault()">{{ 'nav.about' | translate }}</a>
       </div>
     </nav>
 
@@ -203,7 +203,7 @@
                 aria-label="Language selection menu"
                 [attr.aria-expanded]="languageDropdownOpen()"
                 aria-haspopup="true">
-          <span class="text-primary-text font-medium">ENG</span>
+          <span class="text-primary-text font-medium">{{ currentLanguageConfig.code.toUpperCase() }}</span>
           <svg class="w-4 h-4 transition-transform duration-200"
                [class.rotate-180]="languageDropdownOpen()"
                fill="currentColor" viewBox="0 0 16 16"
@@ -213,19 +213,19 @@
         </button>
         <!-- Language Dropdown Menu -->
         <div *ngIf="languageDropdownOpen()"
-             class="absolute top-full right-0 mt-1 w-32 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown"
+             class="absolute top-full right-0 mt-1 w-36 bg-white border border-gray-200 rounded-lg shadow-lg z-50 animate-dropdown"
              role="menu"
              aria-label="Language selection submenu">
-          <a href="#"
-             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg"
+          <a *ngFor="let lang of availableLanguages"
+             href="#"
+             class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg"
+             [class.bg-gray-100]="lang.code === currentLanguage"
              role="menuitem"
-             aria-label="Select English language"
-             (click)="closeAllDropdowns()">English</a>
-          <a href="#"
-             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150"
-             role="menuitem"
-             aria-label="Select German language"
-             (click)="closeAllDropdowns()">Deutsch</a>
+             [attr.aria-label]="'Select ' + lang.name + ' language'"
+             (click)="switchLanguage(lang.code); $event.preventDefault()">
+            <span class="text-lg">{{ lang.flag }}</span>
+            <span>{{ lang.name }}</span>
+          </a>
         </div>
       </div>
 
@@ -233,7 +233,7 @@
       <a href="mailto:office@ait-labs.com"
          class="bg-primary-green text-primary-text font-medium px-6 py-3 rounded-full hover:bg-opacity-90 transition-colors"
          aria-label="Contact us via email at office@ait-labs.com">
-        Contact Us
+        {{ 'nav.contact' | translate }}
       </a>
     </div>
   </div>
@@ -319,14 +319,14 @@
         <a href="#hero"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('hero')">
-          Home
+          {{ 'nav.home' | translate }}
         </a>
 
         <!-- About Us -->
         <a href="#about"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('about')">
-          About Us
+          {{ 'nav.about' | translate }}
         </a>
 
         <!-- Services -->
@@ -337,7 +337,7 @@
                   [attr.aria-expanded]="mobileServicesDropdownOpen()"
                   aria-haspopup="true"
                   (click)="toggleMobileServicesDropdown()">
-            <span>Services</span>
+            <span>{{ 'nav.services' | translate }}</span>
             <svg class="w-4 h-4 transition-transform text-gray-600"
                  [class.rotate-180]="mobileServicesDropdownOpen()"
                  fill="currentColor" viewBox="0 0 16 16"
@@ -353,22 +353,22 @@
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors min-h-[44px] flex items-center"
                role="menuitem"
                aria-label="Navigate to AI Voice Assistant page"
-               (click)="closeMobileMenu()">AI Voice Assistant</a>
+               (click)="closeMobileMenu()">{{ 'nav.services.voice_assistant' | translate }}</a>
             <a href="#services"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors min-h-[44px] flex items-center"
                role="menuitem"
                aria-label="Navigate to AI Automation services"
-               (click)="navigateToSection('services'); closeMobileMenu()">AI Automation</a>
+               (click)="navigateToSection('services'); closeMobileMenu()">{{ 'nav.services.automation' | translate }}</a>
             <a href="#services"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors min-h-[44px] flex items-center"
                role="menuitem"
                aria-label="Navigate to AI Agents services"
-               (click)="navigateToSection('services'); closeMobileMenu()">AI Agents</a>
+               (click)="navigateToSection('services'); closeMobileMenu()">{{ 'nav.services.agents' | translate }}</a>
             <a href="#services"
                class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors min-h-[44px] flex items-center"
                role="menuitem"
                aria-label="Navigate to Intelligence Document Processing services"
-               (click)="navigateToSection('services'); closeMobileMenu()">Intelligence Document Processing</a>
+               (click)="navigateToSection('services'); closeMobileMenu()">{{ 'nav.services.document_processing' | translate }}</a>
           </div>
         </div>
 
@@ -376,7 +376,7 @@
         <a href="#projects"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('projects')">
-          Projects
+          {{ 'nav.projects' | translate }}
         </a>
 
         <!-- Case Studies -->
@@ -417,7 +417,7 @@
         <a href="#faq"
            class="block px-4 py-3 text-gray-800 font-medium hover:bg-gray-100 rounded-lg transition-colors border border-transparent hover:border-gray-200"
            (click)="navigateToSection('faq')">
-          FAQ
+          {{ 'nav.faq' | translate }}
         </a>
 
         <!-- Contact -->
@@ -425,7 +425,7 @@
                 type="button"
                 aria-label="Contact us via email"
                 (click)="onContactClick()">
-          Contact Us
+          {{ 'nav.contact' | translate }}
         </button>
 
         <!-- Language Selector -->
@@ -436,7 +436,10 @@
                   [attr.aria-expanded]="mobileLanguageDropdownOpen()"
                   aria-haspopup="true"
                   (click)="toggleMobileLanguageDropdown()">
-            <span>Language: ENG</span>
+            <div class="flex items-center gap-2">
+              <span class="text-lg">{{ currentLanguage === 'en' ? '🇺🇸' : '🇩🇪' }}</span>
+              <span>{{ currentLanguage === 'en' ? 'English' : 'Deutsch' }}</span>
+            </div>
             <svg class="w-4 h-4 transition-transform text-gray-600"
                  [class.rotate-180]="mobileLanguageDropdownOpen()"
                  fill="currentColor" viewBox="0 0 16 16"
@@ -448,14 +451,26 @@
                class="ml-4 mt-2 space-y-1 bg-gray-50 rounded-lg p-2"
                role="menu"
                aria-label="Mobile language selection submenu">
-            <a href="#"
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+            <button
+               class="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               [class.bg-primary-green/10]="currentLanguage === 'en'"
+               [class.text-primary-green]="currentLanguage === 'en'"
                role="menuitem"
-               aria-label="Select English language">English</a>
-            <a href="#"
-               class="block px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               aria-label="Select English language"
+               (click)="switchLanguage('en'); toggleMobileLanguageDropdown()">
+              <span class="text-base">🇺🇸</span>
+              <span>English</span>
+            </button>
+            <button
+               class="w-full flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-white rounded-lg transition-colors"
+               [class.bg-primary-green/10]="currentLanguage === 'de'"
+               [class.text-primary-green]="currentLanguage === 'de'"
                role="menuitem"
-               aria-label="Select German language">Deutsch</a>
+               aria-label="Select German language"
+               (click)="switchLanguage('de'); toggleMobileLanguageDropdown()">
+              <span class="text-base">🇩🇪</span>
+              <span>Deutsch</span>
+            </button>
           </div>
         </div>
       </div>

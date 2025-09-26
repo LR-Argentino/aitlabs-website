@@ -1,11 +1,14 @@
-import { Component, signal, OnInit, OnDestroy, HostListener } from '@angular/core';
+import { Component, signal, OnInit, OnDestroy, HostListener, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { LanguageService } from '../../core/services/language.service';
+import { TranslationService } from '../../core/services/translation.service';
+import { TranslatePipe } from '../../core/pipes/translate.pipe';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
@@ -27,6 +30,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
   // Timeout reference for delayed closing
   private closeTimeout: any = null;
   private currentActiveDropdown: string | null = null;
+
+  // Inject services
+  private languageService = inject(LanguageService);
+  private translationService = inject(TranslationService);
 
   constructor(private router: Router) {}
 
@@ -291,5 +298,31 @@ export class HeaderComponent implements OnInit, OnDestroy {
     if (footerElement) {
       footerElement.scrollIntoView({ behavior: 'smooth' });
     }
+  }
+
+  // Language methods
+  get currentLanguage() {
+    return this.languageService.currentLanguage();
+  }
+
+  get currentLanguageConfig() {
+    return this.languageService.currentLanguageConfig();
+  }
+
+  get availableLanguages() {
+    return this.languageService.availableLanguages;
+  }
+
+  switchLanguage(languageCode: 'en' | 'de') {
+    console.log('switchLanguage called with:', languageCode);
+    console.log('Current language before switch:', this.languageService.currentLanguage());
+    this.languageService.setLanguage(languageCode);
+    console.log('Current language after switch:', this.languageService.currentLanguage());
+    this.closeAllDropdowns();
+  }
+
+  // Translation helper
+  translate(key: string): string {
+    return this.translationService.translate(key);
   }
 }

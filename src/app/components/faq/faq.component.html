@@ -6,13 +6,13 @@
     <div class="text-center mb-12">
       <div class="inline-flex items-center gap-2 bg-secondary-green px-3 py-1 rounded-full mb-6">
         <div class="w-3 h-3 bg-primary-text rounded-full border-2 border-white"></div>
-        <span class="text-sm text-primary-text">FAQ</span>
+        <span class="text-sm text-primary-text">{{ 'faq.badge' | translate }}</span>
       </div>
       <h2 class="text-4xl md:text-5xl font-semibold text-primary-text mb-6 tracking-tight">
-        Frequently Asked Questions
+        {{ 'faq.title' | translate }}
       </h2>
       <p class="text-lg text-secondary-text max-w-2xl mx-auto">
-        Find answers to common questions about our services, process, and how we can help your business grow.
+        {{ 'faq.subtitle' | translate }}
       </p>
     </div>
 
@@ -33,7 +33,7 @@
           [class.hover:bg-secondary-green]="faq.isOpen"
           (click)="toggleFAQ(faq.id)">
           <h3 class="text-lg font-medium pr-4 transition-colors duration-300 text-primary-text">
-            {{ faq.question }}
+            {{ faq.questionKey | translate }}
           </h3>
           <svg
             class="w-6 h-6 transition-all duration-500 ease-in-out flex-shrink-0"
@@ -57,7 +57,7 @@
           <div class="px-6 pb-6 pt-4 transition-all duration-200 delay-75"
                [style.transform]="faq.isOpen ? 'translateY(0)' : 'translateY(-10px)'">
             <p class="text-secondary-text leading-relaxed">
-              {{ faq.answer }}
+              {{ faq.answerKey | translate }}
             </p>
           </div>
         </div>

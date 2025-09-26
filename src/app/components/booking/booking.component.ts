@@ -1,10 +1,12 @@
-import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID, inject } from '@angular/core';
 import { isPlatformBrowser, NgIf } from '@angular/common';
+import { TranslatePipe } from '../../core/pipes/translate.pipe';
+import { TranslationService } from '../../core/services/translation.service';
 
 @Component({
   selector: 'app-booking',
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, TranslatePipe],
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css']
 })
@@ -17,6 +19,9 @@ export class BookingComponent implements OnInit, AfterViewInit {
   // Use a working Cal.com demo link or create a Calendly integration
   private readonly calLink = 'team/ait-labs/30min'; // Updated to a more standard format
   private readonly calUrl = `https://cal.com/${this.calLink}`;
+
+  // Inject translation service
+  private translationService = inject(TranslationService);
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
