@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { StatsComponent } from '../../components/stats/stats.component';
-import { SponsorsComponent } from '../../components/sponsors/sponsors.component';
 import { AboutComponent } from '../../components/about/about.component';
 import { OurServicesComponent } from '../../components/our-services/our-services';
 import { ProjectsComponent } from '../../components/projects/projects.component';
-import { TestimonialsComponent } from '../../components/testimonials/testimonials.component';
 import { FaqComponent } from '../../components/faq/faq.component';
 import { BookingComponent } from '../../components/booking/booking.component';
 import { CtaComponent } from '../../components/cta/cta.component';
@@ -16,11 +14,9 @@ import { CtaComponent } from '../../components/cta/cta.component';
   imports: [
     HeroComponent,
     StatsComponent,
-    SponsorsComponent,
     AboutComponent,
     OurServicesComponent,
     ProjectsComponent,
-    TestimonialsComponent,
     FaqComponent,
     BookingComponent,
     CtaComponent
