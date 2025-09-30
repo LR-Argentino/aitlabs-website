@@ -1,7 +1,9 @@
 import { Injectable, computed, effect, signal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { LanguageService, Language } from './language.service';
-import { firstValueFrom } from 'rxjs';
+
+// Direct imports of translation files (bundled with app)
+import enTranslations from '../../../assets/i18n/en.json';
+import deTranslations from '../../../assets/i18n/de.json';
 
 // Type for translation JSON structure
 type TranslationData = Record<string, string>;
@@ -10,15 +12,19 @@ type TranslationData = Record<string, string>;
   providedIn: 'root'
 })
 export class TranslationService {
-  private readonly translationCache = new Map<Language, TranslationData>();
-  private readonly isInitialized = signal(false);
-  private readonly currentTranslations = signal<TranslationData>({});
+  // Pre-loaded translations (no HTTP needed, bundled with app)
+  private readonly translations: Record<Language, TranslationData> = {
+    en: enTranslations as TranslationData,
+    de: deTranslations as TranslationData
+  };
 
-  constructor(
-    private http: HttpClient,
-    private languageService: LanguageService
-  ) {
-    // React to language changes and reload translations
+  private readonly currentTranslations = signal<TranslationData>(enTranslations as TranslationData);
+
+  constructor(private languageService: LanguageService) {
+    // Initialize with current language
+    this.loadTranslationsForLanguage(this.languageService.currentLanguage());
+
+    // React to language changes
     effect(() => {
       const currentLang = this.languageService.currentLanguage();
       this.loadTranslationsForLanguage(currentLang);
@@ -26,67 +32,19 @@ export class TranslationService {
   }
 
   /**
-   * Initialize translations for the app startup
-   * This should be called via APP_INITIALIZER
+   * Load translations for a specific language
+   * Since translations are pre-loaded via imports, this is synchronous
    */
-  async initialize(): Promise<void> {
-    const currentLang = this.languageService.currentLanguage();
-    await this.loadTranslationsForLanguage(currentLang);
-    this.isInitialized.set(true);
-  }
+  private loadTranslationsForLanguage(language: Language): void {
+    const translations = this.translations[language];
 
-  /**
-   * Load translations for a specific language from JSON file
-   */
-  private async loadTranslationsForLanguage(language: Language): Promise<void> {
-    // Check cache first
-    if (this.translationCache.has(language)) {
-      this.currentTranslations.set(this.translationCache.get(language)!);
-      return;
-    }
-
-    // Load from JSON file
-    try {
-      const translationPath = `i18n/${language}.json`;
-      const translations = await firstValueFrom(
-        this.http.get<TranslationData>(translationPath)
-      );
-
-      // Validate loaded translations
-      if (!translations || typeof translations !== 'object') {
-        throw new Error(`Invalid translation data for language: ${language}`);
-      }
-
-      // Cache and set as current
-      this.translationCache.set(language, translations);
+    if (translations) {
       this.currentTranslations.set(translations);
-
       console.log(`Translations loaded for language: ${language} (${Object.keys(translations).length} keys)`);
-    } catch (error) {
-      console.error(`Failed to load translations for language: ${language}`, error);
-
-      // Fallback: try loading English if we failed to load another language
-      if (language !== 'en' && !this.translationCache.has('en')) {
-        console.log('Attempting to load fallback English translations...');
-        try {
-          const fallbackTranslations = await firstValueFrom(
-            this.http.get<TranslationData>('i18n/en.json')
-          );
-          this.translationCache.set('en', fallbackTranslations);
-          this.currentTranslations.set(fallbackTranslations);
-          console.log('Fallback English translations loaded successfully');
-        } catch (fallbackError) {
-          console.error('Failed to load fallback translations', fallbackError);
-          // Set empty translations as last resort
-          this.currentTranslations.set({});
-        }
-      } else if (this.translationCache.has('en')) {
-        // Use cached English as fallback
-        this.currentTranslations.set(this.translationCache.get('en')!);
-      } else {
-        // No fallback available
-        this.currentTranslations.set({});
-      }
+    } else {
+      // Fallback to English if language not found
+      console.warn(`Translation not found for language: ${language}, falling back to English`);
+      this.currentTranslations.set(this.translations.en);
     }
   }
 
@@ -96,12 +54,6 @@ export class TranslationService {
    */
   translate(key: string): string {
     const translations = this.currentTranslations();
-
-    // Return key if translations not loaded yet
-    if (!this.isInitialized()) {
-      return key;
-    }
-
     const translation = translations[key];
 
     // Warn about missing translations in development
@@ -132,12 +84,5 @@ export class TranslationService {
    */
   getAvailableKeys(): string[] {
     return Object.keys(this.currentTranslations());
-  }
-
-  /**
-   * Get initialization status
-   */
-  initialized() {
-    return this.isInitialized();
   }
 }
