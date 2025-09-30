@@ -28,7 +28,7 @@
               <div class="cal-embed-container">
 
                 <!-- Loading state -->
-                <div *ngIf="!showIframe && !showFallback" class="flex items-center justify-center h-full min-h-[400px]">
+                <div *ngIf="!showCalendar && !showFallback" class="flex items-center justify-center h-full min-h-[400px]">
                   <div class="text-center">
                     <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-primary-green mx-auto mb-6"></div>
                     <p class="text-white text-lg font-medium">{{ 'booking.loading' | translate }}</p>
@@ -37,39 +37,10 @@
                 </div>
 
                 <!-- Cal.com embed container - Always present -->
-                <div id="cal-iframe-container" class="w-full h-full min-h-[600px]" [class.hidden]="!showIframe">
+                <div id="cal-iframe-container" *ngIf="showCalendar" class="w-full h-full min-h-[600px]"></div>
 
-                </div>
-
-                <!-- Fallback message -->
-                <div *ngIf="showFallback" class="flex items-center justify-center h-full min-h-[400px]">
-                  <div class="text-center p-8">
-                    <div class="text-red-400 mb-4">
-                      <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
-                      </svg>
-                    </div>
-                    <h3 class="text-lg font-semibold text-white mb-2">{{ 'booking.error.title' | translate }}</h3>
-                    <p class="text-gray-300 mb-4">{{ 'booking.error.subtitle' | translate }}</p>
-                    <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                      <button
-                        (click)="openCalInNewTab()"
-                        class="inline-flex items-center px-4 py-2 bg-primary-green text-black font-medium rounded-lg hover:bg-opacity-90 transition-colors">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
-                        </svg>
-                        {{ 'booking.error.open_calendar' | translate }}
-                      </button>
-                      <a href="mailto:office@ait-labs.com"
-                         class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                        {{ 'booking.error.send_email' | translate }}
-                      </a>
-                    </div>
-                  </div>
-                </div>
+                <!-- Fallback component -->
+                <app-contact-form-fallback *ngIf="showFallback"></app-contact-form-fallback>
               </div>
             </div>
 

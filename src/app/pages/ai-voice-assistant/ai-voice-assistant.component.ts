@@ -1,5 +1,6 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit, inject} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import { NavigationService } from '../../core/services/navigation.service';
 import {
     LucideAngularModule,
     Mic,
@@ -32,6 +33,7 @@ import {
     styleUrl: './ai-voice-assistant.component.css'
 })
 export class AiVoiceAssistantComponent implements OnInit, OnDestroy {
+    private navigationService = inject(NavigationService);
 
     protected readonly MicIcon = Mic;
     protected readonly Volume2Icon = Volume2;
@@ -90,10 +92,7 @@ export class AiVoiceAssistantComponent implements OnInit, OnDestroy {
     }
 
     scrollToSection(sectionId: string) {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({behavior: 'smooth'});
-        }
+        this.navigationService.navigateToSection(sectionId, false);
     }
 
     scrollToContact() {

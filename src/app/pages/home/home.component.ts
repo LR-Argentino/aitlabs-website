@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { StatsComponent } from '../../components/stats/stats.component';
 import { AboutComponent } from '../../components/about/about.component';
-import { OurServicesComponent } from '../../components/our-services/our-services';
+import { OurServicesComponent } from '../../components/our-services/our-services.component';
 import { ProjectsComponent } from '../../components/projects/projects.component';
 import { FaqComponent } from '../../components/faq/faq.component';
 import { BookingComponent } from '../../components/booking/booking.component';

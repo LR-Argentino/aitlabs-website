@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
+import { NavigationService } from '../../core/services/navigation.service';
 
 @Component({
   selector: 'app-hero',
@@ -9,19 +10,13 @@ import { TranslatePipe } from '../../core/pipes/translate.pipe';
   styleUrl: './hero.component.css'
 })
 export class HeroComponent {
+  private navigationService = inject(NavigationService);
+
   onScheduleCall() {
-    // Scroll to contact form
-    const contactForm = document.getElementById('booking');
-    if (contactForm) {
-      contactForm.scrollIntoView({ behavior: 'smooth' });
-    }
+    this.navigationService.navigateToSection('booking', false);
   }
 
   onViewCaseStudy() {
-    // Scroll to case studies section
-    const caseStudySection = document.getElementById('case-studies');
-    if (caseStudySection) {
-      caseStudySection.scrollIntoView({ behavior: 'smooth' });
-    }
+    this.navigationService.navigateToSection('case-studies', false);
   }
 }
