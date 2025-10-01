@@ -37,7 +37,7 @@
                 </div>
 
                 <!-- Cal.com embed container - Always present -->
-                <div id="cal-iframe-container" *ngIf="showCalendar" class="w-full h-full min-h-[600px]"></div>
+                <div id="cal-iframe-container" class="w-full h-full min-h-[600px]" [class.hidden]="!showCalendar"></div>
 
                 <!-- Fallback component -->
                 <app-contact-form-fallback *ngIf="showFallback"></app-contact-form-fallback>

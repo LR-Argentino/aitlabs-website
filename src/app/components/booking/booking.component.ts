@@ -29,7 +29,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
     if (isPlatformBrowser(this.platformId)) {
       setTimeout(() => {
         this.loadCalendar();
-      }, 500);
+      }, 1000); // Increased timeout to ensure DOM is ready
     }
   }
 
@@ -46,21 +46,25 @@ export class BookingComponent implements OnInit, AfterViewInit {
       }
 
       // Fallback to Calendly
-      this.loadCalendlyFallback();
+      await this.loadCalendlyFallback();
     } catch (error) {
-      console.error('Calendar loading error:', error);
       this.showContactFormFallback();
     }
   }
 
-  private loadCalendlyFallback(): void {
+  private async loadCalendlyFallback(): Promise<void> {
     try {
-      this.calendarService.loadCalendlyIframe('cal-iframe-container');
-      this.calendarProvider = 'calendly';
-      this.showCalendar = true;
-      this.showFallback = false;
+      const result = await this.calendarService.loadCalendlyIframe('cal-iframe-container');
+
+      if (result.success) {
+        console.log('BookingComponent: Calendly loaded successfully');
+        this.calendarProvider = 'calendly';
+        this.showCalendar = true;
+        this.showFallback = false;
+      } else {
+        this.showContactFormFallback();
+      }
     } catch (error) {
-      console.error('Calendly loading error:', error);
       this.showContactFormFallback();
     }
   }

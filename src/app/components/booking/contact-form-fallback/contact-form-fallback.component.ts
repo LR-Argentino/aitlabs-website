@@ -17,6 +17,6 @@ export class ContactFormFallbackComponent {
 
   openWhatsApp() {
     const message = 'Hi AIT LABS, I would like to schedule a free consultation about AI solutions for my business.';
-    window.open(`https://wa.me/41123456789?text=${encodeURIComponent(message)}`, '_blank');
+    window.open(`https://wa.me/+41766977337?text=${encodeURIComponent(message)}`, '_blank');
   }
 }
