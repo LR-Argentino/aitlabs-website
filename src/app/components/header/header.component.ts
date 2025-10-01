@@ -146,6 +146,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.dropdownManager.closeAll();
   }
 
+  // Mobile language dropdown methods
+  toggleMobileLanguageDropdown(event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.dropdownManager.toggle(this.DROPDOWNS.MOBILE_LANGUAGE);
+  }
+
+  switchMobileLanguage(languageCode: 'en' | 'de', event: Event) {
+    event.preventDefault();
+    event.stopPropagation();
+    this.languageService.setLanguage(languageCode);
+    this.dropdownManager.close(this.DROPDOWNS.MOBILE_LANGUAGE);
+  }
+
   // Translation helper
   translate(key: string): string {
     return this.translationService.translate(key);
