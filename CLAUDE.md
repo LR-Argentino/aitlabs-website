@@ -24,10 +24,10 @@ This Angular 20 application uses the **standalone components** pattern (no NgMod
 ### Internationalization System
 The app implements a **dual-language system** (English/German) with automatic language detection:
 
-- **Language Detection Flow**: Geolocation → Browser Language → Default (English)
+- **Language Detection Flow**: Browser Language → localStorage → Default (English)
 - **Core Services**:
-  - `LanguageService` (`src/app/core/services/language.service.ts`): Manages current language state using signals, detects language by location/browser, persists to localStorage
-  - `TranslationService` (`src/app/core/services/translation.service.ts`): In-memory translation dictionary with `translate(key)` method
+  - `LanguageService` (`src/app/core/services/language.service.ts`): Manages current language state using signals, detects language from browser/localStorage, persists to localStorage
+  - `TranslationService` (`src/app/core/services/translation.service.ts`): Loads translations from JSON files, provides `translate(key)` method
   - `TranslatePipe` (`src/app/core/pipes/translate.pipe.ts`): Template pipe for translations, impure to react to language changes
 
 **Translation Pattern**:
@@ -39,9 +39,16 @@ The app implements a **dual-language system** (English/German) with automatic la
 this.translationService.translate('nav.home')
 ```
 
-All translation keys are stored in `TranslationService.translations` object with structure:
-```typescript
-'key': { en: 'English text', de: 'German text' }
+**Translation Files**: Translations are stored in separate JSON files:
+- `src/assets/i18n/en.json` - English translations
+- `src/assets/i18n/de.json` - German translations
+
+Each file has a flat key-value structure:
+```json
+{
+  "nav.home": "Home",
+  "hero.title": "Welcome to AIT LABS"
+}
 ```
 
 ### Signal-Based State Management
@@ -113,13 +120,13 @@ Components use separate template files (`.html`) rather than inline templates.
 
 When adding new translatable text:
 
-1. Add translation key to `TranslationService.translations` object
+1. Add the translation key to both `src/assets/i18n/en.json` and `src/assets/i18n/de.json`
 2. Provide both English and German translations
 3. Use the pipe in templates: `{{ 'your.key' | translate }}`
 4. Follow existing key naming conventions:
    - Navigation: `nav.*`
-   - Common UI: `common.*`
-   - Section-specific: `hero.*`, `services.*`, `footer.*`, etc.
+   - Common UI: `common.*`, `lang.*`
+   - Section-specific: `hero.*`, `services.*`, `footer.*`, `booking.*`, etc.
 
 ## Code Quality Standards
 

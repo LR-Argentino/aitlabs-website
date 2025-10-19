@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/ai-automations/ai-automations.component').then(m => m.AiAutomationsComponent)
   },
   {
+    path: 'datenschutz',
+    loadComponent: () => import('./pages/datenschutz/datenschutz.component').then(m => m.DatenschutzComponent)
+  },
+  {
     path: '**',
     redirectTo: ''
   }
