@@ -1,0 +1,123 @@
+<!-- Shell -->
+<div class="min-h-screen flex flex-col">
+  <!-- Main -->
+  <main class="flex-1">
+    <!-- Hero -->
+    <section class="relative">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-6">
+        <div class="flex flex-col items-center text-center">
+          <!-- Tag -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border bg-white shadow-sm" style="border-color: #ffffff14; background-color: var(--brand-weak);">
+            <span class="inline-block size-2 rounded-full" style="background-color:#012013;"></span>
+            <span class="text-xs font-medium text-neutral-900">{{ 'impressum.badge' | translate }}</span>
+          </div>
+
+          <!-- Title -->
+          <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-neutral-900 max-w-3xl">
+            {{ 'impressum.title' | translate }}
+          </h1>
+
+          <p class="mt-5 text-base sm:text-lg text-neutral-600 max-w-2xl">
+            {{ 'impressum.subtitle' | translate }}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content -->
+    <section class="border-t border-neutral-200">
+      <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Betreiber der Webseite -->
+        <div class="rounded-3xl border bg-white p-6 sm:p-8 mb-6">
+          <div class="flex items-center gap-2 mb-4">
+            <lucide-angular [img]="Building2Icon" class="size-6 text-neutral-900"></lucide-angular>
+            <h2 class="text-2xl font-semibold tracking-tight text-neutral-900">{{ 'impressum.operator.title' | translate }}</h2>
+          </div>
+          <div class="space-y-2 text-neutral-700">
+            <p class="font-medium">Luca Argentino / AIT LABS</p>
+            <p>Einzelunternehmen</p>
+            <p>Hagenstrasse 52</p>
+            <p>6460 Altdorf UR</p>
+            <p>Schweiz</p>
+          </div>
+        </div>
+
+        <!-- Kontakt -->
+        <div class="rounded-3xl border bg-white p-6 sm:p-8 mb-6">
+          <div class="flex items-center gap-2 mb-4">
+            <lucide-angular [img]="MailIcon" class="size-6 text-neutral-900"></lucide-angular>
+            <h2 class="text-2xl font-semibold tracking-tight text-neutral-900">{{ 'impressum.contact.title' | translate }}</h2>
+          </div>
+          <div class="space-y-3">
+            <div class="flex items-center gap-3 text-neutral-700">
+              <lucide-angular [img]="PhoneIcon" class="size-5"></lucide-angular>
+              <span>+41 76 697 73 36</span>
+            </div>
+            <div class="flex items-center gap-3 text-neutral-700">
+              <lucide-angular [img]="MailIcon" class="size-5"></lucide-angular>
+              <span>office@ait-labs.com</span>
+            </div>
+            <div class="flex items-center gap-3 text-neutral-700">
+              <lucide-angular [img]="MapPinIcon" class="size-5"></lucide-angular>
+              <span>www.ait-labs.com</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Handelsregister -->
+        <div class="rounded-3xl border bg-white p-6 sm:p-8 mb-6">
+          <div class="flex items-center gap-2 mb-4">
+            <lucide-angular [img]="FileTextIcon" class="size-6 text-neutral-900"></lucide-angular>
+            <h2 class="text-2xl font-semibold tracking-tight text-neutral-900">{{ 'impressum.registry.title' | translate }}</h2>
+          </div>
+          <div class="space-y-2 text-neutral-700">
+            <p>{{ 'impressum.registry.entry' | translate }}: Uri</p>
+            <p>{{ 'impressum.registry.number' | translate }}: CHE-405.169.370</p>
+            <p>{{ 'impressum.registry.uid' | translate }}: CHE-[XXX.XXX.XXX] MWST</p>
+          </div>
+        </div>
+
+        <!-- Umsatzsteuer -->
+<!--        <div class="rounded-3xl border bg-white p-6 sm:p-8 mb-6">-->
+<!--          <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">{{ 'impressum.vat.title' | translate }}</h2>-->
+<!--          <div class="space-y-2 text-neutral-700">-->
+<!--            <p>{{ 'impressum.vat.number' | translate }}: [CH XXX.XXX.XXX MWST]</p>-->
+<!--          </div>-->
+<!--        </div>-->
+
+        <!-- Verantwortlich für den Inhalt -->
+        <div class="rounded-3xl border bg-white p-6 sm:p-8 mb-6">
+          <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">{{ 'impressum.responsible.title' | translate }}</h2>
+          <div class="space-y-2 text-neutral-700">
+            <p class="font-medium">Luca Argentino</p>
+            <p>Hagenstrasse 52</p>
+            <p>6460 Altdorf</p>
+            <p>Schweiz</p>
+          </div>
+        </div>
+
+        <!-- Streitschlichtung -->
+        <div class="rounded-3xl border bg-white p-6 sm:p-8 mb-6">
+          <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">{{ 'impressum.dispute.title' | translate }}</h2>
+          <div class="space-y-3 text-neutral-700">
+            <p>{{ 'impressum.dispute.text' | translate }}</p>
+          </div>
+        </div>
+
+        <!-- Haftungsausschluss -->
+        <div class="rounded-3xl border bg-white p-6 sm:p-8 mb-6">
+          <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">{{ 'impressum.liability.title' | translate }}</h2>
+          <p class="text-neutral-700">{{ 'impressum.liability.text' | translate }}</p>
+        </div>
+
+        <!-- Copyright -->
+        <div class="rounded-3xl border bg-white p-6 sm:p-8">
+          <h2 class="text-2xl font-semibold tracking-tight text-neutral-900 mb-4">{{ 'impressum.copyright.title' | translate }}</h2>
+          <p class="text-neutral-700">{{ 'impressum.copyright.text' | translate }}</p>
+        </div>
+
+      </div>
+    </section>
+  </main>
+</div>
