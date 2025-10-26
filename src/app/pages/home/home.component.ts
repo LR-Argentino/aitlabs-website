@@ -1,11 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { HeroComponent } from '../../components/hero/hero.component';
+import { HeroComponent } from '../../shared/components/hero/hero.component';
 import { StatsComponent } from '../../components/stats/stats.component';
 import { AboutComponent } from '../../components/about/about.component';
-import { OurServicesComponent } from '../../components/our-services/our-services.component';
+import { OurServicesComponent } from '../../shared/components/our-services/our-services.component';
 import { ProjectsComponent } from '../../components/projects/projects.component';
 import { FaqComponent } from '../../components/faq/faq.component';
-import { BookingComponent } from '../../components/booking/booking.component';
+import { BookingComponent } from '../../shared/components/booking/booking.component';
 import { CtaComponent } from '../../components/cta/cta.component';
 
 @Component({

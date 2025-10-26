@@ -1,9 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HeroComponent } from './hero.component';
-import { NavigationService } from '../../core/services/navigation.service';
-import { TranslationService } from '../../core/services/translation.service';
-import { LanguageService } from '../../core/services/language.service';
-import { TranslatePipe } from '../../core/pipes/translate.pipe';
+import { NavigationService } from '../../../core/services/navigation.service';
+import { TranslationService } from '../../../core/services/translation.service';
+import { LanguageService } from '../../../core/services/language.service';
+import { TranslatePipe } from '../../../core/pipes/translate.pipe';
+
 
 describe('HeroComponent', () => {
   let component: HeroComponent;

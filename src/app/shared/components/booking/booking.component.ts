@@ -8,8 +8,8 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { isPlatformBrowser, NgIf } from '@angular/common';
-import { TranslatePipe } from '../../core/pipes/translate.pipe';
-import { CalendarIntegrationService } from '../../core/services/calendar-integration.service';
+import { TranslatePipe } from '../../../core/pipes/translate.pipe';
+import { CalendarIntegrationService } from '../../../core/services/calendar-integration.service';
 import { ContactFormFallbackComponent } from './contact-form-fallback/contact-form-fallback.component';
 
 @Component({

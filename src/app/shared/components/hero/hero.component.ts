@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { TranslatePipe } from '../../core/pipes/translate.pipe';
-import { BaseComponent } from '../../core/base/base.component';
+import { TranslatePipe } from '../../../core/pipes/translate.pipe';
+import { BaseComponent } from '../../../core/base/base.component';
 
 @Component({
   selector: 'app-hero',

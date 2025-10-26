@@ -8,14 +8,14 @@ export const routes: Routes = [
   {
     path: 'ai-voice-assistant',
     loadComponent: () =>
-      import('./pages/ai-voice-assistant/ai-voice-assistant.component').then(
+      import('./features/ai-voice-assistant/ai-voice-assistant.component').then(
         (m) => m.AiVoiceAssistantComponent,
       ),
   },
   {
     path: 'ai-automations',
     loadComponent: () =>
-      import('./pages/ai-automations/ai-automations.component').then(
+      import('./features/ai-automations/ai-automations.component').then(
         (m) => m.AiAutomationsComponent,
       ),
   },

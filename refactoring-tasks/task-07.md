@@ -3,7 +3,7 @@
 **Priority**: Low
 **Complexity**: Low
 **Estimated Time**: 0.5 days
-**Status**: 🟢 Future
+**Status**: ✅ Complete
 
 ---
 
@@ -67,37 +67,39 @@ src/app/
 
 ### Phase 1: Create new directories
 
-- [ ] `core/models/`
-- [ ] `core/base/`
-- [ ] `core/handlers/`
-- [ ] `core/utils/`
-- [ ] `shared/components/`
-- [ ] `layout/`
-- [ ] `features/`
+- [x] `core/models/`
+- [x] `core/base/`
+- [x] `core/handlers/`
+- [x] `core/utils/`
+- [x] `shared/components/`
+- [x] `layout/`
+- [x] `features/`
 
 ### Phase 2: Move files
 
-- [ ] Move header → `layout/header/`
-- [ ] Move footer → `layout/footer/`
-- [ ] Move hero → `shared/components/hero/`
-- [ ] Move services-section → `shared/components/services-section/`
-- [ ] Move booking → `shared/components/booking/`
+- [x] Move header → `layout/header/`
+- [x] Move footer → `layout/footer/`
+- [x] Move hero → `shared/components/hero/`
+- [x] Move services-section → `shared/components/our-services/`
+- [x] Move booking → `shared/components/booking/`
+- [x] Move ai-voice-assistant → `features/ai-voice-assistant/`
+- [x] Move ai-automations → `features/ai-automations/`
 
 ### Phase 3: Update imports
 
-- [ ] Update all import paths
-- [ ] Update `tsconfig.json` path mappings
-- [ ] Verify application still compiles and runs
+- [x] Update all import paths
+- [x] Update `tsconfig.json` path mappings
+- [x] Verify application still compiles and runs
 
 ---
 
 ## Success Criteria
 
-- [ ] All directories created and organized logically
-- [ ] Files moved to appropriate locations
-- [ ] All imports updated correctly
-- [ ] Application compiles without errors
-- [ ] CLAUDE.md reflects new structure
+- [x] All directories created and organized logically
+- [x] Files moved to appropriate locations
+- [x] All imports updated correctly
+- [x] Application compiles without errors
+- [x] CLAUDE.md reflects new structure
 
 ---
 

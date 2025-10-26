@@ -1,7 +1,7 @@
 import { Component, signal, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './layout/header/header.component';
+import { FooterComponent } from './layout/footer/footer.component';
 import { InfoBannerComponent } from './components/info-banner/info-banner.component';
 import { LanguageService } from './core/services/language.service';
 

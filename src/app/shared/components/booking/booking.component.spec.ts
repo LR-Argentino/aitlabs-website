@@ -1,10 +1,10 @@
 import { ComponentFixture, TestBed, fakeAsync, tick, flushMicrotasks } from '@angular/core/testing';
 import { BookingComponent } from './booking.component';
-import { CalendarIntegrationService } from '../../core/services/calendar-integration.service';
-import { CalendarLoadResult } from '../../core/models/booking.model';
-import { TranslationService } from '../../core/services/translation.service';
-import { LanguageService } from '../../core/services/language.service';
-import { TranslatePipe } from '../../core/pipes/translate.pipe';
+import { CalendarIntegrationService } from '../../../core/services/calendar-integration.service';
+import { CalendarLoadResult } from '../../../core/models/booking.model';
+import { TranslationService } from '../../../core/services/translation.service';
+import { LanguageService } from '../../../core/services/language.service';
+import { TranslatePipe } from '../../../core/pipes/translate.pipe';
 import { PLATFORM_ID } from '@angular/core';
 
 describe('BookingComponent', () => {

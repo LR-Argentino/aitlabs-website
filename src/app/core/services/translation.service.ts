@@ -98,7 +98,9 @@ export class TranslationService {
           this.currentTranslations.set(fallbackTranslations);
         } else {
           // Last resort: use bundled English
-          this.errorLogging.logWarning('Cache miss for English fallback, using bundled translations');
+          this.errorLogging.logWarning(
+            'Cache miss for English fallback, using bundled translations',
+          );
           this.currentTranslations.set(enTranslations as TranslationDictionary);
         }
         this.loadingError.set(`Translation not found for language: ${language}`);

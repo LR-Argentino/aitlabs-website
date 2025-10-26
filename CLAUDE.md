@@ -61,18 +61,38 @@ Angular signals are used throughout for reactive state:
 
 ```
 src/app/
-├── components/        # Reusable UI components (header, footer, hero, etc.)
-├── pages/            # Route-level page components (home, ai-voice-assistant, ai-automations)
-├── core/             # Core services, pipes, guards, interceptors
-│   ├── services/     # Singleton services (language, translation)
-│   ├── pipes/        # Global pipes (translate)
-│   ├── guards/       # Route guards
-│   ├── interceptors/ # HTTP interceptors
-│   ├── models/       # Data models
-│   └── utils/        # Utility functions
-├── shared/           # Shared components and utilities
-├── features/         # Feature-specific modules
-└── layout/           # Layout components
+├── core/                    # Core application infrastructure
+│   ├── base/                # Base classes (BaseComponent for shared logic)
+│   ├── handlers/            # Error handlers and interceptors
+│   ├── models/              # TypeScript interfaces and types
+│   ├── pipes/               # Global pipes (TranslatePipe)
+│   ├── services/            # Singleton services (LanguageService, TranslationService)
+│   └── utils/               # Utility functions
+├── shared/                  # Shared/reusable components
+│   └── components/          # Reusable UI components
+│       ├── hero/            # Hero section component
+│       ├── our-services/    # Services showcase component
+│       └── booking/         # Booking/calendar integration component
+├── layout/                  # Layout components
+│   ├── header/              # Application header with navigation
+│   └── footer/              # Application footer with contact form
+├── features/                # Feature modules (organized by domain)
+│   ├── ai-voice-assistant/  # AI Voice Assistant feature
+│   └── ai-automations/      # AI Automations feature
+├── components/              # Other UI components
+│   ├── about/
+│   ├── cta/
+│   ├── faq/
+│   ├── info-banner/
+│   ├── in-progress/
+│   ├── projects/
+│   ├── sponsors/
+│   ├── stats/
+│   └── testimonials/
+└── pages/                   # Simple page components
+    ├── home/                # Home page
+    ├── impressum/           # Legal: Impressum
+    └── datenschutz/         # Legal: Privacy Policy
 ```
 
 ### Routing
@@ -80,7 +100,7 @@ Routes use lazy loading with `loadComponent`:
 ```typescript
 {
   path: 'ai-voice-assistant',
-  loadComponent: () => import('./pages/ai-voice-assistant/ai-voice-assistant.component').then(m => m.AiVoiceAssistantComponent)
+  loadComponent: () => import('./features/ai-voice-assistant/ai-voice-assistant.component').then(m => m.AiVoiceAssistantComponent)
 }
 ```
 
@@ -141,6 +161,9 @@ When adding new translatable text:
 
 ### File Organization
 - Keep components focused and single-purpose
-- Place shared utilities in `core/utils/`
-- Place shared components in `shared/`
-- Feature-specific code goes in `features/`
+- Place core infrastructure (services, pipes, models, base classes) in `core/`
+- Place reusable UI components in `shared/components/`
+- Place layout components (header, footer) in `layout/`
+- Place feature modules in `features/` (organized by domain)
+- Place simple page components in `pages/`
+- Place remaining UI components in `components/` (consider moving to `shared/components/` as they become reusable)
