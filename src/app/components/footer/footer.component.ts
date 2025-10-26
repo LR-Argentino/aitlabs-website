@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { NavigationService } from '../../core/services/navigation.service';
@@ -9,7 +9,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   standalone: true,
   imports: [CommonModule, TranslatePipe, ContactFormComponent],
   templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  styleUrl: './footer.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent {
   private navigationService = inject(NavigationService);

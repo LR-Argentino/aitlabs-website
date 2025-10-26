@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 
@@ -7,7 +7,8 @@ import { TranslatePipe } from '../../core/pipes/translate.pipe';
   standalone: true,
   imports: [CommonModule, TranslatePipe],
   templateUrl: './our-services.html',
-  styleUrls: ['./our-services.css']
+  styleUrls: ['./our-services.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OurServicesComponent {
   services = [

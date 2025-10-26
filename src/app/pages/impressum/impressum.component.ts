@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule, FileText, Mail, Phone, MapPin, Building2 } from 'lucide-angular';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
@@ -8,7 +8,8 @@ import { TranslatePipe } from '../../core/pipes/translate.pipe';
   standalone: true,
   imports: [CommonModule, LucideAngularModule, TranslatePipe],
   templateUrl: './impressum.component.html',
-  styleUrl: './impressum.component.css'
+  styleUrl: './impressum.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ImpressumComponent {
   protected readonly FileTextIcon = FileText;

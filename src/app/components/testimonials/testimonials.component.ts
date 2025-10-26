@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 interface Testimonial {
@@ -15,7 +15,8 @@ interface Testimonial {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './testimonials.component.html',
-  styleUrl: './testimonials.component.css'
+  styleUrl: './testimonials.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TestimonialsComponent {
   protected readonly currentTestimonial = signal(0);

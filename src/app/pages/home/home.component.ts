@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { HeroComponent } from '../../components/hero/hero.component';
 import { StatsComponent } from '../../components/stats/stats.component';
 import { AboutComponent } from '../../components/about/about.component';
@@ -22,7 +22,8 @@ import { CtaComponent } from '../../components/cta/cta.component';
     CtaComponent
   ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  styleUrl: './home.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
 }

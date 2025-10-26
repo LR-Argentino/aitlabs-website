@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { InProgressComponent } from '../in-progress/in-progress.component';
 
 @Component({
@@ -6,7 +6,8 @@ import { InProgressComponent } from '../in-progress/in-progress.component';
   standalone: true,
   imports: [InProgressComponent],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css'
+  styleUrl: './projects.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectsComponent {
   onProjectClick(projectName: string) {

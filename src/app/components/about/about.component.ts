@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 
 @Component({
@@ -6,7 +6,8 @@ import { TranslatePipe } from '../../core/pipes/translate.pipe';
   standalone: true,
   imports: [TranslatePipe],
   templateUrl: './about.component.html',
-  styleUrl: './about.component.css'
+  styleUrl: './about.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AboutComponent {
 }

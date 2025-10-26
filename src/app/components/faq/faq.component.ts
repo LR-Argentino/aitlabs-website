@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 
@@ -14,7 +14,8 @@ interface FAQItem {
   standalone: true,
   imports: [CommonModule, TranslatePipe],
   templateUrl: './faq.component.html',
-  styleUrl: './faq.component.css'
+  styleUrl: './faq.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FaqComponent {
   protected readonly faqItems = signal<FAQItem[]>([

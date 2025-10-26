@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { NavigationService } from '../../core/services/navigation.service';
 
@@ -7,7 +7,8 @@ import { NavigationService } from '../../core/services/navigation.service';
   standalone: true,
   imports: [TranslatePipe],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.css'
+  styleUrl: './hero.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeroComponent {
   private navigationService = inject(NavigationService);

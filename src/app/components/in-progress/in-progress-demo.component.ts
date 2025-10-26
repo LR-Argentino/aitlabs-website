@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { InProgressComponent } from './in-progress.component';
 
 @Component({
   selector: 'app-in-progress-demo',
   standalone: true,
   imports: [InProgressComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="demo-container bg-gray-100 p-8 rounded-lg">
       <h2 class="text-2xl font-bold mb-6 text-center text-gray-800">In Progress Animation Demo</h2>

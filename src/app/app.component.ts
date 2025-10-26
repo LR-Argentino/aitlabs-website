@@ -1,4 +1,4 @@
-import { Component, signal, OnInit, inject } from '@angular/core';
+import { Component, signal, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -15,7 +15,8 @@ import { LanguageService } from './core/services/language.service';
     InfoBannerComponent
   ],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrl: './app.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class App implements OnInit {
   protected readonly title = signal('aitlabs-web');

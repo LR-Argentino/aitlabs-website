@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -6,7 +6,8 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './contact-form-fallback.component.html',
-  styleUrl: './contact-form-fallback.component.css'
+  styleUrl: './contact-form-fallback.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactFormFallbackComponent {
   openEmailComposer() {

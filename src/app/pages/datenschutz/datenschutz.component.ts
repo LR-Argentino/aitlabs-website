@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, signal, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, signal, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -6,7 +6,8 @@ import { Router } from '@angular/router';
   selector: 'app-datenschutz',
   imports: [CommonModule],
   templateUrl: './datenschutz.component.html',
-  styleUrl: './datenschutz.component.css'
+  styleUrl: './datenschutz.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DatenschutzComponent implements OnInit, OnDestroy {
   private router = inject(Router);

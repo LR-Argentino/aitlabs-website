@@ -1,4 +1,4 @@
-import { Component, signal, OnInit, OnDestroy, HostListener, inject } from '@angular/core';
+import { Component, signal, OnInit, OnDestroy, HostListener, inject, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../core/services/language.service';
@@ -13,7 +13,8 @@ import { LucideAngularModule, ChevronDown, Menu, Calendar } from 'lucide-angular
   standalone: true,
   imports: [CommonModule, TranslatePipe, LucideAngularModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+  styleUrl: './header.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   // Dropdown IDs (constants for type safety)

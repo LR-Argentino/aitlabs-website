@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { LottieComponent, AnimationOptions } from 'ngx-lottie';
 
 @Component({
@@ -6,7 +6,8 @@ import { LottieComponent, AnimationOptions } from 'ngx-lottie';
   standalone: true,
   imports: [LottieComponent],
   templateUrl: './in-progress.component.html',
-  styleUrls: ['./in-progress.component.css']
+  styleUrls: ['./in-progress.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InProgressComponent {
   @Input() width: string = '200px';

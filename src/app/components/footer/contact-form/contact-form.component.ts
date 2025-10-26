@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TranslatePipe } from '../../../core/pipes/translate.pipe';
@@ -13,7 +13,8 @@ interface ContactForm {
   standalone: true,
   imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './contact-form.component.html',
-  styleUrl: './contact-form.component.css'
+  styleUrl: './contact-form.component.css',
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactFormComponent {
   protected readonly contactForm = signal<ContactForm>({

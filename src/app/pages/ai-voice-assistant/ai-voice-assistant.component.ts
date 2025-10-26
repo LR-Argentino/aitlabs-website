@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, inject} from '@angular/core';
+import {Component, OnDestroy, OnInit, inject, ChangeDetectionStrategy} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import { NavigationService } from '../../core/services/navigation.service';
 import {
@@ -30,7 +30,8 @@ import {
     standalone: true,
     imports: [CommonModule, LucideAngularModule],
     templateUrl: './ai-voice-assistant.component.html',
-    styleUrl: './ai-voice-assistant.component.css'
+    styleUrl: './ai-voice-assistant.component.css',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AiVoiceAssistantComponent implements OnInit, OnDestroy {
     private navigationService = inject(NavigationService);
