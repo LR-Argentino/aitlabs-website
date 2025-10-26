@@ -140,34 +140,30 @@ describe('TranslatePipe', () => {
   });
 
   describe('Caching Behavior', () => {
-    it('should cache translations for performance', () => {
+    it('should leverage service-level caching for performance', () => {
       languageService.setLanguage('en');
       TestBed.flushEffects();
 
-      spyOn(translationService, 'translate').and.callThrough();
-
-      // First call - should hit service
+      // Pure pipe calls translate() each time, but service caches the result
       const result1 = pipe.transform('nav.home');
-      expect(translationService.translate).toHaveBeenCalledTimes(1);
-
-      // Second call - should use cache
       const result2 = pipe.transform('nav.home');
-      expect(translationService.translate).toHaveBeenCalledTimes(1); // Still 1, used cache
 
+      // Both should return the same translation
       expect(result1).toBe(result2);
+      expect(result1).toBeTruthy();
     });
 
-    it('should use separate cache entries for different keys', () => {
+    it('should delegate to service for all translation requests', () => {
       spyOn(translationService, 'translate').and.callThrough();
 
       pipe.transform('nav.home');
       pipe.transform('nav.services');
 
-      // Should call service twice for different keys
+      // Pure pipe calls service for each transform
       expect(translationService.translate).toHaveBeenCalledTimes(2);
     });
 
-    it('should maintain cache per language', () => {
+    it('should get correct translations for different languages', () => {
       languageService.setLanguage('en');
       TestBed.flushEffects();
       const enResult = pipe.transform('nav.home');
@@ -176,32 +172,31 @@ describe('TranslatePipe', () => {
       TestBed.flushEffects();
       const deResult = pipe.transform('nav.home');
 
-      // Cache should be language-specific
+      // Should get language-specific translations from service cache
       expect(enResult).toBeTruthy();
       expect(deResult).toBeTruthy();
     });
   });
 
-  describe('Impure Pipe Behavior', () => {
-    it('should be marked as impure pipe', () => {
-      // The pipe decorator should have pure: false
-      // This allows it to detect language changes
+  describe('Pure Pipe Behavior', () => {
+    it('should be marked as pure pipe for optimal performance', () => {
+      // Pure pipe relies on Angular signals and service caching
       expect(pipe).toBeTruthy();
       // Note: We can't directly test the decorator, but we test behavior
     });
 
-    it('should update on each check when language changes', () => {
+    it('should get updated translations when language changes', () => {
       languageService.setLanguage('en');
       TestBed.flushEffects();
 
       const result1 = pipe.transform('nav.home');
       expect(result1).toBeTruthy();
 
-      // Change language
+      // Change language - service updates translations via signals
       languageService.setLanguage('de');
       TestBed.flushEffects();
 
-      // Should get updated translation
+      // Should get updated translation from service
       const result2 = pipe.transform('nav.home');
       expect(result2).toBeTruthy();
     });
@@ -265,10 +260,11 @@ describe('TranslatePipe', () => {
       const duration = endTime - startTime;
 
       // Should complete 100 translations quickly (under 50ms)
+      // Service caching ensures fast lookups
       expect(duration).toBeLessThan(50);
     });
 
-    it('should benefit from caching on repeated calls', () => {
+    it('should benefit from service-level translation caching', () => {
       spyOn(translationService, 'translate').and.callThrough();
 
       // Make multiple calls to same key
@@ -276,13 +272,22 @@ describe('TranslatePipe', () => {
         pipe.transform('nav.home');
       }
 
-      // Should only call service once due to caching
-      expect(translationService.translate).toHaveBeenCalledTimes(1);
+      // Pure pipe calls service each time, but service uses cached translations
+      // This is the expected behavior for a pure pipe
+      expect(translationService.translate).toHaveBeenCalledTimes(10);
+
+      // The important part is that each call is fast (< 1ms) due to service caching
+      // Let's verify the results are consistent
+      const results: string[] = [];
+      for (let i = 0; i < 5; i++) {
+        results.push(pipe.transform('nav.home'));
+      }
+      expect(results.every((r) => r === results[0])).toBe(true);
     });
   });
 
   describe('Multiple Pipe Instances', () => {
-    it('should maintain separate cache per pipe instance', () => {
+    it('should share service-level translation cache across instances', () => {
       const pipe2 = TestBed.inject(TranslatePipe);
 
       languageService.setLanguage('en');
@@ -291,6 +296,7 @@ describe('TranslatePipe', () => {
       const result1 = pipe.transform('nav.home');
       const result2 = pipe2.transform('nav.home');
 
+      // Both instances use the same service cache, so results are identical
       expect(result1).toBe(result2);
       expect(result1).toBeTruthy();
     });

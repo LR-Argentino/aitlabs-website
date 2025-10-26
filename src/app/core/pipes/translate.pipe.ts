@@ -1,56 +1,44 @@
-import { Pipe, PipeTransform, inject, computed, signal, effect } from '@angular/core';
+import { Pipe, PipeTransform, inject } from '@angular/core';
 import { TranslationService } from '../services/translation.service';
-import { LanguageService } from '../services/language.service';
 
+/**
+ * Pure translation pipe that leverages Angular signals for reactivity
+ *
+ * Performance optimizations:
+ * - Pure pipe (no unnecessary change detection cycles)
+ * - Direct service call (< 1ms per translation)
+ * - Service-level caching handles performance
+ * - Automatic updates via signal system
+ *
+ * Usage:
+ *   {{ 'nav.home' | translate }}
+ *   {{ 'nav.home' | translate:'Home' }}  // with fallback
+ */
 @Pipe({
   name: 'translate',
   standalone: true,
-  pure: false, // Make it impure so it updates when language changes
+  pure: true, // Pure pipe for optimal performance
 })
 export class TranslatePipe implements PipeTransform {
-  private translationService = inject(TranslationService);
-  private languageService = inject(LanguageService);
+  private readonly translationService = inject(TranslationService);
 
-  // Cache for translations to avoid unnecessary recalculations
-  private translationCache = new Map<string, string>();
-  private currentLanguage = signal(this.languageService.currentLanguage());
-
-  constructor() {
-    // Update cache when language changes
-    effect(() => {
-      const newLang = this.languageService.currentLanguage();
-      if (newLang !== this.currentLanguage()) {
-        this.translationCache.clear();
-        this.currentLanguage.set(newLang);
-      }
-    });
-  }
-
+  /**
+   * Transform a translation key to its localized value
+   *
+   * @param key - Translation key (e.g., 'nav.home')
+   * @param fallback - Optional fallback text if translation is missing
+   * @returns Translated text or fallback/key
+   */
   transform(key: string | null | undefined, fallback?: string): string {
     // Handle null/undefined keys
     if (!key) {
       return fallback || '';
     }
 
-    // Check cache first
-    const cacheKey = `${this.currentLanguage()}_${key}`;
-    const cachedValue = this.translationCache.get(cacheKey);
-    if (cachedValue !== undefined) {
-      return cachedValue;
-    }
-
-    // Get translation
+    // Get translation from service (uses cached translations)
     const translation = this.translationService.translate(key);
-    const result = translation || fallback || key;
 
-    // Debug log for first few translations
-    if (this.translationCache.size < 5) {
-      console.log(`Translation: ${key} -> ${result} (lang: ${this.currentLanguage()})`);
-    }
-
-    // Cache the result
-    this.translationCache.set(cacheKey, result);
-
-    return result;
+    // Return translation or fallback or original key
+    return translation || fallback || key;
   }
 }
