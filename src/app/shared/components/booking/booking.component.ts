@@ -6,6 +6,7 @@ import {
   PLATFORM_ID,
   inject,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
 } from '@angular/core';
 import { isPlatformBrowser, NgIf } from '@angular/common';
 import { TranslatePipe } from '../../../core/pipes/translate.pipe';
@@ -26,6 +27,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
   protected calendarProvider: 'calcom' | 'calendly' | 'fallback' = 'calcom';
 
   private calendarService = inject(CalendarIntegrationService);
+  private cdr = inject(ChangeDetectorRef);
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -51,6 +53,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
         this.calendarProvider = 'calcom';
         this.showCalendar = true;
         this.showFallback = false;
+        this.cdr.markForCheck();
         return;
       }
 
@@ -70,6 +73,7 @@ export class BookingComponent implements OnInit, AfterViewInit {
         this.calendarProvider = 'calendly';
         this.showCalendar = true;
         this.showFallback = false;
+        this.cdr.markForCheck();
       } else {
         this.showContactFormFallback();
       }
@@ -82,5 +86,6 @@ export class BookingComponent implements OnInit, AfterViewInit {
     this.calendarProvider = 'fallback';
     this.showCalendar = false;
     this.showFallback = true;
+    this.cdr.markForCheck();
   }
 }
