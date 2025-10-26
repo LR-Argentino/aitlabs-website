@@ -16,33 +16,36 @@ interface Testimonial {
   imports: [CommonModule],
   templateUrl: './testimonials.component.html',
   styleUrl: './testimonials.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TestimonialsComponent {
   protected readonly currentTestimonial = signal(0);
-  
+
   protected readonly testimonials = signal<Testimonial[]>([
     {
       id: 1,
-      quote: "Working with AIT LABS has been an absolute game-changer for our business. Their team perfectly blended creativity and technical expertise to deliver a stunning website and seamless user experience. We saw a 45% increase in customer engagement within just two months after the launch. Highly recommended!",
-      name: "Garry Wheeler",
-      position: "Chief Marketing Officer",
-      company: "NovaTech Solutions"
+      quote:
+        'Working with AIT LABS has been an absolute game-changer for our business. Their team perfectly blended creativity and technical expertise to deliver a stunning website and seamless user experience. We saw a 45% increase in customer engagement within just two months after the launch. Highly recommended!',
+      name: 'Garry Wheeler',
+      position: 'Chief Marketing Officer',
+      company: 'NovaTech Solutions',
     },
     {
       id: 2,
-      quote: "The AI automation solutions provided by AIT LABS saved us over 20 hours per week. Their attention to detail and understanding of our business needs was exceptional. The ROI was visible within the first month of implementation.",
-      name: "Sarah Johnson",
-      position: "Operations Director",
-      company: "TechFlow Industries"
+      quote:
+        'The AI automation solutions provided by AIT LABS saved us over 20 hours per week. Their attention to detail and understanding of our business needs was exceptional. The ROI was visible within the first month of implementation.',
+      name: 'Sarah Johnson',
+      position: 'Operations Director',
+      company: 'TechFlow Industries',
     },
     {
       id: 3,
-      quote: "From concept to deployment, AIT LABS exceeded our expectations. Their UI/UX design transformed our user experience completely, resulting in a 60% increase in user retention. Professional, reliable, and innovative.",
-      name: "Michael Chen",
-      position: "Product Manager",
-      company: "Digital Dynamics"
-    }
+      quote:
+        'From concept to deployment, AIT LABS exceeded our expectations. Their UI/UX design transformed our user experience completely, resulting in a 60% increase in user retention. Professional, reliable, and innovative.',
+      name: 'Michael Chen',
+      position: 'Product Manager',
+      company: 'Digital Dynamics',
+    },
   ]);
 
   nextTestimonial() {

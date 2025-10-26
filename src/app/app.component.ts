@@ -8,19 +8,14 @@ import { LanguageService } from './core/services/language.service';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    HeaderComponent,
-    FooterComponent,
-    InfoBannerComponent
-  ],
+  imports: [RouterOutlet, HeaderComponent, FooterComponent, InfoBannerComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App implements OnInit {
   protected readonly title = signal('aitlabs-web');
-  
+
   private languageService = inject(LanguageService);
 
   ngOnInit() {

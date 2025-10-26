@@ -5,7 +5,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   standalone: true,
   templateUrl: './cta.component.html',
   styleUrl: './cta.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CtaComponent {
   onGetStarted() {

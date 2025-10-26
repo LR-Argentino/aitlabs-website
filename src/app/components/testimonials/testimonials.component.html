@@ -2,63 +2,77 @@
 <section id="testimonials" class="py-22">
   <div class="max-w-7xl mx-auto px-6 md:px-12">
     <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
-    <!-- Left Column -->
-    <div>
-      <div class="inline-flex items-center gap-2 bg-secondary-green px-3 py-1 rounded-full mb-6">
-        <div class="w-3 h-3 bg-primary-text rounded-full border-2 border-white"></div>
-        <span class="text-sm text-primary-text">Testimonials</span>
-      </div>
-      <h2 class="text-4xl md:text-5xl font-semibold text-primary-text mb-6 tracking-tight">
-        Hear What Our Clients Say
-      </h2>
-      <p class="text-lg text-secondary-text">
-        Real stories from businesses that trusted us to design, build, and scale their digital solutions.
-      </p>
-    </div>
-    
-    <!-- Right Column -->
-    <div class="space-y-8">
-      <blockquote class="text-lg text-primary-text leading-relaxed">
-        "{{ getCurrentTestimonial().quote }}"
-      </blockquote>
-      
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-3">
-          <div class="w-16 h-16 bg-gray-300 rounded-full"></div>
-          <div>
-            <h4 class="text-lg font-medium text-primary-text">{{ getCurrentTestimonial().name }}</h4>
-            <p class="text-sm text-secondary-text">{{ getCurrentTestimonial().position }}, {{ getCurrentTestimonial().company }}</p>
-          </div>
+      <!-- Left Column -->
+      <div>
+        <div class="inline-flex items-center gap-2 bg-secondary-green px-3 py-1 rounded-full mb-6">
+          <div class="w-3 h-3 bg-primary-text rounded-full border-2 border-white"></div>
+          <span class="text-sm text-primary-text">Testimonials</span>
         </div>
-        
-        <div class="flex gap-3">
-          <button 
-            class="w-15 h-15 border border-secondary-text rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
-            (click)="previousTestimonial()">
-            <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 32 32">
-              <path d="M14.708 6.29222C14.801 6.38509 14.8747 6.49539 14.9251 6.61678L28.0005 15.9997H7.41426L14.708 24.2922C14.8956 24.4799 15.0011 24.7344 15.0011 24.9997L4.29301 15.2922C4.20003 15.1993 4.12627 15.0891 4.07595 14.9677L14.708 6.29222Z" fill="currentColor"/>
-            </svg>
-          </button>
-          <button 
-            class="w-15 h-15 bg-primary-text rounded-full flex items-center justify-center hover:bg-opacity-90 transition-colors"
-            (click)="nextTestimonial()">
-            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 32 32">
-              <path d="M17.2922 25.707C17.1992 25.6141 17.1255 25.5038 17.0752 25.3824L3.99972 15.9995H24.586L17.2922 7.70699C17.1046 7.51935 16.9992 7.26486 16.9992 6.99949L27.7072 16.707C27.8002 16.7999 27.874 16.9102 27.9243 17.0316L17.2922 25.707Z" fill="currentColor"/>
-            </svg>
-          </button>
-        </div>
+        <h2 class="text-4xl md:text-5xl font-semibold text-primary-text mb-6 tracking-tight">
+          Hear What Our Clients Say
+        </h2>
+        <p class="text-lg text-secondary-text">
+          Real stories from businesses that trusted us to design, build, and scale their digital
+          solutions.
+        </p>
       </div>
 
-      <!-- Testimonial indicators -->
-      <div class="flex justify-center gap-2 mt-6">
-        <div *ngFor="let testimonial of testimonials(); let i = index"
-             class="w-2 h-2 rounded-full transition-colors cursor-pointer"
-             [class.bg-primary-text]="i === currentTestimonial()"
-             [class.bg-gray-300]="i !== currentTestimonial()"
-             (click)="currentTestimonial.set(i)">
+      <!-- Right Column -->
+      <div class="space-y-8">
+        <blockquote class="text-lg text-primary-text leading-relaxed">
+          "{{ getCurrentTestimonial().quote }}"
+        </blockquote>
+
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-16 h-16 bg-gray-300 rounded-full"></div>
+            <div>
+              <h4 class="text-lg font-medium text-primary-text">
+                {{ getCurrentTestimonial().name }}
+              </h4>
+              <p class="text-sm text-secondary-text">
+                {{ getCurrentTestimonial().position }}, {{ getCurrentTestimonial().company }}
+              </p>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <button
+              class="w-15 h-15 border border-secondary-text rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors"
+              (click)="previousTestimonial()"
+            >
+              <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 32 32">
+                <path
+                  d="M14.708 6.29222C14.801 6.38509 14.8747 6.49539 14.9251 6.61678L28.0005 15.9997H7.41426L14.708 24.2922C14.8956 24.4799 15.0011 24.7344 15.0011 24.9997L4.29301 15.2922C4.20003 15.1993 4.12627 15.0891 4.07595 14.9677L14.708 6.29222Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <button
+              class="w-15 h-15 bg-primary-text rounded-full flex items-center justify-center hover:bg-opacity-90 transition-colors"
+              (click)="nextTestimonial()"
+            >
+              <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 32 32">
+                <path
+                  d="M17.2922 25.707C17.1992 25.6141 17.1255 25.5038 17.0752 25.3824L3.99972 15.9995H24.586L17.2922 7.70699C17.1046 7.51935 16.9992 7.26486 16.9992 6.99949L27.7072 16.707C27.8002 16.7999 27.874 16.9102 27.9243 17.0316L17.2922 25.707Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Testimonial indicators -->
+        <div class="flex justify-center gap-2 mt-6">
+          <div
+            *ngFor="let testimonial of testimonials(); let i = index"
+            class="w-2 h-2 rounded-full transition-colors cursor-pointer"
+            [class.bg-primary-text]="i === currentTestimonial()"
+            [class.bg-gray-300]="i !== currentTestimonial()"
+            (click)="currentTestimonial.set(i)"
+          ></div>
         </div>
       </div>
-    </div>
     </div>
   </div>
 </section>

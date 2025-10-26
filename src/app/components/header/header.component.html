@@ -1,20 +1,32 @@
 <!-- Header Section -->
-<header class="fixed top-0 left-0 right-0 z-40 bg-neutral-50/80 backdrop-blur border-b border-neutral-200"
-        (click)="dropdownManager.closeAll()">
+<header
+  class="fixed top-0 left-0 right-0 z-40 bg-neutral-50/80 backdrop-blur border-b border-neutral-200"
+  (click)="dropdownManager.closeAll()"
+>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4">
     <div class="flex items-center justify-between gap-4">
       <!-- Logo -->
-      <a href="#" class="flex items-center gap-3 group" (click)="navigateToSection('hero'); $event.preventDefault()">
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"
-             class="size-8"
-             alt="AIT LABS Logo"
-             role="img"
-             aria-label="AIT LABS Logo">
+      <a
+        href="#"
+        class="flex items-center gap-3 group"
+        (click)="navigateToSection('hero'); $event.preventDefault()"
+      >
+        <svg
+          width="32"
+          height="32"
+          viewBox="0 0 32 32"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="size-8"
+          alt="AIT LABS Logo"
+          role="img"
+          aria-label="AIT LABS Logo"
+        >
           <defs>
             <linearGradient id="ait-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" style="stop-color:#10B981;stop-opacity:1" />
-              <stop offset="50%" style="stop-color:#059669;stop-opacity:1" />
-              <stop offset="100%" style="stop-color:#047857;stop-opacity:1" />
+              <stop offset="0%" style="stop-color: #10b981; stop-opacity: 1" />
+              <stop offset="50%" style="stop-color: #059669; stop-opacity: 1" />
+              <stop offset="100%" style="stop-color: #047857; stop-opacity: 1" />
             </linearGradient>
           </defs>
 
@@ -39,10 +51,42 @@
             <circle cx="24" cy="16" r="1.5" fill="white" opacity="0.8" />
 
             <!-- Diagonal Connections -->
-            <line x1="11.5" y1="11.5" x2="14" y2="14" stroke="white" stroke-width="1" opacity="0.5" />
-            <line x1="20.5" y1="11.5" x2="18" y2="14" stroke="white" stroke-width="1" opacity="0.5" />
-            <line x1="11.5" y1="20.5" x2="14" y2="18" stroke="white" stroke-width="1" opacity="0.5" />
-            <line x1="20.5" y1="20.5" x2="18" y2="18" stroke="white" stroke-width="1" opacity="0.5" />
+            <line
+              x1="11.5"
+              y1="11.5"
+              x2="14"
+              y2="14"
+              stroke="white"
+              stroke-width="1"
+              opacity="0.5"
+            />
+            <line
+              x1="20.5"
+              y1="11.5"
+              x2="18"
+              y2="14"
+              stroke="white"
+              stroke-width="1"
+              opacity="0.5"
+            />
+            <line
+              x1="11.5"
+              y1="20.5"
+              x2="14"
+              y2="18"
+              stroke="white"
+              stroke-width="1"
+              opacity="0.5"
+            />
+            <line
+              x1="20.5"
+              y1="20.5"
+              x2="18"
+              y2="18"
+              stroke="white"
+              stroke-width="1"
+              opacity="0.5"
+            />
 
             <!-- Small Corner Nodes -->
             <circle cx="11.5" cy="11.5" r="1" fill="white" opacity="0.6" />
@@ -52,28 +96,46 @@
           </g>
 
           <!-- Letter A Integration -->
-          <path d="M12 22 L16 12 L20 22 M14 19 L18 19" stroke="white" stroke-width="2" fill="none" opacity="0.9" />
+          <path
+            d="M12 22 L16 12 L20 22 M14 19 L18 19"
+            stroke="white"
+            stroke-width="2"
+            fill="none"
+            opacity="0.9"
+          />
         </svg>
-        <span class="text-xl font-semibold tracking-tight text-neutral-900 group-hover:text-neutral-800 transition-colors">AIT LABS</span>
+        <span
+          class="text-xl font-semibold tracking-tight text-neutral-900 group-hover:text-neutral-800 transition-colors"
+          >AIT LABS</span
+        >
       </a>
 
       <!-- Nav -->
-      <nav class="hidden md:flex items-center gap-2 px-1 py-1 rounded-full border border-neutral-200">
+      <nav
+        class="hidden md:flex items-center gap-2 px-1 py-1 rounded-full border border-neutral-200"
+      >
         <!-- Services Dropdown -->
         <div class="relative dropdown-container">
-          <button class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors flex items-center gap-1"
-                  (mouseenter)="onDropdownEnter(DROPDOWNS.SERVICES)"
-                  (mouseleave)="onDropdownLeave()">
+          <button
+            class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors flex items-center gap-1"
+            (mouseenter)="onDropdownEnter(DROPDOWNS.SERVICES)"
+            (mouseleave)="onDropdownLeave()"
+          >
             {{ 'nav.service' | translate }}
             <lucide-icon [img]="ChevronDownIcon" class="size-4"></lucide-icon>
           </button>
           <!-- Services Dropdown Menu -->
-          <div *ngIf="dropdownManager.isOpen(DROPDOWNS.SERVICES)()"
-               class="absolute top-full left-0 mt-1 w-64 bg-white border border-neutral-200 rounded-lg shadow-lg z-50 animate-dropdown"
-               (mouseenter)="onDropdownEnter(DROPDOWNS.SERVICES)"
-               (mouseleave)="onDropdownLeave()">
+          <div
+            *ngIf="dropdownManager.isOpen(DROPDOWNS.SERVICES)()"
+            class="absolute top-full left-0 mt-1 w-64 bg-white border border-neutral-200 rounded-lg shadow-lg z-50 animate-dropdown"
+            (mouseenter)="onDropdownEnter(DROPDOWNS.SERVICES)"
+            (mouseleave)="onDropdownLeave()"
+          >
             <div class="p-2">
-              <a href="/ai-voice-assistant" class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors">
+              <a
+                href="/ai-voice-assistant"
+                class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+              >
                 <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
                   <span class="text-green-600 text-lg">🎤</span>
                 </div>
@@ -82,8 +144,11 @@
                   <div class="text-xs text-gray-500">Intelligent voice interactions</div>
                 </div>
               </a>
-              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
-                 (click)="navigateToSection('about'); $event.preventDefault()">
+              <a
+                href="#"
+                class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                (click)="navigateToSection('about'); $event.preventDefault()"
+              >
                 <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
                   <span class="text-blue-600 text-lg">⚡</span>
                 </div>
@@ -92,8 +157,11 @@
                   <div class="text-xs text-gray-500">Smart workflow automation</div>
                 </div>
               </a>
-              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
-                 (click)="navigateToSection('about'); $event.preventDefault()">
+              <a
+                href="#"
+                class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                (click)="navigateToSection('about'); $event.preventDefault()"
+              >
                 <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
                   <span class="text-purple-600 text-lg">🧠</span>
                 </div>
@@ -102,8 +170,11 @@
                   <div class="text-xs text-gray-500">Custom AI-powered apps</div>
                 </div>
               </a>
-              <a href="#" class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
-                 (click)="navigateToSection('about'); $event.preventDefault()">
+              <a
+                href="#"
+                class="flex items-center gap-3 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded-lg transition-colors"
+                (click)="navigateToSection('about'); $event.preventDefault()"
+              >
                 <div class="w-8 h-8 bg-orange-100 rounded-lg flex items-center justify-center">
                   <span class="text-orange-600 text-lg">📄</span>
                 </div>
@@ -116,115 +187,189 @@
           </div>
         </div>
 
-        <a href="#" class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
-           (click)="navigateToSection('projects'); $event.preventDefault()">{{ 'nav.projects' | translate }}</a>
+        <a
+          href="#"
+          class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
+          (click)="navigateToSection('projects'); $event.preventDefault()"
+          >{{ 'nav.projects' | translate }}</a
+        >
 
-
-        <a href="#" class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
-           (click)="navigateToSection('faq'); $event.preventDefault()">{{ 'nav.faq' | translate }}</a>
-        <a href="#" class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
-           (click)="navigateToSection('about'); $event.preventDefault()">{{ 'nav.about' | translate }}</a>
+        <a
+          href="#"
+          class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
+          (click)="navigateToSection('faq'); $event.preventDefault()"
+          >{{ 'nav.faq' | translate }}</a
+        >
+        <a
+          href="#"
+          class="px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
+          (click)="navigateToSection('about'); $event.preventDefault()"
+          >{{ 'nav.about' | translate }}</a
+        >
       </nav>
 
       <!-- Right -->
       <div class="flex items-center gap-2">
         <div class="relative">
-          <button class="hidden sm:flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
-                  (mouseenter)="onDropdownEnter(DROPDOWNS.LANGUAGE)"
-                  (mouseleave)="onDropdownLeave()">
+          <button
+            class="hidden sm:flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium text-neutral-900 hover:bg-neutral-100 transition-colors"
+            (mouseenter)="onDropdownEnter(DROPDOWNS.LANGUAGE)"
+            (mouseleave)="onDropdownLeave()"
+          >
             {{ currentLanguageConfig.code.toUpperCase() }}
             <lucide-icon [img]="ChevronDownIcon" class="size-4"></lucide-icon>
           </button>
           <!-- Language Dropdown Menu -->
-          <div *ngIf="dropdownManager.isOpen(DROPDOWNS.LANGUAGE)()"
-               class="absolute top-full right-0 mt-1 w-36 bg-white border border-neutral-200 rounded-lg shadow-lg z-50 animate-dropdown"
-               role="menu"
-               aria-label="Language selection submenu"
-               (mouseenter)="onDropdownEnter(DROPDOWNS.LANGUAGE)"
-               (mouseleave)="onDropdownLeave()">
-            <a *ngFor="let lang of availableLanguages"
-               href="#"
-               class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg"
-               [class.bg-gray-100]="lang.code === currentLanguage"
-               role="menuitem"
-               [attr.aria-label]="'Select ' + lang.name + ' language'"
-               (click)="switchLanguage(lang.code); $event.preventDefault()">
+          <div
+            *ngIf="dropdownManager.isOpen(DROPDOWNS.LANGUAGE)()"
+            class="absolute top-full right-0 mt-1 w-36 bg-white border border-neutral-200 rounded-lg shadow-lg z-50 animate-dropdown"
+            role="menu"
+            aria-label="Language selection submenu"
+            (mouseenter)="onDropdownEnter(DROPDOWNS.LANGUAGE)"
+            (mouseleave)="onDropdownLeave()"
+          >
+            <a
+              *ngFor="let lang of availableLanguages"
+              href="#"
+              class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg"
+              [class.bg-gray-100]="lang.code === currentLanguage"
+              role="menuitem"
+              [attr.aria-label]="'Select ' + lang.name + ' language'"
+              (click)="switchLanguage(lang.code); $event.preventDefault()"
+            >
               <span class="text-lg">{{ lang.flag }}</span>
               <span>{{ lang.name }}</span>
             </a>
           </div>
         </div>
-        <a href="mailto:office@ait-labs.com"
-           class="inline-flex items-center justify-center rounded-full text-sm font-medium px-5 py-2.5 shadow-sm border border-transparent hover:shadow-md hover:bg-emerald-700 transition-all bg-primary-green-dark text-white"
-           aria-label="Contact us via email at office@ait-labs.com">
+        <a
+          href="mailto:office@ait-labs.com"
+          class="inline-flex items-center justify-center rounded-full text-sm font-medium px-5 py-2.5 shadow-sm border border-transparent hover:shadow-md hover:bg-emerald-700 transition-all bg-primary-green-dark text-white"
+          aria-label="Contact us via email at office@ait-labs.com"
+        >
           {{ 'nav.contact' | translate }}
         </a>
-        <button class="md:hidden inline-flex items-center justify-center size-10 rounded-full border border-neutral-200 hover:bg-neutral-100"
-                [attr.aria-expanded]="dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)()"
-                aria-controls="mobileMenu"
-                (click)="toggleMobileMenu(); $event.stopPropagation()">
+        <button
+          class="md:hidden inline-flex items-center justify-center size-10 rounded-full border border-neutral-200 hover:bg-neutral-100"
+          [attr.aria-expanded]="dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)()"
+          aria-controls="mobileMenu"
+          (click)="toggleMobileMenu(); $event.stopPropagation()"
+        >
           <lucide-icon [img]="MenuIcon" class="size-5"></lucide-icon>
         </button>
       </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobileMenu" class="md:hidden origin-top transition-all duration-200 ease-out"
-         [class.h-0]="!dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)()"
-         [class.opacity-0]="!dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)() && !dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
-         [class.overflow-hidden]="!dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)() && !dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
-         [class.h-auto]="dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)()"
-         [class.opacity-100]="dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)() || dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
-         [class.overflow-visible]="dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)() && dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
-         (click)="$event.stopPropagation()">
-      <div class="mt-3 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm"
-           [class.overflow-visible]="dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()">
+    <div
+      id="mobileMenu"
+      class="md:hidden origin-top transition-all duration-200 ease-out"
+      [class.h-0]="!dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)()"
+      [class.opacity-0]="
+        !dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)() &&
+        !dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()
+      "
+      [class.overflow-hidden]="
+        !dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)() &&
+        !dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()
+      "
+      [class.h-auto]="dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)()"
+      [class.opacity-100]="
+        dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)() ||
+        dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()
+      "
+      [class.overflow-visible]="
+        dropdownManager.isOpen(DROPDOWNS.MOBILE_MENU)() &&
+        dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()
+      "
+      (click)="$event.stopPropagation()"
+    >
+      <div
+        class="mt-3 rounded-2xl border border-neutral-200 bg-white p-2 shadow-sm"
+        [class.overflow-visible]="dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
+      >
         <div class="grid grid-cols-1">
-          <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('our-services'); $event.preventDefault(); $event.stopPropagation()">{{ 'nav.service' | translate }}</a>
-          <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('case-studies'); $event.preventDefault(); $event.stopPropagation()">Case Study</a>
-          <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('projects'); $event.preventDefault(); $event.stopPropagation()">{{ 'nav.projects' | translate }}</a>
-          <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('faq'); $event.preventDefault(); $event.stopPropagation()">{{ 'nav.faq' | translate }}</a>
-          <a href="#" class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
-             (click)="navigateToSection('about'); $event.preventDefault(); $event.stopPropagation()">{{ 'nav.about' | translate }}</a>
+          <a
+            href="#"
+            class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
+            (click)="
+              navigateToSection('our-services'); $event.preventDefault(); $event.stopPropagation()
+            "
+            >{{ 'nav.service' | translate }}</a
+          >
+          <a
+            href="#"
+            class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
+            (click)="
+              navigateToSection('case-studies'); $event.preventDefault(); $event.stopPropagation()
+            "
+            >Case Study</a
+          >
+          <a
+            href="#"
+            class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
+            (click)="
+              navigateToSection('projects'); $event.preventDefault(); $event.stopPropagation()
+            "
+            >{{ 'nav.projects' | translate }}</a
+          >
+          <a
+            href="#"
+            class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
+            (click)="navigateToSection('faq'); $event.preventDefault(); $event.stopPropagation()"
+            >{{ 'nav.faq' | translate }}</a
+          >
+          <a
+            href="#"
+            class="w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100"
+            (click)="navigateToSection('about'); $event.preventDefault(); $event.stopPropagation()"
+            >{{ 'nav.about' | translate }}</a
+          >
         </div>
         <div class="mt-2 border-t border-neutral-200 pt-2 flex items-center justify-between">
           <div class="relative z-10">
-            <button class="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100 active:bg-neutral-200 transition-colors touch-manipulation"
-                    (click)="toggleMobileLanguageDropdown($event)"
-                    [attr.aria-expanded]="dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
-                    aria-haspopup="true"
-                    aria-label="Select language">
+            <button
+              class="inline-flex items-center gap-1 px-3 py-2 rounded-lg text-sm font-medium text-neutral-900 hover:bg-neutral-100 active:bg-neutral-200 transition-colors touch-manipulation"
+              (click)="toggleMobileLanguageDropdown($event)"
+              [attr.aria-expanded]="dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
+              aria-haspopup="true"
+              aria-label="Select language"
+            >
               {{ currentLanguageConfig.code.toUpperCase() }}
-              <lucide-icon [img]="ChevronDownIcon"
-                          class="size-4 transition-transform duration-200"
-                          [class.rotate-180]="dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"></lucide-icon>
+              <lucide-icon
+                [img]="ChevronDownIcon"
+                class="size-4 transition-transform duration-200"
+                [class.rotate-180]="dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
+              ></lucide-icon>
             </button>
             <!-- Mobile Language Dropdown Menu -->
-            <div *ngIf="dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
-                 class="absolute bottom-full left-0 mb-1 w-36 bg-white border border-neutral-200 rounded-lg shadow-lg z-[60] animate-dropdown-up"
-                 role="menu"
-                 aria-label="Mobile language selection submenu"
-                 (click)="$event.stopPropagation()">
-              <a *ngFor="let lang of availableLanguages"
-                 href="#"
-                 class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg touch-manipulation"
-                 [class.bg-gray-100]="lang.code === currentLanguage"
-                 role="menuitem"
-                 [attr.aria-label]="'Select ' + lang.name + ' language'"
-                 (click)="switchMobileLanguage(lang.code, $event)">
+            <div
+              *ngIf="dropdownManager.isOpen(DROPDOWNS.MOBILE_LANGUAGE)()"
+              class="absolute bottom-full left-0 mb-1 w-36 bg-white border border-neutral-200 rounded-lg shadow-lg z-[60] animate-dropdown-up"
+              role="menu"
+              aria-label="Mobile language selection submenu"
+              (click)="$event.stopPropagation()"
+            >
+              <a
+                *ngFor="let lang of availableLanguages"
+                href="#"
+                class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 active:bg-gray-100 transition-colors duration-150 first:rounded-t-lg last:rounded-b-lg touch-manipulation"
+                [class.bg-gray-100]="lang.code === currentLanguage"
+                role="menuitem"
+                [attr.aria-label]="'Select ' + lang.name + ' language'"
+                (click)="switchMobileLanguage(lang.code, $event)"
+              >
                 <span class="text-lg">{{ lang.flag }}</span>
                 <span>{{ lang.name }}</span>
               </a>
             </div>
           </div>
-          <a href="mailto:office@ait-labs.com"
-             class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white ring-1 ring-black/5 hover:shadow-md hover:bg-emerald-700 bg-primary-green-dark transition-all"
-             aria-label="Contact us via email"
-             (click)="$event.stopPropagation()">
+          <a
+            href="mailto:office@ait-labs.com"
+            class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-white ring-1 ring-black/5 hover:shadow-md hover:bg-emerald-700 bg-primary-green-dark transition-all"
+            aria-label="Contact us via email"
+            (click)="$event.stopPropagation()"
+          >
             <lucide-icon [img]="CalendarIcon" class="size-4"></lucide-icon>
             {{ 'nav.contact' | translate }}
           </a>

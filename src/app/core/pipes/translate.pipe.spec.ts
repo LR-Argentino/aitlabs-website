@@ -12,7 +12,7 @@ describe('TranslatePipe', () => {
     localStorage.clear();
 
     TestBed.configureTestingModule({
-      providers: [TranslatePipe, TranslationService, LanguageService]
+      providers: [TranslatePipe, TranslationService, LanguageService],
     });
 
     languageService = TestBed.inject(LanguageService);

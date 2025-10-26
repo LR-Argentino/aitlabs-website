@@ -10,7 +10,7 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   imports: [CommonModule, TranslatePipe, ContactFormComponent],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FooterComponent {
   private navigationService = inject(NavigationService);

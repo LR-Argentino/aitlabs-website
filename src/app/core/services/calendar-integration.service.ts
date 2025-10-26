@@ -1,21 +1,19 @@
 import { Injectable, signal } from '@angular/core';
+import { CalendarProvider, CalendarLoadResult } from '../models/booking.model';
 
-export type CalendarProvider = 'calcom' | 'calendly' | 'contact-form';
-
-export interface CalendarLoadResult {
-  success: boolean;
-  provider: CalendarProvider;
-  container: HTMLElement;
+// Type definition for Cal.com global object
+interface CalComApi {
+  (namespace: string, action: string, options?: Record<string, unknown>): void;
 }
 
 declare global {
   interface Window {
-    Cal: any;
+    Cal?: CalComApi;
   }
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CalendarIntegrationService {
   private readonly calLink = 'argentino-luca/30min';
@@ -63,7 +61,7 @@ export class CalendarIntegrationService {
           resolveOnce({
             success: true,
             provider: 'calcom',
-            container
+            container,
           });
         };
 
@@ -72,7 +70,7 @@ export class CalendarIntegrationService {
           resolveOnce({
             success: false,
             provider: 'calcom',
-            container
+            container,
           });
         };
 
@@ -85,16 +83,15 @@ export class CalendarIntegrationService {
           resolveOnce({
             success: false,
             provider: 'calcom',
-            container
+            container,
           });
         }, 6000);
       });
-
     } catch (error) {
       return {
         success: false,
         provider: 'calcom',
-        container
+        container,
       };
     }
   }
@@ -127,14 +124,13 @@ export class CalendarIntegrationService {
       return {
         success: true,
         provider: 'calendly',
-        container
+        container,
       };
-
     } catch (error) {
       return {
         success: false,
         provider: 'calendly',
-        container
+        container,
       };
     }
   }

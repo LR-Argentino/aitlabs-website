@@ -42,7 +42,7 @@
     height: 700px;
     min-height: 700px;
   }
-  
+
   .booking-container :deep(.cal-embed) {
     height: 700px !important;
   }
@@ -53,7 +53,7 @@
     height: 600px;
     min-height: 600px;
   }
-  
+
   .booking-container :deep(.cal-embed) {
     height: 600px !important;
   }
@@ -61,15 +61,15 @@
 
 /* Light theme adjustments for Cal.com */
 .booking-container :deep(.cal-embed) {
-  --cal-brand-color: #10B981 !important;
-  --cal-brand-text-color: #FFFFFF !important;
-  --cal-bg: #FFFFFF !important;
-  --cal-bg-emphasis: #F9FAFB !important;
-  --cal-text: #1F2937 !important;
+  --cal-brand-color: #10b981 !important;
+  --cal-brand-text-color: #ffffff !important;
+  --cal-bg: #ffffff !important;
+  --cal-bg-emphasis: #f9fafb !important;
+  --cal-text: #1f2937 !important;
   --cal-text-emphasis: #111827 !important;
-  --cal-text-subtle: #6B7280 !important;
-  --cal-border: #E5E7EB !important;
-  --cal-border-emphasis: #D1D5DB !important;
+  --cal-text-subtle: #6b7280 !important;
+  --cal-border: #e5e7eb !important;
+  --cal-border-emphasis: #d1d5db !important;
 }
 
 /* Additional info section styling */

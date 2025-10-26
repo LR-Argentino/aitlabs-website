@@ -7,7 +7,7 @@ import { LottieComponent, AnimationOptions } from 'ngx-lottie';
   imports: [LottieComponent],
   templateUrl: './in-progress.component.html',
   styleUrls: ['./in-progress.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InProgressComponent {
   @Input() width: string = '200px';
@@ -18,7 +18,7 @@ export class InProgressComponent {
   options: AnimationOptions = {
     path: '/inprogress.json',
     loop: this.loop,
-    autoplay: this.autoplay
+    autoplay: this.autoplay,
   };
 
   ngOnInit() {
@@ -26,11 +26,11 @@ export class InProgressComponent {
     this.options = {
       path: '/inprogress.json',
       loop: this.loop,
-      autoplay: this.autoplay
+      autoplay: this.autoplay,
     };
   }
 
-  onAnimationCreated(animationItem: any): void {
+  onAnimationCreated(animationItem: unknown): void {
     console.log('Lottie animation created:', animationItem);
   }
 
@@ -66,7 +66,7 @@ export class InProgressComponent {
     // This fires on every frame, so we don't log it to avoid console spam
   }
 
-  onError(error: any): void {
+  onError(error: Error | unknown): void {
     console.error('Lottie animation error:', error);
   }
 }

@@ -5,7 +5,6 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   standalone: true,
   templateUrl: './sponsors.component.html',
   styleUrl: './sponsors.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SponsorsComponent {
-}
+export class SponsorsComponent {}

@@ -7,38 +7,59 @@
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-6">
         <div class="flex flex-col items-center text-center">
           <!-- Tag -->
-          <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border bg-white shadow-sm" style="border-color: #ffffff14; background-color: var(--brand-weak);">
-            <span class="inline-block size-2 rounded-full" style="background-color:#012013;"></span>
+          <div
+            class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full border bg-white shadow-sm"
+            style="border-color: #ffffff14; background-color: var(--brand-weak)"
+          >
+            <span class="inline-block size-2 rounded-full" style="background-color: #012013"></span>
             <span class="text-xs font-medium text-neutral-900">AI Voice Assistant</span>
           </div>
 
           <!-- Title -->
-          <h1 class="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-neutral-900 max-w-3xl">
+          <h1
+            class="mt-6 text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-neutral-900 max-w-3xl"
+          >
             Get hours back every week with a Voice Assistant that actually works
           </h1>
 
           <p class="mt-5 text-base sm:text-lg text-neutral-600 max-w-2xl">
-            Speak naturally. Your assistant understands, acts, books meetings, and sends invitations automatically—securely and privately.
+            Speak naturally. Your assistant understands, acts, books meetings, and sends invitations
+            automatically—securely and privately.
           </p>
 
           <!-- CTAs -->
           <div class="mt-8 flex flex-col sm:flex-row items-center gap-3">
-            <a (click)="scrollToDemo()" class="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-900 ring-1 ring-black/5 cursor-pointer">
+            <a
+              (click)="scrollToDemo()"
+              class="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-white bg-neutral-900 hover:bg-neutral-800 active:bg-neutral-900 ring-1 ring-black/5 cursor-pointer"
+            >
               Schedule call
               <lucide-angular [img]="ArrowUpRightIcon" class="size-5"></lucide-angular>
             </a>
-            <a (click)="scrollToSection('case')" class="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 hover:bg-neutral-50 cursor-pointer">
+            <a
+              (click)="scrollToSection('case')"
+              class="inline-flex items-center gap-2 rounded-full px-6 py-3 text-sm font-medium text-neutral-900 bg-white border border-neutral-300 hover:bg-neutral-50 cursor-pointer"
+            >
               View case study
             </a>
           </div>
 
           <!-- Compliance -->
-          <div class="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-neutral-600">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200 bg-white">
-              <lucide-angular [img]="ShieldCheckIcon" class="size-4 text-neutral-700"></lucide-angular>
+          <div
+            class="mt-6 flex flex-wrap items-center justify-center gap-3 text-sm text-neutral-600"
+          >
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200 bg-white"
+            >
+              <lucide-angular
+                [img]="ShieldCheckIcon"
+                class="size-4 text-neutral-700"
+              ></lucide-angular>
               <span>GDPR Switzerland &amp; EU compliant</span>
             </div>
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200 bg-white">
+            <div
+              class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-neutral-200 bg-white"
+            >
               <lucide-angular [img]="LockIcon" class="size-4 text-neutral-700"></lucide-angular>
               <span>Data residency &amp; DPA available</span>
             </div>
@@ -50,33 +71,49 @@
           <!-- Feature Highlights -->
           <div class="order-2 lg:order-1">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card">
+              <div
+                class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card"
+              >
                 <div class="flex items-center gap-2 text-neutral-900 mb-1">
                   <lucide-angular [img]="BrainIcon" class="size-5"></lucide-angular>
                   <h3 class="text-base font-semibold tracking-tight">Natural Language</h3>
                 </div>
-                <p class="text-sm text-neutral-600">Understands multi‑turn conversations, domains, and context.</p>
+                <p class="text-sm text-neutral-600">
+                  Understands multi‑turn conversations, domains, and context.
+                </p>
               </div>
-              <div class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card">
+              <div
+                class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card"
+              >
                 <div class="flex items-center gap-2 text-neutral-900 mb-1">
                   <lucide-angular [img]="AudioWaveformIcon" class="size-5"></lucide-angular>
                   <h3 class="text-base font-semibold tracking-tight">Real‑time Speech</h3>
                 </div>
-                <p class="text-sm text-neutral-600">Low‑latency speech‑to‑text and natural TTS responses.</p>
+                <p class="text-sm text-neutral-600">
+                  Low‑latency speech‑to‑text and natural TTS responses.
+                </p>
               </div>
-              <div class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card">
+              <div
+                class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card"
+              >
                 <div class="flex items-center gap-2 text-neutral-900 mb-1">
                   <lucide-angular [img]="BotIcon" class="size-5"></lucide-angular>
                   <h3 class="text-base font-semibold tracking-tight">LLM Orchestration</h3>
                 </div>
-                <p class="text-sm text-neutral-600">Tool use, retrieval, and guardrails with deterministic actions.</p>
+                <p class="text-sm text-neutral-600">
+                  Tool use, retrieval, and guardrails with deterministic actions.
+                </p>
               </div>
-              <div class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card">
+              <div
+                class="p-5 rounded-2xl border bg-white hover:bg-neutral-50 transition-colors feature-card"
+              >
                 <div class="flex items-center gap-2 text-neutral-900 mb-1">
                   <lucide-angular [img]="CalendarClockIcon" class="size-5"></lucide-angular>
                   <h3 class="text-base font-semibold tracking-tight">Booking &amp; Invites</h3>
                 </div>
-                <p class="text-sm text-neutral-600">Auto‑books meetings, sends invitations, reminders, and follow‑ups.</p>
+                <p class="text-sm text-neutral-600">
+                  Auto‑books meetings, sends invitations, reminders, and follow‑ups.
+                </p>
               </div>
             </div>
 
@@ -87,11 +124,26 @@
                 <h3 class="text-base font-semibold tracking-tight">Integrates with your stack</h3>
               </div>
               <div class="flex flex-wrap items-center gap-2 text-sm text-neutral-600">
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Google Calendar</span>
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Outlook</span>
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Zoom</span>
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Teams</span>
-                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white">Email (SMTP/API)</span>
+                <span
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white"
+                  >Google Calendar</span
+                >
+                <span
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white"
+                  >Outlook</span
+                >
+                <span
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white"
+                  >Zoom</span
+                >
+                <span
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white"
+                  >Teams</span
+                >
+                <span
+                  class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full border bg-white"
+                  >Email (SMTP/API)</span
+                >
               </div>
             </div>
           </div>
@@ -99,33 +151,110 @@
           <!-- 3D Voice Animation Card -->
           <div class="order-1 lg:order-2">
             <div class="relative rounded-3xl border bg-white p-6 sm:p-8 overflow-hidden">
-              <div class="absolute inset-0 pointer-events-none" style="background: radial-gradient(1200px 400px at 90% -10%, rgba(164,245,138,0.18), transparent 50%), radial-gradient(600px 200px at 0% 110%, rgba(164,245,138,0.14), transparent 60%);"></div>
+              <div
+                class="absolute inset-0 pointer-events-none"
+                style="
+                  background:
+                    radial-gradient(
+                      1200px 400px at 90% -10%,
+                      rgba(164, 245, 138, 0.18),
+                      transparent 50%
+                    ),
+                    radial-gradient(
+                      600px 200px at 0% 110%,
+                      rgba(164, 245, 138, 0.14),
+                      transparent 60%
+                    );
+                "
+              ></div>
 
               <div class="grid sm:grid-cols-2 gap-8 items-center">
                 <!-- Orb -->
                 <div class="relative aspect-square">
-                  <div class="absolute inset-0 flex items-center justify-center" style="perspective: 900px; transform-style: preserve-3d;">
+                  <div
+                    class="absolute inset-0 flex items-center justify-center"
+                    style="perspective: 900px; transform-style: preserve-3d"
+                  >
                     <!-- Outer spinning ring -->
-                    <div class="absolute h-56 w-56 sm:h-72 sm:w-72 rounded-full border spin-outer" style="border-color: rgba(164,245,138,0.7); transform: rotateX(62deg); filter: drop-shadow(0 8px 24px rgba(0,0,0,0.10));"></div>
+                    <div
+                      class="absolute h-56 w-56 sm:h-72 sm:w-72 rounded-full border spin-outer"
+                      style="
+                        border-color: rgba(164, 245, 138, 0.7);
+                        transform: rotateX(62deg);
+                        filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.1));
+                      "
+                    ></div>
                     <!-- Middle dashed ring -->
-                    <div class="absolute h-48 w-48 sm:h-64 sm:w-64 rounded-full border-2 border-dashed spin-inner" style="border-color: rgba(164,245,138,0.55); transform: rotateX(62deg) rotateZ(25deg);"></div>
+                    <div
+                      class="absolute h-48 w-48 sm:h-64 sm:w-64 rounded-full border-2 border-dashed spin-inner"
+                      style="
+                        border-color: rgba(164, 245, 138, 0.55);
+                        transform: rotateX(62deg) rotateZ(25deg);
+                      "
+                    ></div>
                     <!-- Inner glow ring -->
-                    <div class="absolute h-36 w-36 sm:h-48 sm:w-48 rounded-full" style="box-shadow: 0 0 0 2px rgba(164,245,138,0.5) inset, 0 0 60px 10px rgba(164,245,138,0.2); transform: rotateX(62deg);"></div>
+                    <div
+                      class="absolute h-36 w-36 sm:h-48 sm:w-48 rounded-full"
+                      style="
+                        box-shadow:
+                          0 0 0 2px rgba(164, 245, 138, 0.5) inset,
+                          0 0 60px 10px rgba(164, 245, 138, 0.2);
+                        transform: rotateX(62deg);
+                      "
+                    ></div>
 
                     <!-- Equalizer bars (center) -->
-                    <div class="absolute flex items-end gap-1.5" style="transform: translateZ(20px);">
-                      <div class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-1" style="height: 10px;"></div>
-                      <div class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-2" style="height: 16px;"></div>
-                      <div class="w-1.5 bg-neutral-900 rounded-full animate-bounce equalizer-bar-3" style="height: 28px;"></div>
-                      <div class="w-1.5 equalizer-bar-center" style="height: 36px; background: linear-gradient(to top, rgba(164,245,138,0.9), rgba(164,245,138,0.3)); border-radius: 9999px;"></div>
-                      <div class="w-1.5 bg-neutral-900 rounded-full animate-bounce equalizer-bar-3" style="height: 28px;"></div>
-                      <div class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-2" style="height: 16px;"></div>
-                      <div class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-1" style="height: 10px;"></div>
+                    <div
+                      class="absolute flex items-end gap-1.5"
+                      style="transform: translateZ(20px)"
+                    >
+                      <div
+                        class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-1"
+                        style="height: 10px"
+                      ></div>
+                      <div
+                        class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-2"
+                        style="height: 16px"
+                      ></div>
+                      <div
+                        class="w-1.5 bg-neutral-900 rounded-full animate-bounce equalizer-bar-3"
+                        style="height: 28px"
+                      ></div>
+                      <div
+                        class="w-1.5 equalizer-bar-center"
+                        style="
+                          height: 36px;
+                          background: linear-gradient(
+                            to top,
+                            rgba(164, 245, 138, 0.9),
+                            rgba(164, 245, 138, 0.3)
+                          );
+                          border-radius: 9999px;
+                        "
+                      ></div>
+                      <div
+                        class="w-1.5 bg-neutral-900 rounded-full animate-bounce equalizer-bar-3"
+                        style="height: 28px"
+                      ></div>
+                      <div
+                        class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-2"
+                        style="height: 16px"
+                      ></div>
+                      <div
+                        class="w-1.5 bg-neutral-900/80 rounded-full animate-bounce equalizer-bar-1"
+                        style="height: 10px"
+                      ></div>
                     </div>
 
                     <!-- Mic core -->
-                    <div class="absolute size-16 sm:size-20 rounded-2xl bg-white border border-neutral-200 flex items-center justify-center shadow-sm" style="transform: translateZ(35px);">
-                      <lucide-angular [img]="MicIcon" class="size-7 text-neutral-900"></lucide-angular>
+                    <div
+                      class="absolute size-16 sm:size-20 rounded-2xl bg-white border border-neutral-200 flex items-center justify-center shadow-sm"
+                      style="transform: translateZ(35px)"
+                    >
+                      <lucide-angular
+                        [img]="MicIcon"
+                        class="size-7 text-neutral-900"
+                      ></lucide-angular>
                     </div>
                   </div>
                 </div>
@@ -142,8 +271,13 @@
                     </div>
 
                     <div class="mt-4 rounded-xl border bg-neutral-50/70 p-3">
-                      <audio id="uploadedAudio" class="w-full" controls controlslist="nodownload noplaybackrate">
-                        <source src="your-audio-file.mp3" type="audio/mpeg">
+                      <audio
+                        id="uploadedAudio"
+                        class="w-full"
+                        controls
+                        controlslist="nodownload noplaybackrate"
+                      >
+                        <source src="your-audio-file.mp3" type="audio/mpeg" />
                         Your browser does not support the audio element.
                       </audio>
                     </div>
@@ -154,7 +288,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -162,38 +295,52 @@
     <section class="border-t border-neutral-200">
       <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12">
         <div class="flex items-center gap-2 mb-4">
-          <span class="inline-block size-2 rounded-full" style="background-color:#012013;"></span>
-          <span class="text-xs font-medium px-2.5 py-1 rounded-full" style="background-color: var(--brand-weak);">Workflow</span>
+          <span class="inline-block size-2 rounded-full" style="background-color: #012013"></span>
+          <span
+            class="text-xs font-medium px-2.5 py-1 rounded-full"
+            style="background-color: var(--brand-weak)"
+            >Workflow</span
+          >
         </div>
-        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight">From voice to calendar in seconds</h2>
+        <h2 class="text-3xl sm:text-4xl font-semibold tracking-tight">
+          From voice to calendar in seconds
+        </h2>
         <div class="mt-8 grid grid-cols-1 md:grid-cols-4 gap-4">
           <div class="rounded-2xl border bg-white p-5">
             <div class="flex items-center gap-2 text-neutral-900">
               <lucide-angular [img]="MicIcon" class="size-5"></lucide-angular>
               <h3 class="text-base font-semibold tracking-tight">1. Capture</h3>
             </div>
-            <p class="mt-1 text-sm text-neutral-600">Stream speech; diarization and intent detection run on device or cloud.</p>
+            <p class="mt-1 text-sm text-neutral-600">
+              Stream speech; diarization and intent detection run on device or cloud.
+            </p>
           </div>
           <div class="rounded-2xl border bg-white p-5">
             <div class="flex items-center gap-2 text-neutral-900">
               <lucide-angular [img]="BotIcon" class="size-5"></lucide-angular>
               <h3 class="text-base font-semibold tracking-tight">2. Decide</h3>
             </div>
-            <p class="mt-1 text-sm text-neutral-600">LLM + tools determine actions with guardrails and confirmations.</p>
+            <p class="mt-1 text-sm text-neutral-600">
+              LLM + tools determine actions with guardrails and confirmations.
+            </p>
           </div>
           <div class="rounded-2xl border bg-white p-5">
             <div class="flex items-center gap-2 text-neutral-900">
               <lucide-angular [img]="CalendarPlusIcon" class="size-5"></lucide-angular>
               <h3 class="text-base font-semibold tracking-tight">3. Act</h3>
             </div>
-            <p class="mt-1 text-sm text-neutral-600">Book meetings, generate Zoom links, and send calendar invitations.</p>
+            <p class="mt-1 text-sm text-neutral-600">
+              Book meetings, generate Zoom links, and send calendar invitations.
+            </p>
           </div>
           <div class="rounded-2xl border bg-white p-5">
             <div class="flex items-center gap-2 text-neutral-900">
               <lucide-angular [img]="MailCheckIcon" class="size-5"></lucide-angular>
               <h3 class="text-base font-semibold tracking-tight">4. Follow‑up</h3>
             </div>
-            <p class="mt-1 text-sm text-neutral-600">Automatic reminders, notes, and summaries to keep everyone aligned.</p>
+            <p class="mt-1 text-sm text-neutral-600">
+              Automatic reminders, notes, and summaries to keep everyone aligned.
+            </p>
           </div>
         </div>
       </div>
@@ -205,24 +352,41 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div class="rounded-3xl border bg-white p-6">
             <div class="flex items-center gap-2">
-              <lucide-angular [img]="ShieldCheckIcon" class="size-6 text-neutral-900"></lucide-angular>
-              <h3 class="text-xl font-semibold tracking-tight text-neutral-900">GDPR Switzerland &amp; EU</h3>
+              <lucide-angular
+                [img]="ShieldCheckIcon"
+                class="size-6 text-neutral-900"
+              ></lucide-angular>
+              <h3 class="text-xl font-semibold tracking-tight text-neutral-900">
+                GDPR Switzerland &amp; EU
+              </h3>
             </div>
             <ul class="mt-4 space-y-2 text-sm text-neutral-700">
               <li class="flex items-start gap-2">
-                <lucide-angular [img]="CheckIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                <lucide-angular
+                  [img]="CheckIcon"
+                  class="size-4 mt-0.5 text-neutral-700"
+                ></lucide-angular>
                 DSG (Switzerland) and GDPR (EU) compliant processing
               </li>
               <li class="flex items-start gap-2">
-                <lucide-angular [img]="CheckIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                <lucide-angular
+                  [img]="CheckIcon"
+                  class="size-4 mt-0.5 text-neutral-700"
+                ></lucide-angular>
                 Data Processing Agreement (DPA) and SCCs available
               </li>
               <li class="flex items-start gap-2">
-                <lucide-angular [img]="CheckIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                <lucide-angular
+                  [img]="CheckIcon"
+                  class="size-4 mt-0.5 text-neutral-700"
+                ></lucide-angular>
                 EU/CH data residency options and retention controls
               </li>
               <li class="flex items-start gap-2">
-                <lucide-angular [img]="CheckIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                <lucide-angular
+                  [img]="CheckIcon"
+                  class="size-4 mt-0.5 text-neutral-700"
+                ></lucide-angular>
                 Role‑based access, audit logs, and encryption in transit/at rest
               </li>
             </ul>
@@ -235,19 +399,31 @@
             </div>
             <ul class="mt-4 space-y-2 text-sm text-neutral-700">
               <li class="flex items-start gap-2">
-                <lucide-angular [img]="CpuIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                <lucide-angular
+                  [img]="CpuIcon"
+                  class="size-4 mt-0.5 text-neutral-700"
+                ></lucide-angular>
                 Streaming ASR, NLU, and end‑to‑end TTS for real‑time responses
               </li>
               <li class="flex items-start gap-2">
-                <lucide-angular [img]="LayersIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                <lucide-angular
+                  [img]="LayersIcon"
+                  class="size-4 mt-0.5 text-neutral-700"
+                ></lucide-angular>
                 Toolformer‑style orchestration for calendars, email, and conferencing
               </li>
               <li class="flex items-start gap-2">
-                <lucide-angular [img]="ShieldIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                <lucide-angular
+                  [img]="ShieldIcon"
+                  class="size-4 mt-0.5 text-neutral-700"
+                ></lucide-angular>
                 PII redaction and policy constraints with human‑in‑the‑loop approvals
               </li>
               <li class="flex items-start gap-2">
-                <lucide-angular [img]="GitBranchIcon" class="size-4 mt-0.5 text-neutral-700"></lucide-angular>
+                <lucide-angular
+                  [img]="GitBranchIcon"
+                  class="size-4 mt-0.5 text-neutral-700"
+                ></lucide-angular>
                 Observability, tracing, and fallback strategies for reliability
               </li>
             </ul>
@@ -255,17 +431,31 @@
         </div>
 
         <!-- CTA -->
-        <div id="contact" class="mt-10 rounded-3xl border bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div
+          id="contact"
+          class="mt-10 rounded-3xl border bg-white p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+        >
           <div>
-            <h3 class="text-xl font-semibold tracking-tight">Ready to add a voice layer to your business?</h3>
-            <p class="text-sm text-neutral-600 mt-1">We'll help you integrate booking, invitations, and summaries in days, not months.</p>
+            <h3 class="text-xl font-semibold tracking-tight">
+              Ready to add a voice layer to your business?
+            </h3>
+            <p class="text-sm text-neutral-600 mt-1">
+              We'll help you integrate booking, invitations, and summaries in days, not months.
+            </p>
           </div>
           <div class="flex items-center gap-3">
-            <a href="#" class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-neutral-900 border border-neutral-300 bg-white hover:bg-neutral-50">
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-neutral-900 border border-neutral-300 bg-white hover:bg-neutral-50"
+            >
               <lucide-angular [img]="FileTextIcon" class="size-4"></lucide-angular>
               Request DPA
             </a>
-            <a href="#" class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white ring-1 ring-black/5 hover:shadow" style="background-color: var(--brand); color: var(--ink);">
+            <a
+              href="#"
+              class="inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-medium text-white ring-1 ring-black/5 hover:shadow"
+              style="background-color: var(--brand); color: var(--ink)"
+            >
               <lucide-angular [img]="CalendarIcon" class="size-4"></lucide-angular>
               Book a demo
             </a>

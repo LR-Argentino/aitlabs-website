@@ -8,7 +8,7 @@ import { NavigationService } from '../../core/services/navigation.service';
   imports: [TranslatePipe],
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeroComponent {
   private navigationService = inject(NavigationService);

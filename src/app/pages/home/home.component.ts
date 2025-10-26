@@ -19,11 +19,10 @@ import { CtaComponent } from '../../components/cta/cta.component';
     ProjectsComponent,
     FaqComponent,
     BookingComponent,
-    CtaComponent
+    CtaComponent,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomeComponent {
-}
+export class HomeComponent {}

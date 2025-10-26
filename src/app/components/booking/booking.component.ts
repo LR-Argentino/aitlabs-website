@@ -1,4 +1,12 @@
-import { Component, OnInit, AfterViewInit, Inject, PLATFORM_ID, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  Inject,
+  PLATFORM_ID,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { isPlatformBrowser, NgIf } from '@angular/common';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { CalendarIntegrationService } from '../../core/services/calendar-integration.service';
@@ -10,7 +18,7 @@ import { ContactFormFallbackComponent } from './contact-form-fallback/contact-fo
   imports: [NgIf, TranslatePipe, ContactFormFallbackComponent],
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookingComponent implements OnInit, AfterViewInit {
   protected showCalendar = false;

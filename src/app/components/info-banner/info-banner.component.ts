@@ -9,7 +9,7 @@ import { LucideAngularModule, AlertTriangle } from 'lucide-angular';
   imports: [CommonModule, TranslatePipe, LucideAngularModule],
   templateUrl: './info-banner.component.html',
   styleUrl: './info-banner.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoBannerComponent {
   protected readonly AlertTriangleIcon = AlertTriangle;

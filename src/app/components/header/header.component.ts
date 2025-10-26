@@ -1,4 +1,12 @@
-import { Component, signal, OnInit, OnDestroy, HostListener, inject, ChangeDetectionStrategy } from '@angular/core';
+import {
+  Component,
+  signal,
+  OnInit,
+  OnDestroy,
+  HostListener,
+  inject,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../core/services/language.service';
@@ -14,7 +22,7 @@ import { LucideAngularModule, ChevronDown, Menu, Calendar } from 'lucide-angular
   imports: [CommonModule, TranslatePipe, LucideAngularModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HeaderComponent implements OnInit, OnDestroy {
   // Dropdown IDs (constants for type safety)
@@ -26,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     MOBILE_MENU: 'mobile-menu',
     MOBILE_SERVICES: 'mobile-services',
     MOBILE_CASE_STUDY: 'mobile-case-study',
-    MOBILE_LANGUAGE: 'mobile-language'
+    MOBILE_LANGUAGE: 'mobile-language',
   } as const;
 
   // Scroll state signal
@@ -74,7 +82,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   private checkScrollPosition() {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const scrollTop =
+      window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     this.isScrolled.set(scrollTop > 10);
   }
 

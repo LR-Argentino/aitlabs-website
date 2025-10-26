@@ -7,15 +7,15 @@
   --text-primary: #ffffff;
   --text-secondary: #a3a3a3;
   --text-muted: #6b7280;
-  --accent-primary: #00D4AA;
-  --accent-secondary: #00B894;
+  --accent-primary: #00d4aa;
+  --accent-secondary: #00b894;
   --border-color: #374151;
   --border-radius-sm: 8px;
   --border-radius-md: 16px;
   --border-radius-lg: 24px;
   --border-radius-xl: 32px;
   --border-radius-full: 100px;
-  
+
   /* Hero section specific colors for white background */
   --hero-bg: #ffffff;
   --hero-text-primary: #000000;
@@ -574,40 +574,40 @@ button:hover {
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .hero-description {
     font-size: 1.125rem;
   }
-  
+
   .section-title {
     font-size: 2rem;
   }
-  
+
   .section-card {
     padding: 40px 24px;
   }
-  
+
   .case-study-section {
     padding: 40px 24px;
   }
-  
+
   .cta-section {
     padding: 60px 24px;
   }
-  
+
   .cta-title {
     font-size: 2rem;
   }
-  
+
   .case-study-main-title {
     font-size: 2rem;
   }
-  
+
   .process-step-card {
     flex-direction: column;
     text-align: center;
   }
-  
+
   .step-number-modern {
     margin: 0 auto 16px;
   }
@@ -617,25 +617,25 @@ button:hover {
   .hero-section {
     padding: 80px 0 60px;
   }
-  
+
   .hero-title {
     font-size: 2rem;
   }
-  
+
   .section {
     padding: 60px 0;
   }
-  
+
   .btn-primary,
   .btn-secondary {
     padding: 14px 24px;
     font-size: 14px;
   }
-  
+
   .feature-card {
     padding: 24px;
   }
-  
+
   .stat-number {
     font-size: 2.5rem;
   }

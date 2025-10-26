@@ -9,7 +9,7 @@ import { TranslatePipe } from '../../core/pipes/translate.pipe';
   imports: [CommonModule, LucideAngularModule, TranslatePipe],
   templateUrl: './impressum.component.html',
   styleUrl: './impressum.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ImpressumComponent {
   protected readonly FileTextIcon = FileText;

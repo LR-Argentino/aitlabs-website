@@ -10,7 +10,7 @@ describe('LanguageService', () => {
     localStorage.clear();
 
     TestBed.configureTestingModule({
-      providers: [LanguageService]
+      providers: [LanguageService],
     });
 
     service = TestBed.inject(LanguageService);
@@ -32,7 +32,7 @@ describe('LanguageService', () => {
       const originalLanguage = navigator.language;
       Object.defineProperty(navigator, 'language', {
         get: () => 'xx-XX', // Unsupported language
-        configurable: true
+        configurable: true,
       });
 
       const newService = new LanguageService();
@@ -41,7 +41,7 @@ describe('LanguageService', () => {
       // Restore original
       Object.defineProperty(navigator, 'language', {
         get: () => originalLanguage,
-        configurable: true
+        configurable: true,
       });
     });
 
@@ -63,7 +63,7 @@ describe('LanguageService', () => {
       expect(['en', 'de']).toContain(currentLang);
 
       // Verify it's a valid language code
-      expect(service.availableLanguages.map(l => l.code)).toContain(currentLang);
+      expect(service.availableLanguages.map((l) => l.code)).toContain(currentLang);
     });
 
     it('should fallback to default language if browser language is unsupported', () => {
@@ -72,7 +72,7 @@ describe('LanguageService', () => {
       const originalLanguage = navigator.language;
       Object.defineProperty(navigator, 'language', {
         get: () => 'fr-FR', // Unsupported language (French)
-        configurable: true
+        configurable: true,
       });
 
       const newService = new LanguageService();
@@ -81,7 +81,7 @@ describe('LanguageService', () => {
       // Restore original
       Object.defineProperty(navigator, 'language', {
         get: () => originalLanguage,
-        configurable: true
+        configurable: true,
       });
     });
 
@@ -186,13 +186,13 @@ describe('LanguageService', () => {
     });
 
     it('should include English and German', () => {
-      const codes = service.availableLanguages.map(lang => lang.code);
+      const codes = service.availableLanguages.map((lang) => lang.code);
       expect(codes).toContain('en');
       expect(codes).toContain('de');
     });
 
     it('should have complete language config objects', () => {
-      service.availableLanguages.forEach(lang => {
+      service.availableLanguages.forEach((lang) => {
         expect(lang.code).toBeDefined();
         expect(lang.name).toBeDefined();
         expect(lang.flag).toBeDefined();
@@ -228,8 +228,10 @@ describe('LanguageService', () => {
       localStorage.clear();
 
       Object.defineProperty(window.navigator, 'language', {
-        get: () => { throw new Error('Language detection error'); },
-        configurable: true
+        get: () => {
+          throw new Error('Language detection error');
+        },
+        configurable: true,
       });
 
       spyOn(console, 'error');
@@ -242,7 +244,7 @@ describe('LanguageService', () => {
       // Restore normal behavior
       Object.defineProperty(window.navigator, 'language', {
         get: () => 'en-US',
-        configurable: true
+        configurable: true,
       });
     });
   });

@@ -1,9 +1,17 @@
 /* Component-specific styles */
 :host {
   display: block;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
-  --brand: #A4F58A;
-  --brand-weak: #E1F4E3;
+  font-family:
+    'Plus Jakarta Sans',
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Inter,
+    Arial,
+    sans-serif;
+  --brand: #a4f58a;
+  --brand-weak: #e1f4e3;
   --ink: #111111;
   --muted: #737373;
 }
@@ -16,7 +24,8 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(-10%);
     animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
   }

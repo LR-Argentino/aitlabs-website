@@ -28,17 +28,14 @@ describe('FooterComponent', () => {
         'footer.terms': 'Terms of Service',
         'footer.impressum': 'Impressum',
         'footer.followUs': 'Follow Us',
-        'footer.rights': '© 2024 AIT LABS. All rights reserved.'
+        'footer.rights': '© 2024 AIT LABS. All rights reserved.',
       };
       return translations[key] || key;
     });
 
-    const languageServiceSpy = jasmine.createSpyObj('LanguageService',
-      ['setLanguage'],
-      {
-        currentLanguage: jasmine.createSpy().and.returnValue('en')
-      }
-    );
+    const languageServiceSpy = jasmine.createSpyObj('LanguageService', ['setLanguage'], {
+      currentLanguage: jasmine.createSpy().and.returnValue('en'),
+    });
 
     await TestBed.configureTestingModule({
       imports: [FooterComponent],
@@ -46,8 +43,8 @@ describe('FooterComponent', () => {
         { provide: NavigationService, useValue: navigationServiceSpy },
         { provide: TranslationService, useValue: translationServiceSpy },
         { provide: LanguageService, useValue: languageServiceSpy },
-        TranslatePipe
-      ]
+        TranslatePipe,
+      ],
     }).compileComponents();
 
     navigationService = TestBed.inject(NavigationService) as jasmine.SpyObj<NavigationService>;
@@ -187,12 +184,18 @@ describe('FooterComponent', () => {
 
     it('should handle invalid section ID gracefully', () => {
       component.navigateToSection('invalid-section-123');
-      expect(navigationService.navigateToSection).toHaveBeenCalledWith('invalid-section-123', false);
+      expect(navigationService.navigateToSection).toHaveBeenCalledWith(
+        'invalid-section-123',
+        false,
+      );
     });
 
     it('should handle special characters in section ID', () => {
       component.navigateToSection('section-with-dashes');
-      expect(navigationService.navigateToSection).toHaveBeenCalledWith('section-with-dashes', false);
+      expect(navigationService.navigateToSection).toHaveBeenCalledWith(
+        'section-with-dashes',
+        false,
+      );
     });
   });
 

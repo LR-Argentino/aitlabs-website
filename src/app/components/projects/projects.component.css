@@ -31,11 +31,11 @@
     width: 150px !important;
     height: 150px !important;
   }
-  
+
   .in-progress-section h3 {
     font-size: 1.5rem;
   }
-  
+
   .in-progress-section p {
     font-size: 1rem;
   }
@@ -46,15 +46,15 @@
     width: 120px !important;
     height: 120px !important;
   }
-  
+
   .in-progress-section h3 {
     font-size: 1.25rem;
   }
-  
+
   .in-progress-section .flex {
     flex-direction: column;
   }
-  
+
   .in-progress-section button {
     width: 100%;
   }

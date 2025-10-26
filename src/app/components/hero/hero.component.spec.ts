@@ -23,17 +23,14 @@ describe('HeroComponent', () => {
         'hero.subtitle': 'Intelligent automation and innovation solutions',
         'hero.cta.schedule': 'Schedule a Call',
         'hero.cta.viewCaseStudy': 'View Case Studies',
-        'hero.description': 'We help businesses leverage AI technology for growth and efficiency'
+        'hero.description': 'We help businesses leverage AI technology for growth and efficiency',
       };
       return translations[key] || key;
     });
 
-    const languageServiceSpy = jasmine.createSpyObj('LanguageService',
-      ['setLanguage'],
-      {
-        currentLanguage: jasmine.createSpy().and.returnValue('en')
-      }
-    );
+    const languageServiceSpy = jasmine.createSpyObj('LanguageService', ['setLanguage'], {
+      currentLanguage: jasmine.createSpy().and.returnValue('en'),
+    });
 
     await TestBed.configureTestingModule({
       imports: [HeroComponent],
@@ -41,8 +38,8 @@ describe('HeroComponent', () => {
         { provide: NavigationService, useValue: navigationServiceSpy },
         { provide: TranslationService, useValue: translationServiceSpy },
         { provide: LanguageService, useValue: languageServiceSpy },
-        TranslatePipe
-      ]
+        TranslatePipe,
+      ],
     }).compileComponents();
 
     navigationService = TestBed.inject(NavigationService) as jasmine.SpyObj<NavigationService>;
@@ -189,9 +186,10 @@ describe('HeroComponent', () => {
     it('should render semantic HTML', () => {
       const compiled = fixture.nativeElement as HTMLElement;
       // Should have either a section or main semantic element
-      const semanticElement = compiled.querySelector('section') ||
-                              compiled.querySelector('main') ||
-                              compiled.querySelector('div');
+      const semanticElement =
+        compiled.querySelector('section') ||
+        compiled.querySelector('main') ||
+        compiled.querySelector('div');
       expect(semanticElement).toBeTruthy();
     });
   });

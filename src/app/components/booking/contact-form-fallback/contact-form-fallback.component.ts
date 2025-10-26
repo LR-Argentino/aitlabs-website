@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './contact-form-fallback.component.html',
   styleUrl: './contact-form-fallback.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactFormFallbackComponent {
   openEmailComposer() {
@@ -17,7 +17,8 @@ export class ContactFormFallbackComponent {
   }
 
   openWhatsApp() {
-    const message = 'Hi AIT LABS, I would like to schedule a free consultation about AI solutions for my business.';
+    const message =
+      'Hi AIT LABS, I would like to schedule a free consultation about AI solutions for my business.';
     window.open(`https://wa.me/+41766977337?text=${encodeURIComponent(message)}`, '_blank');
   }
 }

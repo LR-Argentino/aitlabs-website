@@ -1,13 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { Router } from '@angular/router';
-
-export interface NavigationTarget {
-  sectionId: string;
-  fallbackToTop?: boolean;
-}
+import { NavigationTarget, SectionMapping } from '../models/navigation.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NavigationService {
   private router = inject(Router);
@@ -53,11 +49,11 @@ export class NavigationService {
     }
 
     // Map aliases to actual section IDs
-    const sectionMap: Record<string, string> = {
-      'services': 'about',        // Services -> About section
+    const sectionMap: SectionMapping = {
+      services: 'about', // Services -> About section
       'case-studies': 'projects', // Case studies -> Projects section
-      'blog': 'blog',             // Blog (fallback to top if not found)
-      'booking': 'booking'        // Booking section
+      blog: 'blog', // Blog (fallback to top if not found)
+      booking: 'booking', // Booking section
     };
 
     const targetId = sectionMap[sectionId] || sectionId;

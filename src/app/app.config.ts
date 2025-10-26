@@ -1,8 +1,12 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import {
+  ApplicationConfig,
+  provideBrowserGlobalErrorListeners,
+  provideZoneChangeDetection,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
-import {routes} from './app.routes';
+import { routes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -11,6 +15,6 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideLottieOptions({
       player: () => player,
-    })
-  ]
+    }),
+  ],
 };

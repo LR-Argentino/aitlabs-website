@@ -8,11 +8,11 @@ export interface DropdownConfig {
 }
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DropdownManagerService {
   private readonly openDropdown = signal<DropdownId | null>(null);
-  private closeTimeout: any = null;
+  private closeTimeout: ReturnType<typeof setTimeout> | null = null;
 
   /**
    * Check if a specific dropdown is open

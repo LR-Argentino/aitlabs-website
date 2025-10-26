@@ -21,23 +21,35 @@
         </div>
 
         <!-- Cal.com Booking Widget -->
-        <div class="booking-container pb-10 ">
+        <div class="booking-container pb-10">
           <div class="max-w-6xl mx-auto">
             <div class="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
               <!-- Cal.com iframe container -->
               <div class="cal-embed-container">
-
                 <!-- Loading state -->
-                <div *ngIf="!showCalendar && !showFallback" class="flex items-center justify-center h-full min-h-[400px]">
+                <div
+                  *ngIf="!showCalendar && !showFallback"
+                  class="flex items-center justify-center h-full min-h-[400px]"
+                >
                   <div class="text-center">
-                    <div class="animate-spin rounded-full h-16 w-16 border-b-4 border-primary-green mx-auto mb-6"></div>
-                    <p class="text-white text-lg font-medium">{{ 'booking.loading' | translate }}</p>
-                    <p class="text-gray-400 text-sm mt-2">{{ 'booking.loading.subtitle' | translate }}</p>
+                    <div
+                      class="animate-spin rounded-full h-16 w-16 border-b-4 border-primary-green mx-auto mb-6"
+                    ></div>
+                    <p class="text-white text-lg font-medium">
+                      {{ 'booking.loading' | translate }}
+                    </p>
+                    <p class="text-gray-400 text-sm mt-2">
+                      {{ 'booking.loading.subtitle' | translate }}
+                    </p>
                   </div>
                 </div>
 
                 <!-- Cal.com embed container - Always present -->
-                <div id="cal-iframe-container" class="w-full h-full min-h-[600px]" [class.hidden]="!showCalendar"></div>
+                <div
+                  id="cal-iframe-container"
+                  class="w-full h-full min-h-[600px]"
+                  [class.hidden]="!showCalendar"
+                ></div>
 
                 <!-- Fallback component -->
                 <app-contact-form-fallback *ngIf="showFallback"></app-contact-form-fallback>
@@ -48,38 +60,62 @@
             <div class="mt-8 text-center">
               <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
                 <div class="flex items-center justify-center gap-3">
-                  <div class="w-10 h-10 bg-primary-green/20 rounded-full flex items-center justify-center">
+                  <div
+                    class="w-10 h-10 bg-primary-green/20 rounded-full flex items-center justify-center"
+                  >
                     <svg class="w-5 h-5 text-primary-green" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
+                      <path
+                        fill-rule="evenodd"
+                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
+                        clip-rule="evenodd"
+                      ></path>
                     </svg>
                   </div>
                   <div class="text-left">
                     <p class="text-white font-medium">{{ 'booking.info.duration' | translate }}</p>
-                    <p class="text-gray-400 text-sm">{{ 'booking.info.duration_desc' | translate }}</p>
+                    <p class="text-gray-400 text-sm">
+                      {{ 'booking.info.duration_desc' | translate }}
+                    </p>
                   </div>
                 </div>
 
                 <div class="flex items-center justify-center gap-3">
-                  <div class="w-10 h-10 bg-primary-green/20 rounded-full flex items-center justify-center">
+                  <div
+                    class="w-10 h-10 bg-primary-green/20 rounded-full flex items-center justify-center"
+                  >
                     <svg class="w-5 h-5 text-primary-green" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path>
+                      <path
+                        d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"
+                      ></path>
                     </svg>
                   </div>
                   <div class="text-left">
-                    <p class="text-white font-medium">{{ 'booking.info.video_call' | translate }}</p>
-                    <p class="text-gray-400 text-sm">{{ 'booking.info.video_call_desc' | translate }}</p>
+                    <p class="text-white font-medium">
+                      {{ 'booking.info.video_call' | translate }}
+                    </p>
+                    <p class="text-gray-400 text-sm">
+                      {{ 'booking.info.video_call_desc' | translate }}
+                    </p>
                   </div>
                 </div>
 
                 <div class="flex items-center justify-center gap-3">
-                  <div class="w-10 h-10 bg-primary-green/20 rounded-full flex items-center justify-center">
+                  <div
+                    class="w-10 h-10 bg-primary-green/20 rounded-full flex items-center justify-center"
+                  >
                     <svg class="w-5 h-5 text-primary-green" fill="currentColor" viewBox="0 0 20 20">
-                      <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"></path>
+                      <path
+                        fill-rule="evenodd"
+                        d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                        clip-rule="evenodd"
+                      ></path>
                     </svg>
                   </div>
                   <div class="text-left">
                     <p class="text-white font-medium">{{ 'booking.info.flexible' | translate }}</p>
-                    <p class="text-gray-400 text-sm">{{ 'booking.info.flexible_desc' | translate }}</p>
+                    <p class="text-gray-400 text-sm">
+                      {{ 'booking.info.flexible_desc' | translate }}
+                    </p>
                   </div>
                 </div>
               </div>

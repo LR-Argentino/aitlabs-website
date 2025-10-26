@@ -8,9 +8,8 @@ describe('AiVoiceAssistantComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AiVoiceAssistantComponent]
-    })
-    .compileComponents();
+      imports: [AiVoiceAssistantComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AiVoiceAssistantComponent);
     component = fixture.componentInstance;

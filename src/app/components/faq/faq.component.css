@@ -34,8 +34,9 @@ button:hover {
 
 /* Enhanced shadow effects */
 .shadow-enhanced {
-  box-shadow: 0 10px 25px -5px rgba(164, 245, 138, 0.1), 
-              0 10px 10px -5px rgba(164, 245, 138, 0.04);
+  box-shadow:
+    0 10px 25px -5px rgba(164, 245, 138, 0.1),
+    0 10px 10px -5px rgba(164, 245, 138, 0.04);
 }
 
 /* Smooth ease-out for natural feel */
@@ -45,7 +46,8 @@ button:hover {
 
 /* Pulse effect for active FAQ */
 @keyframes pulse-green {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 0 0 rgba(164, 245, 138, 0.4);
   }
   50% {

@@ -14,12 +14,12 @@ interface ContactForm {
   imports: [CommonModule, FormsModule, TranslatePipe],
   templateUrl: './contact-form.component.html',
   styleUrl: './contact-form.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContactFormComponent {
   protected readonly contactForm = signal<ContactForm>({
     email: '',
-    message: ''
+    message: '',
   });
 
   protected readonly isSubmitting = signal(false);
@@ -43,7 +43,7 @@ export class ContactFormComponent {
 
     // Simulate form submission
     setTimeout(() => {
-      this.submitMessage.set('Thank you for your message! We\'ll get back to you soon.');
+      this.submitMessage.set("Thank you for your message! We'll get back to you soon.");
       this.contactForm.set({ email: '', message: '' });
       this.isSubmitting.set(false);
 
@@ -62,14 +62,14 @@ export class ContactFormComponent {
   updateEmail(email: string) {
     this.contactForm.set({
       ...this.contactForm(),
-      email
+      email,
     });
   }
 
   updateMessage(message: string) {
     this.contactForm.set({
       ...this.contactForm(),
-      message
+      message,
     });
   }
 }

@@ -21,26 +21,31 @@ describe('HeaderComponent', () => {
     Object.defineProperty(window, 'pageYOffset', { value: 0, writable: true, configurable: true });
 
     // Create mock services
-    const languageServiceSpy = jasmine.createSpyObj('LanguageService',
-      ['setLanguage'],
-      {
-        currentLanguage: jasmine.createSpy().and.returnValue('en'),
-        currentLanguageConfig: jasmine.createSpy().and.returnValue({ code: 'en', name: 'English', flag: '🇺🇸' }),
-        availableLanguages: [
-          { code: 'en', name: 'English', flag: '🇺🇸' },
-          { code: 'de', name: 'Deutsch', flag: '🇩🇪' }
-        ]
-      }
-    );
+    const languageServiceSpy = jasmine.createSpyObj('LanguageService', ['setLanguage'], {
+      currentLanguage: jasmine.createSpy().and.returnValue('en'),
+      currentLanguageConfig: jasmine
+        .createSpy()
+        .and.returnValue({ code: 'en', name: 'English', flag: '🇺🇸' }),
+      availableLanguages: [
+        { code: 'en', name: 'English', flag: '🇺🇸' },
+        { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+      ],
+    });
 
     const translationServiceSpy = jasmine.createSpyObj('TranslationService', ['translate']);
     translationServiceSpy.translate.and.returnValue('Translated Text');
 
     const navigationServiceSpy = jasmine.createSpyObj('NavigationService', ['navigateToSection']);
 
-    const dropdownManagerServiceSpy = jasmine.createSpyObj('DropdownManagerService',
-      ['open', 'close', 'toggle', 'closeAll', 'scheduleClose', 'cancelScheduledClose', 'isOpen']
-    );
+    const dropdownManagerServiceSpy = jasmine.createSpyObj('DropdownManagerService', [
+      'open',
+      'close',
+      'toggle',
+      'closeAll',
+      'scheduleClose',
+      'cancelScheduledClose',
+      'isOpen',
+    ]);
     dropdownManagerServiceSpy.isOpen.and.returnValue(jasmine.createSpy().and.returnValue(false));
 
     const routerSpy = jasmine.createSpyObj('Router', ['navigate'], { url: '/' });
@@ -53,14 +58,16 @@ describe('HeaderComponent', () => {
         { provide: NavigationService, useValue: navigationServiceSpy },
         { provide: DropdownManagerService, useValue: dropdownManagerServiceSpy },
         { provide: Router, useValue: routerSpy },
-        TranslatePipe
-      ]
+        TranslatePipe,
+      ],
     }).compileComponents();
 
     languageService = TestBed.inject(LanguageService) as jasmine.SpyObj<LanguageService>;
     translationService = TestBed.inject(TranslationService) as jasmine.SpyObj<TranslationService>;
     navigationService = TestBed.inject(NavigationService) as jasmine.SpyObj<NavigationService>;
-    dropdownManagerService = TestBed.inject(DropdownManagerService) as jasmine.SpyObj<DropdownManagerService>;
+    dropdownManagerService = TestBed.inject(
+      DropdownManagerService,
+    ) as jasmine.SpyObj<DropdownManagerService>;
     router = TestBed.inject(Router) as jasmine.SpyObj<Router>;
 
     fixture = TestBed.createComponent(HeaderComponent);
@@ -91,25 +98,41 @@ describe('HeaderComponent', () => {
 
   describe('Scroll Behavior', () => {
     it('should update scroll state when scrolled down', () => {
-      Object.defineProperty(window, 'pageYOffset', { value: 20, writable: true, configurable: true });
+      Object.defineProperty(window, 'pageYOffset', {
+        value: 20,
+        writable: true,
+        configurable: true,
+      });
       component.onWindowScroll();
       expect(component['isScrolled']()).toBe(true);
     });
 
     it('should not set scroll state when at top', () => {
-      Object.defineProperty(window, 'pageYOffset', { value: 0, writable: true, configurable: true });
+      Object.defineProperty(window, 'pageYOffset', {
+        value: 0,
+        writable: true,
+        configurable: true,
+      });
       component.onWindowScroll();
       expect(component['isScrolled']()).toBe(false);
     });
 
     it('should handle scroll threshold correctly', () => {
       // Just above threshold
-      Object.defineProperty(window, 'pageYOffset', { value: 11, writable: true, configurable: true });
+      Object.defineProperty(window, 'pageYOffset', {
+        value: 11,
+        writable: true,
+        configurable: true,
+      });
       component['checkScrollPosition']();
       expect(component['isScrolled']()).toBe(true);
 
       // Just below threshold
-      Object.defineProperty(window, 'pageYOffset', { value: 9, writable: true, configurable: true });
+      Object.defineProperty(window, 'pageYOffset', {
+        value: 9,
+        writable: true,
+        configurable: true,
+      });
       component['checkScrollPosition']();
       expect(component['isScrolled']()).toBe(false);
     });
@@ -130,7 +153,7 @@ describe('HeaderComponent', () => {
       const languages = component.availableLanguages;
       expect(languages).toEqual([
         { code: 'en', name: 'English', flag: '🇺🇸' },
-        { code: 'de', name: 'Deutsch', flag: '🇩🇪' }
+        { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
       ]);
     });
 
@@ -273,7 +296,11 @@ describe('HeaderComponent', () => {
       // Create a mock element with closest method
       const mockElement = document.createElement('div');
       const event = new MouseEvent('click');
-      Object.defineProperty(event, 'target', { value: mockElement, enumerable: true, configurable: true });
+      Object.defineProperty(event, 'target', {
+        value: mockElement,
+        enumerable: true,
+        configurable: true,
+      });
 
       component.onDocumentClick(event);
       expect(component.closeMobileMenu).toHaveBeenCalled();

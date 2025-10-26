@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed, fakeAsync, tick, flushMicrotasks } from '@angular/core/testing';
 import { BookingComponent } from './booking.component';
-import { CalendarIntegrationService, CalendarLoadResult } from '../../core/services/calendar-integration.service';
+import { CalendarIntegrationService } from '../../core/services/calendar-integration.service';
+import { CalendarLoadResult } from '../../core/models/booking.model';
 import { TranslationService } from '../../core/services/translation.service';
 import { LanguageService } from '../../core/services/language.service';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
@@ -15,9 +16,10 @@ describe('BookingComponent', () => {
 
   beforeEach(async () => {
     // Create mock services
-    const calendarServiceSpy = jasmine.createSpyObj('CalendarIntegrationService',
-      ['loadCalComEmbed', 'loadCalendlyIframe']
-    );
+    const calendarServiceSpy = jasmine.createSpyObj('CalendarIntegrationService', [
+      'loadCalComEmbed',
+      'loadCalendlyIframe',
+    ]);
 
     const translationServiceSpy = jasmine.createSpyObj('TranslationService', ['translate']);
     translationServiceSpy.translate.and.callFake((key: string) => {
@@ -25,17 +27,14 @@ describe('BookingComponent', () => {
         'booking.title': 'Schedule a Meeting',
         'booking.subtitle': 'Book a time that works for you',
         'booking.loading': 'Loading calendar...',
-        'booking.fallback': 'Contact form fallback'
+        'booking.fallback': 'Contact form fallback',
       };
       return translations[key] || key;
     });
 
-    const languageServiceSpy = jasmine.createSpyObj('LanguageService',
-      ['setLanguage'],
-      {
-        currentLanguage: jasmine.createSpy().and.returnValue('en')
-      }
-    );
+    const languageServiceSpy = jasmine.createSpyObj('LanguageService', ['setLanguage'], {
+      currentLanguage: jasmine.createSpy().and.returnValue('en'),
+    });
 
     await TestBed.configureTestingModule({
       imports: [BookingComponent],
@@ -44,11 +43,13 @@ describe('BookingComponent', () => {
         { provide: TranslationService, useValue: translationServiceSpy },
         { provide: LanguageService, useValue: languageServiceSpy },
         { provide: PLATFORM_ID, useValue: 'browser' },
-        TranslatePipe
-      ]
+        TranslatePipe,
+      ],
     }).compileComponents();
 
-    calendarService = TestBed.inject(CalendarIntegrationService) as jasmine.SpyObj<CalendarIntegrationService>;
+    calendarService = TestBed.inject(
+      CalendarIntegrationService,
+    ) as jasmine.SpyObj<CalendarIntegrationService>;
     translationService = TestBed.inject(TranslationService) as jasmine.SpyObj<TranslationService>;
     languageService = TestBed.inject(LanguageService) as jasmine.SpyObj<LanguageService>;
 
@@ -86,7 +87,7 @@ describe('BookingComponent', () => {
       const successResult: CalendarLoadResult = {
         success: true,
         provider: 'calcom',
-        container: mockContainer
+        container: mockContainer,
       };
 
       calendarService.loadCalComEmbed.and.returnValue(Promise.resolve(successResult));
@@ -112,7 +113,7 @@ describe('BookingComponent', () => {
       const successResult: CalendarLoadResult = {
         success: true,
         provider: 'calcom',
-        container: mockContainer
+        container: mockContainer,
       };
 
       calendarService.loadCalComEmbed.and.returnValue(Promise.resolve(successResult));
@@ -136,13 +137,13 @@ describe('BookingComponent', () => {
       const failureResult: CalendarLoadResult = {
         success: false,
         provider: 'calcom',
-        container: mockContainer
+        container: mockContainer,
       };
 
       const calendlyResult: CalendarLoadResult = {
         success: true,
         provider: 'calendly',
-        container: mockContainer
+        container: mockContainer,
       };
 
       calendarService.loadCalComEmbed.and.returnValue(Promise.resolve(failureResult));
@@ -169,13 +170,13 @@ describe('BookingComponent', () => {
       const failureResult: CalendarLoadResult = {
         success: false,
         provider: 'calcom',
-        container: mockContainer
+        container: mockContainer,
       };
 
       const calendlyResult: CalendarLoadResult = {
         success: true,
         provider: 'calendly',
-        container: mockContainer
+        container: mockContainer,
       };
 
       calendarService.loadCalComEmbed.and.returnValue(Promise.resolve(failureResult));
@@ -200,13 +201,13 @@ describe('BookingComponent', () => {
       const failureResult: CalendarLoadResult = {
         success: false,
         provider: 'calcom',
-        container: mockContainer
+        container: mockContainer,
       };
 
       const calendlyFailure: CalendarLoadResult = {
         success: false,
         provider: 'calendly',
-        container: mockContainer
+        container: mockContainer,
       };
 
       calendarService.loadCalComEmbed.and.returnValue(Promise.resolve(failureResult));
@@ -264,8 +265,8 @@ describe('BookingComponent', () => {
           { provide: TranslationService, useValue: translationService },
           { provide: LanguageService, useValue: languageService },
           { provide: PLATFORM_ID, useValue: 'server' },
-          TranslatePipe
-        ]
+          TranslatePipe,
+        ],
       });
 
       const serverFixture = TestBed.createComponent(BookingComponent);
@@ -290,11 +291,13 @@ describe('BookingComponent', () => {
       mockContainer.id = 'cal-iframe-container';
       document.body.appendChild(mockContainer);
 
-      calendarService.loadCalComEmbed.and.returnValue(Promise.resolve({
-        success: true,
-        provider: 'calcom',
-        container: mockContainer
-      }));
+      calendarService.loadCalComEmbed.and.returnValue(
+        Promise.resolve({
+          success: true,
+          provider: 'calcom',
+          container: mockContainer,
+        }),
+      );
 
       component.ngAfterViewInit();
       tick(1000); // Wait for timeout
@@ -367,16 +370,16 @@ describe('BookingComponent', () => {
         Promise.resolve({
           success: false,
           provider: 'calcom',
-          container: document.createElement('div')
-        })
+          container: document.createElement('div'),
+        }),
       );
 
       calendarService.loadCalendlyIframe.and.returnValue(
         Promise.resolve({
           success: false,
           provider: 'calendly',
-          container: document.createElement('div')
-        })
+          container: document.createElement('div'),
+        }),
       );
 
       fixture.detectChanges();
@@ -412,11 +415,13 @@ describe('BookingComponent', () => {
       mockContainer.id = 'cal-iframe-container';
       document.body.appendChild(mockContainer);
 
-      calendarService.loadCalComEmbed.and.returnValue(Promise.resolve({
-        success: true,
-        provider: 'calcom',
-        container: mockContainer
-      }));
+      calendarService.loadCalComEmbed.and.returnValue(
+        Promise.resolve({
+          success: true,
+          provider: 'calcom',
+          container: mockContainer,
+        }),
+      );
 
       fixture.detectChanges();
 

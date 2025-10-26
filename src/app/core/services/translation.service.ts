@@ -1,24 +1,24 @@
 import { Injectable, computed, effect, signal } from '@angular/core';
 import { LanguageService, Language } from './language.service';
+import { TranslationDictionary, SupportedLanguage } from '../models/translation.model';
 
 // Direct imports of translation files (bundled with app)
 import enTranslations from '../../../assets/i18n/en.json';
 import deTranslations from '../../../assets/i18n/de.json';
 
-// Type for translation JSON structure
-type TranslationData = Record<string, string>;
-
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TranslationService {
   // Pre-loaded translations (no HTTP needed, bundled with app)
-  private readonly translations: Record<Language, TranslationData> = {
-    en: enTranslations as TranslationData,
-    de: deTranslations as TranslationData
+  private readonly translations: Record<SupportedLanguage, TranslationDictionary> = {
+    en: enTranslations as TranslationDictionary,
+    de: deTranslations as TranslationDictionary,
   };
 
-  private readonly currentTranslations = signal<TranslationData>(enTranslations as TranslationData);
+  private readonly currentTranslations = signal<TranslationDictionary>(
+    enTranslations as TranslationDictionary,
+  );
 
   constructor(private languageService: LanguageService) {
     // Initialize with current language
@@ -40,7 +40,9 @@ export class TranslationService {
 
     if (translations) {
       this.currentTranslations.set(translations);
-      console.log(`Translations loaded for language: ${language} (${Object.keys(translations).length} keys)`);
+      console.log(
+        `Translations loaded for language: ${language} (${Object.keys(translations).length} keys)`,
+      );
     } else {
       // Fallback to English if language not found
       console.warn(`Translation not found for language: ${language}, falling back to English`);
@@ -68,7 +70,7 @@ export class TranslationService {
    * Get translation as computed signal
    * Automatically updates when language changes
    */
-  translateSignal(key: string) {
+  translateSignal(key: string): ReturnType<typeof computed<string>> {
     return computed(() => this.translate(key));
   }
 
@@ -84,5 +86,12 @@ export class TranslationService {
    */
   getAvailableKeys(): string[] {
     return Object.keys(this.currentTranslations());
+  }
+
+  /**
+   * Get the current language's translation dictionary
+   */
+  getCurrentTranslations(): TranslationDictionary {
+    return this.currentTranslations();
   }
 }

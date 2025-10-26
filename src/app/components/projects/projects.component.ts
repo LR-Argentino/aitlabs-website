@@ -7,7 +7,7 @@ import { InProgressComponent } from '../in-progress/in-progress.component';
   imports: [InProgressComponent],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.css',
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProjectsComponent {
   onProjectClick(projectName: string) {
