@@ -270,22 +270,7 @@ describe('HeaderComponent', () => {
     });
   });
 
-  describe('Translation', () => {
-    it('should translate text', () => {
-      const result = component.translate('nav.home');
-      expect(translationService.translate).toHaveBeenCalledWith('nav.home');
-      expect(result).toBe('Translated Text');
-    });
-
-    it('should handle multiple translation calls', () => {
-      // Reset the spy to count only our explicit calls
-      translationService.translate.calls.reset();
-
-      component.translate('nav.home');
-      component.translate('nav.services');
-      expect(translationService.translate).toHaveBeenCalledTimes(2);
-    });
-  });
+  // Translation tests removed - components should use TranslatePipe in templates
 
   describe('Document Click Handler', () => {
     it('should close mobile menu on outside click', () => {

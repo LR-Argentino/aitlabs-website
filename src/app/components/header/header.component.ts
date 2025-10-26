@@ -8,13 +8,10 @@ import {
   ChangeDetectionStrategy,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Router } from '@angular/router';
-import { LanguageService } from '../../core/services/language.service';
-import { TranslationService } from '../../core/services/translation.service';
-import { NavigationService } from '../../core/services/navigation.service';
 import { DropdownManagerService } from '../../core/services/dropdown-manager.service';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
 import { LucideAngularModule, ChevronDown, Menu, Calendar } from 'lucide-angular';
+import { BaseComponent } from '../../core/base/base.component';
 
 @Component({
   selector: 'app-header',
@@ -24,7 +21,7 @@ import { LucideAngularModule, ChevronDown, Menu, Calendar } from 'lucide-angular
   styleUrl: './header.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent extends BaseComponent implements OnInit, OnDestroy {
   // Dropdown IDs (constants for type safety)
   protected readonly DROPDOWNS = {
     SERVICES: 'desktop-services',
@@ -45,13 +42,12 @@ export class HeaderComponent implements OnInit, OnDestroy {
   protected readonly MenuIcon = Menu;
   protected readonly CalendarIcon = Calendar;
 
-  // Inject services
-  private languageService = inject(LanguageService);
-  private translationService = inject(TranslationService);
-  private navigationService = inject(NavigationService);
+  // Additional service injection (BaseComponent provides core services)
   protected dropdownManager = inject(DropdownManagerService);
 
-  constructor(private router: Router) {}
+  constructor() {
+    super();
+  }
 
   ngOnInit() {
     // Initial scroll check
@@ -123,26 +119,22 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   // Navigation methods
-  navigateToSection(sectionId: string) {
+  override navigateToSection(sectionId: string) {
     this.dropdownManager.closeAll();
-    this.navigationService.navigateToSection(sectionId, true); // Requires home page
+    super.navigateToSection(sectionId, true); // Requires home page
   }
 
   navigateToAiVoiceAssistant() {
     this.dropdownManager.closeAll();
-    this.router.navigate(['/ai-voice-assistant']);
+    super.navigateTo('/ai-voice-assistant');
   }
 
   onContactClick() {
     this.closeMobileMenu();
-    this.navigationService.navigateToSection('contact-form', false);
+    super.navigateToSection('contact-form', false);
   }
 
   // Language methods
-  get currentLanguage() {
-    return this.languageService.currentLanguage();
-  }
-
   get currentLanguageConfig() {
     return this.languageService.currentLanguageConfig();
   }
@@ -151,8 +143,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
     return this.languageService.availableLanguages;
   }
 
-  switchLanguage(languageCode: 'en' | 'de') {
-    this.languageService.setLanguage(languageCode);
+  override switchLanguage(languageCode: 'en' | 'de') {
+    super.switchLanguage(languageCode);
     this.dropdownManager.closeAll();
   }
 
@@ -166,12 +158,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   switchMobileLanguage(languageCode: 'en' | 'de', event: Event) {
     event.preventDefault();
     event.stopPropagation();
-    this.languageService.setLanguage(languageCode);
+    super.switchLanguage(languageCode);
     this.dropdownManager.close(this.DROPDOWNS.MOBILE_LANGUAGE);
-  }
-
-  // Translation helper
-  translate(key: string): string {
-    return this.translationService.translate(key);
   }
 }

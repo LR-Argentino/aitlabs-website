@@ -1,8 +1,8 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
-import { NavigationService } from '../../core/services/navigation.service';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { BaseComponent } from '../../core/base/base.component';
 
 @Component({
   selector: 'app-footer',
@@ -12,10 +12,12 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
   styleUrl: './footer.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent {
-  private navigationService = inject(NavigationService);
+export class FooterComponent extends BaseComponent {
+  constructor() {
+    super();
+  }
 
-  navigateToSection(sectionId: string) {
-    this.navigationService.navigateToSection(sectionId, false);
+  override navigateToSection(sectionId: string) {
+    super.navigateToSection(sectionId, false);
   }
 }

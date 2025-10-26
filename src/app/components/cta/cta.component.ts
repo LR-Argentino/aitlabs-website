@@ -1,4 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { BaseComponent } from '../../core/base/base.component';
 
 @Component({
   selector: 'app-cta',
@@ -7,20 +8,16 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrl: './cta.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CtaComponent {
+export class CtaComponent extends BaseComponent {
+  constructor() {
+    super();
+  }
+
   onGetStarted() {
-    // Scroll to contact form
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.scrollIntoView({ behavior: 'smooth' });
-    }
+    super.navigateToSection('contact-form', false);
   }
 
   onContactUs() {
-    // Scroll to contact form
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-      contactForm.scrollIntoView({ behavior: 'smooth' });
-    }
+    super.navigateToSection('contact-form', false);
   }
 }

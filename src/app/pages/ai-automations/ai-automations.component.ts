@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { BaseComponent } from '../../core/base/base.component';
 
 @Component({
   selector: 'app-ai-automations',
@@ -10,7 +11,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './ai-automations.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AiAutomationsComponent {
+export class AiAutomationsComponent extends BaseComponent {
+  constructor() {
+    super();
+  }
   // Use cases data from the markdown content
   useCases = [
     {
@@ -190,10 +194,7 @@ export class AiAutomationsComponent {
   ];
 
   scrollToSection(sectionId: string) {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    super.navigateToSection(sectionId, false);
   }
 
   navigateToContact() {

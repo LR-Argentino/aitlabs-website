@@ -1,6 +1,6 @@
-import { Component, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { TranslatePipe } from '../../core/pipes/translate.pipe';
-import { NavigationService } from '../../core/services/navigation.service';
+import { BaseComponent } from '../../core/base/base.component';
 
 @Component({
   selector: 'app-hero',
@@ -10,14 +10,16 @@ import { NavigationService } from '../../core/services/navigation.service';
   styleUrl: './hero.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HeroComponent {
-  private navigationService = inject(NavigationService);
+export class HeroComponent extends BaseComponent {
+  constructor() {
+    super();
+  }
 
   onScheduleCall() {
-    this.navigationService.navigateToSection('booking', false);
+    super.navigateToSection('booking', false);
   }
 
   onViewCaseStudy() {
-    this.navigationService.navigateToSection('case-studies', false);
+    super.navigateToSection('case-studies', false);
   }
 }

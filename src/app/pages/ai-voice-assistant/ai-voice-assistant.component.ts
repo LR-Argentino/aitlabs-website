@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit, inject, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NavigationService } from '../../core/services/navigation.service';
 import {
   LucideAngularModule,
   Mic,
@@ -24,6 +23,7 @@ import {
   FileText,
   Calendar,
 } from 'lucide-angular';
+import { BaseComponent } from '../../core/base/base.component';
 
 @Component({
   selector: 'app-ai-voice-assistant',
@@ -33,8 +33,10 @@ import {
   styleUrl: './ai-voice-assistant.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AiVoiceAssistantComponent implements OnInit, OnDestroy {
-  private navigationService = inject(NavigationService);
+export class AiVoiceAssistantComponent extends BaseComponent implements OnInit, OnDestroy {
+  constructor() {
+    super();
+  }
 
   protected readonly MicIcon = Mic;
   protected readonly Volume2Icon = Volume2;
@@ -92,7 +94,7 @@ export class AiVoiceAssistantComponent implements OnInit, OnDestroy {
   }
 
   scrollToSection(sectionId: string) {
-    this.navigationService.navigateToSection(sectionId, false);
+    super.navigateToSection(sectionId, false);
   }
 
   scrollToContact() {
