@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick, flushMicrotasks } from '@angular/core/testing';
 import { BookingComponent } from './booking.component';
 import { CalendarIntegrationService, CalendarLoadResult } from '../../core/services/calendar-integration.service';
 import { TranslationService } from '../../core/services/translation.service';
@@ -228,11 +228,16 @@ describe('BookingComponent', () => {
       mockContainer.id = 'cal-iframe-container';
       document.body.appendChild(mockContainer);
 
-      calendarService.loadCalComEmbed.and.returnValue(Promise.reject(new Error('Loading error')));
+      // Create a rejected promise that won't throw in the test zone
+      const rejectedPromise = Promise.reject(new Error('Loading error'));
+      // Attach a catch handler to prevent unhandled rejection in the test
+      rejectedPromise.catch(() => {});
+
+      calendarService.loadCalComEmbed.and.returnValue(rejectedPromise);
 
       fixture.detectChanges();
-      tick(1000);
-      tick();
+      tick(1000); // Wait for the delayed loadCalendar call
+      tick(); // Process the promise rejection and error handler
 
       expect(component['calendarProvider']).toBe('fallback');
       expect(component['showCalendar']).toBe(false);
