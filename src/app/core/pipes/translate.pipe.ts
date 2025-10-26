@@ -30,15 +30,21 @@ export class TranslatePipe implements PipeTransform {
    * @returns Translated text or fallback/key
    */
   transform(key: string | null | undefined, fallback?: string): string {
-    // Handle null/undefined keys
-    if (!key) {
-      return fallback || '';
+    try {
+      // Handle null/undefined keys
+      if (!key) {
+        return fallback || '';
+      }
+
+      // Get translation from service (uses cached translations)
+      const translation = this.translationService.translate(key);
+
+      // Return translation or fallback or original key
+      return translation || fallback || key;
+    } catch (error) {
+      // Fallback to key on error to prevent template rendering failures
+      console.error('Translation pipe error:', error);
+      return key || fallback || '';
     }
-
-    // Get translation from service (uses cached translations)
-    const translation = this.translationService.translate(key);
-
-    // Return translation or fallback or original key
-    return translation || fallback || key;
   }
 }

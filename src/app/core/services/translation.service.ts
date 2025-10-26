@@ -1,6 +1,7 @@
 import { Injectable, computed, effect, signal } from '@angular/core';
 import { LanguageService, Language } from './language.service';
 import { TranslationDictionary, SupportedLanguage } from '../models/translation.model';
+import { ErrorLoggingService } from './error-logging.service';
 
 // Direct imports of translation files (bundled with app)
 import enTranslations from '../../../assets/i18n/en.json';
@@ -26,7 +27,10 @@ export class TranslationService {
   readonly loading = computed(() => this.isLoading());
   readonly error = computed(() => this.loadingError());
 
-  constructor(private languageService: LanguageService) {
+  constructor(
+    private languageService: LanguageService,
+    private errorLogging: ErrorLoggingService,
+  ) {
     // Preload all translations into cache
     this.preloadTranslations();
 
@@ -57,12 +61,13 @@ export class TranslationService {
         this.translationCache.set(lang as SupportedLanguage, dict);
       });
 
-      console.log(
+      this.errorLogging.logInfo(
         `Translations preloaded: ${this.translationCache.size} languages (${Object.keys(enTranslations).length} keys)`,
       );
     } catch (error) {
-      console.error('Failed to preload translations:', error);
-      this.loadingError.set('Failed to preload translations');
+      const errorMessage = 'Failed to preload translations';
+      this.errorLogging.logError(errorMessage, error);
+      this.loadingError.set(errorMessage);
     }
   }
 
@@ -80,30 +85,42 @@ export class TranslationService {
 
       if (translations) {
         this.currentTranslations.set(translations);
-        console.log(
+        this.errorLogging.logInfo(
           `Translations loaded for language: ${language} (${Object.keys(translations).length} keys) [CACHE HIT]`,
         );
       } else {
         // Fallback to English if language not found in cache
-        console.warn(
-          `Translation not found for language: ${language}, falling back to English [CACHE MISS]`,
-        );
+        const warningMessage = `Translation not found for language: ${language}, falling back to English [CACHE MISS]`;
+        this.errorLogging.logWarning(warningMessage);
+
         const fallbackTranslations = this.translationCache.get('en');
         if (fallbackTranslations) {
           this.currentTranslations.set(fallbackTranslations);
         } else {
           // Last resort: use bundled English
+          this.errorLogging.logWarning('Cache miss for English fallback, using bundled translations');
           this.currentTranslations.set(enTranslations as TranslationDictionary);
         }
         this.loadingError.set(`Translation not found for language: ${language}`);
       }
     } catch (error) {
-      console.error(`Error loading translations for ${language}:`, error);
-      this.loadingError.set(`Error loading translations: ${error}`);
+      const errorMessage = `Error loading translations for ${language}`;
+      this.errorLogging.logError(errorMessage, error);
+      this.loadingError.set(`${errorMessage}: ${error}`);
+
       // Fallback to English on any error
-      const fallbackTranslations = this.translationCache.get('en');
-      if (fallbackTranslations) {
-        this.currentTranslations.set(fallbackTranslations);
+      try {
+        const fallbackTranslations = this.translationCache.get('en');
+        if (fallbackTranslations) {
+          this.currentTranslations.set(fallbackTranslations);
+          this.errorLogging.logWarning('Successfully fell back to English translations');
+        } else {
+          // Last resort: use bundled English
+          this.currentTranslations.set(enTranslations as TranslationDictionary);
+          this.errorLogging.logWarning('Using bundled English as last resort fallback');
+        }
+      } catch (fallbackError) {
+        this.errorLogging.logError('Critical: Failed to load fallback translations', fallbackError);
       }
     } finally {
       this.isLoading.set(false);
@@ -115,15 +132,26 @@ export class TranslationService {
    * Returns the key itself if translation is not found
    */
   translate(key: string): string {
-    const translations = this.currentTranslations();
-    const translation = translations[key];
-
-    // Warn about missing translations in development
-    if (!translation && typeof ngDevMode !== 'undefined' && ngDevMode) {
-      console.warn(`Translation missing for key: ${key}`);
+    // Handle empty or invalid keys
+    if (!key || typeof key !== 'string') {
+      this.errorLogging.logWarning('Translation key is empty or invalid', { key });
+      return '';
     }
 
-    return translation || key;
+    try {
+      const translations = this.currentTranslations();
+      const translation = translations[key];
+
+      // Warn about missing translations in development
+      if (!translation && typeof ngDevMode !== 'undefined' && ngDevMode) {
+        this.errorLogging.logWarning(`Missing translation key: ${key}`);
+      }
+
+      return translation || key;
+    } catch (error) {
+      this.errorLogging.logError(`Error translating key: ${key}`, error);
+      return key; // Fallback to key on error
+    }
   }
 
   /**
