@@ -17,6 +17,9 @@ describe('HeaderComponent', () => {
   let router: jasmine.SpyObj<Router>;
 
   beforeEach(async () => {
+    // Mock window.pageYOffset to ensure initial scroll position is 0
+    Object.defineProperty(window, 'pageYOffset', { value: 0, writable: true, configurable: true });
+
     // Create mock services
     const languageServiceSpy = jasmine.createSpyObj('LanguageService',
       ['setLanguage'],
